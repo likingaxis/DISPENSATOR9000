@@ -1,0 +1,31 @@
+# Minimal data contract per la Course Memory
+# La Course Memory è strettamente in sola lettura per il Writer.
+# Gli aggiornamenti avvengono solo tramite Reviewer/Feedback Integration dopo l'approvazione umana.
+
+type: object
+properties:
+  defined_terms:
+    type: array
+    items:
+      type: object
+      # Contratto base, espandibile a seconda del design del Prompt Engineering
+  terminology:
+    type: array
+    items:
+      type: object
+  cross_references:
+    type: array
+    items:
+      type: object
+  conventions:
+    type: array
+    items:
+      type: object
+  already_explained:
+    type: array
+    items:
+      type: object
+  unresolved_issues:
+    type: array
+    items:
+      type: object
