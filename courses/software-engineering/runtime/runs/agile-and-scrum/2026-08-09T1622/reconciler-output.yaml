@@ -1,0 +1,784 @@
+topic_id: agile-and-scrum
+topic_title: Metodologie Agile e Scrum
+semantic_units:
+- id: agile-methods-origin-and-characteristics
+  title: Origine e caratteristiche dei metodi Agile
+  claims:
+  - id: agile-origin-reaction
+    statement: Nei primi anni 2000 emerse una reazione contro l'importanza attribuita
+      ai processi software accuratamente pianificati, considerati troppo restrittivi
+      per gli sviluppatori.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 5
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: agile-extension-iterative-incremental
+    statement: Il termine agile method estende il concetto originario di sviluppo
+      iterativo e incrementale includendo aspetti quali comunicazione intensiva nel
+      progetto, feedback rapido e poche regole esterne sul modo di lavorare.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 5
+  - id: agile-common-values-principles-manifesto
+    statement: I valori e i principi comuni dei metodi Agile sono riassunti nell'Agile
+      Manifesto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 5
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 7
+  - id: agile-flexibility-collaboration-value
+    statement: L'approccio Agile è descritto nella fonte secondaria come incentrato
+      su flessibilità, collaborazione e consegna rapida di valore.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: agile-not-single-model
+    statement: Il modello Agile è descritto nella fonte secondaria come un insieme
+      di principi e valori che guidano un modo di lavorare flessibile, collaborativo
+      e iterativo, anziché come un singolo modello di sviluppo.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 7
+  relationships:
+  - type: contains
+    target_semantic_unit: agile-manifesto
+    description: I valori e i principi comuni che caratterizzano i metodi Agile sono
+      raccolti nell'Agile Manifesto.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 5
+  visual_asset_refs:
+  - asset_id: 09dc2e52-c404-4f7c-b0c7-c440a0e4444c
+    source_id: slides-02-process-2
+    page: 5
+    obsidian_path: assets/4f64ac69_p5_i0.png
+  - asset_id: d2eb16cf-3b1c-4488-98c6-2e832fae3594
+    source_id: slides-02-process-2
+    page: 5
+- id: agile-manifesto
+  title: Agile Manifesto
+  claims:
+  - id: manifesto-year
+    statement: L'Agile Manifesto è del 2001.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: manifesto-individuals-interactions
+    statement: L'Agile Manifesto valorizza individui e interazioni più di processi
+      e strumenti.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: manifesto-working-software
+    statement: L'Agile Manifesto valorizza software funzionante più di documentazione
+      esaustiva.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: manifesto-customer-collaboration
+    statement: L'Agile Manifesto valorizza la collaborazione con il cliente più della
+      negoziazione contrattuale.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+  - id: manifesto-responding-change
+    statement: L'Agile Manifesto valorizza la risposta al cambiamento più del seguire
+      un piano.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 14
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: manifesto-right-items-have-value
+    statement: Il Manifesto precisa che gli elementi posti a destra dei quattro confronti
+      hanno valore, ma quelli posti a sinistra sono valorizzati maggiormente.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+  - id: manifesto-twelve-principles
+    statement: Oltre ai valori, l'Agile Manifesto contiene dodici principi Agile che
+      forniscono indicazioni aggiuntive sull'uso dei metodi Agile.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: manifesto-values-principles-define-agile
+    statement: I valori e i dodici principi dell'Agile Manifesto, considerati insieme,
+      definiscono i concetti di base oggi conosciuti come agile development.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 6
+  - id: agile-principles-secondary-emphases
+    statement: La fonte secondaria descrive i dodici principi come orientati, tra
+      gli altri aspetti, alla consegna continua di software funzionante, alla collaborazione
+      attiva con i clienti e all'accoglienza dei cambiamenti nei requisiti.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  relationships:
+  - type: defines
+    target_semantic_unit: agile-methods-origin-and-characteristics
+    description: I valori e i principi del Manifesto definiscono i concetti di base
+      dell'agile development.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 6
+  visual_asset_refs:
+  - asset_id: 5d5d1135-c7fb-437b-86c8-d172e2ac6127
+    source_id: slides-02-process-2
+    page: 6
+    obsidian_path: assets/4f64ac69_p6_i0.png
+  - asset_id: ac63e2dd-f65f-4a40-96a5-2afcbf4245ec
+    source_id: slides-02-process-2
+    page: 6
+- id: scrum-overview
+  title: Scrum
+  claims:
+  - id: scrum-agile-framework
+    statement: Scrum è descritto nelle fonti secondarie come uno dei framework più
+      popolari nell'ambito dell'approccio Agile.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: scrum-lightweight-iterative-structure
+    statement: Scrum è descritto nella fonte secondaria come una struttura organizzativa
+      leggera e iterativa pensata per gestire progetti complessi.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: scrum-purpose-iterative-incremental-value
+    statement: La fonte secondaria attribuisce a Scrum l'obiettivo di consegnare valore
+      in modo iterativo e incrementale, permettendo ai team di adattarsi rapidamente
+      ai cambiamenti nelle esigenze dei clienti e nel contesto del progetto.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  relationships:
+  - type: contains
+    target_semantic_unit: scrum-roles
+    description: Le evidenze su Scrum comprendono ruoli con responsabilità specifiche.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 8
+  - type: contains
+    target_semantic_unit: scrum-sprint-lifecycle
+    description: Scrum utilizza sprint nei quali viene prodotto un nuovo incremento
+      di software funzionante.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 9
+  visual_asset_refs:
+  - asset_id: 55791be7-74fb-4508-aa5f-e0e2e8544e81
+    source_id: slides-02-process-2
+    page: 7
+    obsidian_path: assets/4f64ac69_p7_i0.png
+  - asset_id: d12b80ef-97cb-429f-80fc-ec15f85c37e2
+    source_id: slides-02-process-2
+    page: 7
+    obsidian_path: assets/4f64ac69_p7_i1.png
+  - asset_id: 4ef38aa6-9537-4b30-a7d7-2f3e3e67dbca
+    source_id: slides-02-process-2
+    page: 7
+- id: scrum-roles
+  title: Ruoli Scrum
+  claims:
+  - id: scrum-master-methodology
+    statement: Lo Scrum Master assicura che la metodologia sia compresa e correttamente
+      implementata dal development team e dal Product Owner.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 8
+  - id: scrum-master-interaction-support
+    statement: Lo Scrum Master supporta il team aiutando gli altri a interagire con
+      esso secondo le regole Scrum.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 8
+  - id: scrum-master-removes-obstacles
+    statement: Le fonti secondarie attribuiscono allo Scrum Master il compito di rimuovere
+      gli ostacoli che potrebbero impedire il progresso del team.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: scrum-master-protects-team
+    statement: La fonte secondaria attribuisce allo Scrum Master il compito di proteggere
+      il team dalle interferenze.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: product-owner-requirements-priority
+    statement: Il Product Owner gestisce e contribuisce a prioritizzare i requisiti
+      da implementare documentati nel Product Backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 8
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: product-owner-maintains-backlog
+    statement: Le fonti secondarie attribuiscono al Product Owner la responsabilità
+      di mantenere aggiornato il Product Backlog.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  - id: development-team-product
+    statement: Il development team è responsabile dello sviluppo del prodotto, comprese
+      tutte le attività rilevanti.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 8
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: development-team-tasks-examples
+    statement: Tra le attività rilevanti svolte dal development team rientrano progettazione,
+      codifica e testing.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 8
+  - id: development-team-increments
+    statement: La fonte secondaria descrive il Dev Team come il gruppo di sviluppatori
+      che lavora agli incrementi.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: theory-summary
+      file: teoria.pdf
+      page: 8
+  relationships:
+  - type: performed_by
+    target_semantic_unit: scrum-sprint-lifecycle
+    description: Durante lo sprint il development team lavora sull'incremento.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 9
+  visual_asset_refs:
+  - asset_id: eb3b11d7-a4b7-4767-af76-c9a106f7fc4c
+    source_id: slides-02-process-2
+    page: 8
+    obsidian_path: assets/4f64ac69_p8_i0.png
+  - asset_id: ed6eda0a-66ac-4235-94a0-d9df8588f888
+    source_id: slides-02-process-2
+    page: 8
+- id: scrum-sprint-lifecycle
+  title: Sprint ed eventi Scrum
+  claims:
+  - id: sprint-purpose
+    statement: Uno sprint viene svolto per consegnare un nuovo incremento di software
+      funzionante.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-duration
+    statement: Uno sprint dura tipicamente da 2 a 4 settimane.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-planning-start
+    statement: Lo sprint inizia con lo Sprint Planning meeting.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-planning-transfer
+    statement: Durante lo Sprint Planning lo Scrum team trasferisce gli elementi da
+      sviluppare dal Product Backlog allo Sprint Backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-development-work
+    statement: Durante lo sprint il development team lavora sull'incremento.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+  - id: daily-scrum
+    statement: Durante lo sprint si tengono brevi Daily Scrum meeting, chiamati anche
+      stand-up meeting, del development team.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: daily-scrum-purpose
+    statement: I Daily Scrum servono a sincronizzare il lavoro e affrontare eventuali
+      problemi.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-review
+    statement: Alla fine dello sprint l'incremento viene presentato al Product Owner
+      e agli altri stakeholder durante una Sprint Review.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-retrospective
+    statement: Dopo la Sprint Review viene svolto lo Sprint Retrospective meeting
+      per identificare e pianificare miglioramenti per lo sprint successivo.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: scrum-repeated-sprints
+    statement: La fonte secondaria descrive Scrum come organizzato in cicli ripetitivi
+      chiamati sprint.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: scrum-feedback-adaptation-continuous-value
+    statement: La fonte secondaria afferma che l'organizzazione in sprint permette
+      al team di adattarsi rapidamente ai cambiamenti, ricevere feedback regolare
+      e consegnare valore in modo continuo.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  relationships:
+  - type: produces
+    target_semantic_unit: scrum-artifacts
+    description: Lo sprint produce un incremento e utilizza Product Backlog e Sprint
+      Backlog nella pianificazione del lavoro.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 9
+  - type: precedes
+    target_semantic_unit: scrum-definition-of-done
+    description: L'incremento sviluppato durante lo sprint è soggetto ai criteri con
+      cui il team definisce quando un work item è done prima dell'integrazione nel
+      main branch.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 9
+    - source_id: slides-02-process-2
+      page: 10
+  visual_asset_refs:
+  - asset_id: 5ea83cec-c84c-481d-88a6-38c9dcce23f7
+    source_id: slides-02-process-2
+    page: 9
+    obsidian_path: assets/4f64ac69_p9_i0.png
+  - asset_id: 0993d60c-e6d5-4ada-9fd0-31c05ef6601b
+    source_id: slides-02-process-2
+    page: 9
+- id: scrum-artifacts
+  title: Artefatti Scrum
+  claims:
+  - id: product-backlog-secondary-description
+    statement: La fonte secondaria descrive il Product Backlog come una lista prioritizzata
+      che contiene funzionalità, miglioramenti e attività da realizzare in futuro.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: sprint-backlog-selection
+    statement: Lo Sprint Backlog contiene gli elementi selezionati dal Product Backlog
+      per essere sviluppati durante lo sprint.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 9
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: increment-secondary-description
+    statement: La fonte secondaria descrive l'incremento come il risultato del lavoro
+      dello sprint, comprendente le funzionalità e le attività completate.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  relationships:
+  - type: contains
+    target_semantic_unit: scrum-sprint-lifecycle
+    description: Gli elementi del Product Backlog selezionati nello Sprint Planning
+      vengono trasferiti nello Sprint Backlog per lo sprint corrente.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 9
+  visual_asset_refs: []
+- id: scrum-definition-of-done
+  title: Definition of Done
+  claims:
+  - id: dod-required
+    statement: Scrum richiede una Definition of Done.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+  - id: dod-team-defined
+    statement: Il development team definisce per sé che cosa significa che un work
+      item sia done prima che possa essere integrato nel main branch.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  - id: dod-test-cases
+    statement: Tra i requisiti minimi tipici della Definition of Done rientra un numero
+      adeguato di test case.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+  - id: dod-integration-check
+    statement: Tra i requisiti minimi tipici della Definition of Done rientra la verifica
+      dell'integrazione del nuovo codice per assicurarsi che non interrompa il main
+      development branch.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+  - id: dod-documentation
+    statement: La Definition of Done richiede inoltre che il codice sia documentato
+      adeguatamente.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+  - id: dod-adequate-defined-by-team
+    statement: È il team stesso a definire che cosa significhi documentazione adeguata.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 10
+  - id: dod-quality-purpose
+    statement: La fonte secondaria afferma che la Definition of Done aiuta a garantire
+      che il lavoro consegnato sia di alta qualità e soddisfi gli standard stabiliti.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 15
+  relationships: []
+  visual_asset_refs:
+  - asset_id: ff61d0db-e16e-461d-b339-a52ab4f7c81e
+    source_id: slides-02-process-2
+    page: 10
+    obsidian_path: assets/4f64ac69_p10_i0.png
+  - asset_id: 6988c084-8aa9-47d2-8904-7c948b42344a
+    source_id: slides-02-process-2
+    page: 10
+    obsidian_path: assets/4f64ac69_p10_i1.png
+  - asset_id: 574fd6ff-0999-4153-9270-58a5662e7542
+    source_id: slides-02-process-2
+    page: 10
+- id: user-stories
+  title: User Stories ed epiche
+  claims:
+  - id: user-stories-common-practice
+    statement: Le user stories sono una pratica comune nello sviluppo Agile, spesso
+      usata in combinazione con Scrum.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-stories-not-scrum-guide
+    statement: Le user stories non sono definite nello Scrum Guide.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+  - id: user-story-requirement-format
+    statement: Una user story è un formato per descrivere un requisito utente sotto
+      forma di storia.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-story-short
+    statement: Una user story deve essere breve, tipicamente composta da una sola
+      frase.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-story-user-viewpoint
+    statement: Una user story è descritta dal punto di vista dell'utente.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-story-template
+    statement: 'Un template comune per una user story è: ''As a <role>, I want <goal>
+      so that <benefit>''.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-story-example
+    statement: 'Un esempio fornito è: ''As a process engineer, I want to see the dependencies
+      between different process steps so that I can easily verify and validate them''.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+  - id: epics
+    statement: Le user stories grandi che vengono successivamente suddivise in storie
+      più piccole sono spesso chiamate epics.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      file: official-slides\I parte ISW - SistSW\02-Processo software parte2.pdf
+      page: 11
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  - id: user-stories-focus-needs
+    statement: La fonte secondaria descrive le user stories come uno strumento che
+      mira a focalizzare l'attenzione sui bisogni degli utenti finali.
+    evidence_level: secondary
+    status: secondary_only_but_compatible
+    provenance:
+    - source_id: andrea-summary
+      file: IS_andrea.pdf
+      page: 16
+  relationships:
+  - type: part_of
+    target_semantic_unit: agile-methods-origin-and-characteristics
+    description: Le user stories sono una pratica usata nello sviluppo Agile.
+    provenance:
+    - source_id: slides-02-process-2
+      page: 11
+  visual_asset_refs:
+  - asset_id: 78a7523f-7153-4943-b01c-680618e7f596
+    source_id: slides-02-process-2
+    page: 11
+    obsidian_path: assets/4f64ac69_p11_i0.png
+  - asset_id: cfcd4931-571d-45cc-a89d-f65917d6f63c
+    source_id: slides-02-process-2
+    page: 11
+conflicts:
+- id: conflict-sprint-duration-1-4-vs-2-4
+  issue: Durata tipica dello sprint.
+  primary_position: Uno sprint dura tipicamente da 2 a 4 settimane.
+  secondary_position: Alcune evidenze secondarie indicano una durata tipica o usuale
+    da 1 a 4 settimane.
+  resolution: primary_preferred
+  primary_provenance:
+  - source_id: slides-02-process-2
+    page: 9
+  secondary_provenance:
+  - source_id: andrea-summary
+    page: 15
+  - source_id: theory-summary
+    page: 8
+ambiguities:
+- id: ambiguity-secondary-scrum-framework-definition
+  description: La fonte secondaria definisce genericamente un framework software come
+    un'infrastruttura con strumenti, librerie, linee guida e componenti riutilizzabili,
+    ma l'evidenza non stabilisce che questa definizione generica descriva precisamente
+    il significato di framework nel contesto di Scrum.
+  provenance:
+  - source_id: andrea-summary
+    page: 15
+gaps: []

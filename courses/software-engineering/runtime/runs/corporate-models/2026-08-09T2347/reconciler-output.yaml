@@ -1,0 +1,151 @@
+topic_id: corporate-models
+topic_title: Modelli Corporate (Microsoft, Netscape)
+semantic_units:
+- id: il-modello-microsoft
+  title: Il Modello Microsoft e l'approccio synchronize-and-stabilize
+  claims:
+  - id: ms-problemi-qualita
+    statement: Microsoft ha adottato un processo iterativo, incrementale e concorrente
+      per affrontare problemi di incremento della qualità e riduzione di tempi e costi
+      di sviluppo.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '48'
+  - id: ms-synch-stabilize
+    statement: L'approccio utilizzato è noto come 'synchronize-and-stabilize', basato
+      su sincronizzazione quotidiana e stabilizzazione periodica.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '49'
+  - id: ms-sincronizzazione-quotidiana
+    statement: La sincronizzazione quotidiana avviene tramite l'assemblaggio dei componenti
+      (daily build) sviluppati da persone o piccoli team (3-8 persone), che viene
+      poi testato e corretto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '49'
+  - id: ms-stabilizzazione-periodica
+    statement: La stabilizzazione del prodotto avviene in incrementi successivi (milestone)
+      durante il progetto, invece di un'unica volta alla fine.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '49'
+- id: ciclo-sviluppo-microsoft
+  title: Ciclo di sviluppo a 3 fasi di Microsoft
+  claims:
+  - id: ms-tre-fasi
+    statement: 'Il ciclo di sviluppo Microsoft si articola in 3 fasi: Planning, Development,
+      Stabilization.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '50'
+  - id: ms-fase-planning
+    statement: La Planning phase definisce la product vision, le specifiche e la schedule
+      del progetto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '50'
+  - id: ms-fase-development
+    statement: La Development phase sviluppa le feature in 3 o 4 sottoprogetti sequenziali,
+      ognuno dei quali risulta in una milestone release.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '50'
+  - id: ms-fase-stabilization
+    statement: La Stabilization phase include test completi interni ed esterni, stabilizzazione
+      del prodotto finale e rilascio (ship).
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '50'
+- id: strategie-principi-microsoft
+  title: Strategie e Principi del Modello Microsoft
+  claims:
+  - id: ms-strat-creativita
+    statement: La strategia per definire prodotto e processo considera la creatività
+      come elemento essenziale.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '54'
+  - id: ms-principi-creativita
+    statement: 'I principi includono: divisione in 3-4 milestone, product vision e
+      specifica funzionale evolutiva, selezione feature basata sulle necessità utente,
+      architettura modulare, e assegnazione di task elementari con risorse limitate.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '54'
+  - id: ms-strat-parallelo
+    statement: La strategia per sviluppo e consegna prevede di lavorare in parallelo
+      con frequenti sincronizzazioni.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '55'
+  - id: ms-principi-parallelo
+    statement: 'I principi includono: team paralleli con daily build, prodotto sempre
+      consegnabile per ogni piattaforma, uso dello stesso linguaggio per sito, test
+      continuo e uso di metriche per supporto decisioni.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '55'
+- id: il-modello-netscape
+  title: Il Modello Netscape
+  claims:
+  - id: ns-synch-stabilize
+    statement: Netscape adotta un modello synchronize-and-stabilize adattato allo
+      sviluppo di applicazioni Internet (browser e prodotti server).
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '0'
+  - id: ns-staffing
+    statement: La dimensione dello staff prevede in media 1 tester ogni 3 sviluppatori,
+      mantenendo una produttività paragonabile a quella Microsoft.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '0'
+  - id: ns-processo
+    statement: Il processo è caratterizzato da scarso effort di pianificazione (tranne
+      per prodotti server), documentazione incompleta, pochi dati storici, e scarso
+      controllo su avanzamento (delegato all'esperienza dei project manager) e code
+      review.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '0'
+conflicts: []
+ambiguities: []
+gaps: []
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 0

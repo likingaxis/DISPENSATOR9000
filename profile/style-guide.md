@@ -188,42 +188,37 @@ La struttura è basata su heading Markdown con la seguente distribuzione tipica:
 
 > **Regola:** `##` e `###` sono i livelli di heading dominanti. Si può saltare un livello (es. `###` → `#####`) se la struttura logica lo richiede, senza rigidità.
 
-### 3.2 Struttura bullet-driven
+### 3.2 Struttura ibrida: Prosa esplicativa + Strutturazione a bullet
 
-**Questa è la regola più importante.** Gli appunti sono strutturati come **alberi di bullet point annidati**, non come testo discorsivo.
+**Questa è la regola fondamentale di bilanciamento.** Gli appunti non devono essere né un muro di testo né un riassunto telegrafico incomprensibile.
 
 Principi:
-- Il testo discorsivo è limitato a **1-2 frasi** per introdurre un concetto o una sezione.
-- Subito dopo, il concetto viene scomposto in bullet annidati.
-- L'annidamento può arrivare a **4-5 livelli** di profondità.
-- Ogni bullet deve contenere **un'unità concettuale atomica**.
+- **Ogni concetto nuovo deve essere spiegato con abbastanza prosa** da renderne chiari significato, motivazione e relazioni anche a uno studente che lo incontra per la prima volta. 
+- Usa i **bullet point e tabelle** per strutturare proprietà, elenchi, classificazioni, passi di un algoritmo, confronti e dettagli tecnici.
+- Non comprimere una spiegazione necessaria solo per privilegiare i bullet. **La completezza didattica e la comprensibilità prevalgono sulla compressione.**
+- L'annidamento nei bullet può arrivare a **3-4 livelli** di profondità per scomporre argomenti complessi.
 
 ```markdown
-<!-- ✅ Stile corretto: bullet-driven -->
-### QUERY PROCESSING
-- boolean query
-    - algoritmo di merge
-    - `boolean` retrieval model
-    - `biword` indexing
-    - positional indexing
-        - proximity queries
-
-<!-- ❌ Stile errato: muro di testo -->
-### QUERY PROCESSING
-Il query processing include diverse tecniche. Le query booleane utilizzano
-un algoritmo di merge per combinare le posting list. Il modello boolean
-retrieval è il più semplice. Si può anche usare il biword indexing o il
-positional indexing che permette le proximity queries.
+<!-- ✅ Stile corretto: Spiegazione chiara seguita da classificazione strutturata -->
+### Tipi di file
+Nei sistemi Unix, un file non è solo un contenitore di dati, ma un'astrazione universale. Quasi ogni risorsa del sistema (inclusi i dispositivi hardware) è modellata come un file, il che permette di usare le stesse system call (come read e write) per interagire con tutto.
+I tipi principali sono:
+- **file regolari**
+    - contengono dati utente (testo, eseguibili, immagini)
+    - il s.o. non impone una struttura interna
+- **directory**
+    - file speciali che contengono una lista di mappature (nome file -> inode)
+- **device file**
+    - `block device`: dispositivi a blocchi (es. dischi)
+    - `character device`: dispositivi a flusso continuo (es. tastiere, terminali)
 ```
 
 ### 3.3 Rapporto testo / bullet
 
-- **≈ 80% bullet point, ≈ 20% testo discorsivo.**
-- Il testo discorsivo è ammesso per:
-    - frasi introduttive brevi di una sezione;
-    - spiegazioni che richiedono un flusso logico continuo (derivazione matematica, narrazione storica breve);
-    - "Frase da esame" — blocchi preparati per l'orale.
-- Anche nelle sezioni discorsive, i paragrafi non devono superare **3-4 righe**.
+Non esiste una percentuale rigida prefissata (es. 80/20). Usa la forma migliore in base a ciò che stai spiegando:
+- Testo discorsivo: per introduzioni, narrazioni logiche, motivazioni di un concetto, derivazioni e risposte discorsive Q&A.
+- Liste puntate: per smontare gerarchicamente proprietà e definizioni operative.
+- Mantieni comunque paragrafi brevi e ariosi per facilitare la lettura visiva (evita muri di testo giganti).
 
 ### 3.4 Pattern di spiegazione tipico
 
@@ -542,9 +537,8 @@ Il livello di dettaglio deve essere **sufficiente per rispondere a una domanda d
 | Lingua base                | Italiano                                                |
 | Terminologia tecnica       | Inglese, in corsivo alla prima occorrenza               |
 | Formato primario           | Markdown per Obsidian                                   |
-| Struttura dominante        | Bullet point annidati (albero)                          |
-| Testo discorsivo           | Solo per introduzioni e raccordi brevi (1-3 righe max)  |
-| Paragrafi lunghi           | **Vietati.** Max 3-4 righe                              |
+| Struttura dominante        | Struttura ibrida: prosa chiara per concetti + bullet per proprietà |
+| Paragrafi lunghi           | **Da spezzare.** Evitare enormi muri di testo non formattati |
 | Grassetto                  | Solo per definizioni e nomi di algoritmi/protocolli     |
 | Corsivo                    | Termini tecnici inglesi + enfasi concettuale            |
 | Immagini                   | Sintassi Obsidian `![[...]]`                            |
@@ -562,16 +556,15 @@ Queste possono variare in base alla materia. Alcuni pattern osservati:
 
 ### 10.3 Anti-pattern — Cosa il Writer NON deve mai fare
 
-1. ❌ Scrivere "muri di testo" — paragrafi > 4 righe.
+1. ❌ Essere telegrafico a discapito della comprensione pedagogica.
 2. ❌ Usare sintassi Markdown standard per le immagini (`![]()`).
 3. ❌ Tradurre termini tecnici in italiano ("lista di pubblicazione" per posting list).
-4. ❌ Usare tono accademico o da libro di testo.
+4. ❌ Usare stile pomposo o "da professore prolisso", preferire prosa chiara ma informale.
 5. ❌ Usare il grassetto come evidenziatore generico.
 6. ❌ Scrivere formule in testo piano (`P(R|d,q)` invece di `$P(R|d,q)$`).
 7. ❌ Omettere la definizione delle variabili in una formula.
-8. ❌ Scrivere transizioni verbose tra sezioni.
-9. ❌ Ripetere lo stesso concetto in forme diverse per "chiarire".
-10. ❌ Aggiungere disclaimer o meta-commenti sulla propria output ("Ecco la spiegazione:", "Come richiesto, di seguito...").
+8. ❌ Forzare l'uso di bullet quando un paragrafo spiegherebbe meglio la relazione causa-effetto.
+9. ❌ Aggiungere disclaimer o meta-commenti sulla propria output ("Ecco la spiegazione:", "Come richiesto, di seguito...").
 
 ---
 

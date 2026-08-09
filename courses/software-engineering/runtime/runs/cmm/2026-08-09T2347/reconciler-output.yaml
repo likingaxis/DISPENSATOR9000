@@ -1,0 +1,214 @@
+topic_id: cmm
+topic_title: Capability Maturity Model (CMM)
+semantic_units:
+- id: cmm_definition
+  title: Definition and Purpose of CMM
+  claims:
+  - id: cmm_origin_purpose
+    statement: The SEI (Software Engineering Institute) created a model starting in
+      1993 to determine the maturity level of a software process of an organization,
+      which is a measure of the global effectiveness of applying software engineering
+      techniques.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '12'
+  - id: cmm_evaluation_scheme
+    statement: The model is based on a questionnaire and an evaluation scheme with
+      five levels.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '12'
+  - id: cmm_cumulative_levels
+    statement: Each level includes all the characteristics defined for the previous
+      level.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '12'
+- id: cmm_maturity_levels
+  title: The 5 Levels of CMM
+  claims:
+  - id: cmm_level_1
+    statement: 'Level 1 is Initial: characterized as ad hoc, where success depends
+      on heroes.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '13'
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: cmm_level_2
+    statement: 'Level 2 is Repeatable: characterized by basic project management,
+      tracking project, and stable planning and product baselines.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '13'
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: cmm_level_3
+    statement: 'Level 3 is Defined: characterized by process definition, where the
+      software process is defined and institutionalized to provide product quality
+      control.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '13'
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: cmm_level_4
+    statement: 'Level 4 is Managed: characterized by process measurement, product
+      quality planning, and tracking of measured software process.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '13'
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: cmm_level_5
+    statement: 'Level 5 is Optimizing: characterized by process control and continuous
+      process capability improvement.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '13'
+    - source_id: slides-02-process-2
+      page: '15'
+  relationships:
+  - type: precedes
+    target_semantic_unit: cmm_kpas
+    description: Maturity levels are defined by the presence of specific Key Process
+      Areas (KPAs).
+    provenance:
+    - source_id: slides-02-process-2
+      page: '14'
+- id: cmm_kpas
+  title: Key Process Areas (KPA)
+  claims:
+  - id: kpa_definition
+    statement: CMM associates some KPAs (among 18 defined) to each maturity level,
+      which describe functions that must be present to guarantee belonging to a certain
+      level.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '14'
+  - id: kpa_description_components
+    statement: Each KPA is described by objectives, commitments and responsibilities,
+      necessary capabilities and resources, activities to be realized, monitoring
+      methods, and verification methods.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '14'
+  - id: kpa_level_1
+    statement: Level 1 has no specific KPAs defined.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: kpa_level_2
+    statement: 'Level 2 KPAs are: Requirements management, Software project planning,
+      Software project tracking & oversight, Software subcontract management, Software
+      quality assurance, Software configuration management.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: kpa_level_3
+    statement: 'Level 3 KPAs are: Organization process focus, Organization process
+      definition, Training program, Integrated software management, Software product
+      engineering, Intergroup coordination, Peer reviews.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: kpa_level_4
+    statement: 'Level 4 KPAs are: Quantitative process management, Software quality
+      management.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '15'
+  - id: kpa_level_5
+    statement: 'Level 5 KPAs are: Defect prevention, Technology change management,
+      Process change management.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '15'
+- id: cmm_statistics_2000
+  title: Adoption Statistics (February 2000)
+  claims:
+  - id: stats_usa
+    statement: As of February 2000, there were 71 organizations in the USA at a high
+      maturity level, consisting of 44 organizations at Level 4 and 27 organizations
+      at Level 5.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '16'
+  - id: stats_non_usa
+    statement: As of February 2000, there were 25 organizations outside the USA at
+      a high maturity level, including 1 at Level 4 in Australia, 14 at Level 4 in
+      India, and 10 at Level 5 in India.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '16'
+conflicts: []
+ambiguities:
+- id: kpa_total_count_discrepancy
+  description: The evidence states there are 18 defined KPAs in total. However, the
+    listed KPAs in the provided diagram sum to exactly 18 (6 for L2, 7 for L3, 2 for
+    L4, 3 for L5).
+  provenance:
+  - source_id: slides-02-process-2
+    page: '14'
+  - source_id: slides-02-process-2
+    page: '15'
+gaps:
+- id: appraisals_2015_data
+  description: Statistics for 'Number of appraisals by country (06/15)' and 'Trends
+    (as of June 2015)' are mentioned by title but lack any substantive data or charts
+    in the provided text.
+  provenance:
+  - source_id: slides-02-process-2
+    page: '17'
+  - source_id: slides-02-process-2
+    page: '18'
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 2
+    examples:
+    - source_id: slides-02-process-2
+      page: '17'
+      reason: Page contains only a title about 'Number of appraisals' with no extracted
+        textual data.
+    - source_id: slides-02-process-2
+      page: '18'
+      reason: Page contains only a title about 'Trends' with no extracted textual
+        data.

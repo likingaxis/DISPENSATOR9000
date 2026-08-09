@@ -445,10 +445,10 @@ In particular, unless a more specific rule in the supplied Style Guide says othe
 * write primarily in Italian;
 * preserve technical computing terminology in English;
 * use Obsidian-compatible Markdown;
-* keep the document strongly bullet-driven;
-* prefer nested bullet trees over long prose;
-* use short introductory prose only when it genuinely improves comprehension;
-* keep paragraphs short;
+* use a balanced pedagogical style: **every new concept must be explained with enough prose to make its meaning, motivation, and relationships clear to a student encountering it for the first time.**
+* use bullets and tables for properties, classifications, steps, comparisons, and structured details.
+* **do not compress a necessary explanation merely to favor bullets.** Pedagogical completeness and comprehensibility prevail over brevity.
+* keep paragraphs short and clear;
 * use headings according to the prescribed hierarchy;
 * use bold only for the functions permitted by the Style Guide;
 * use italics according to the terminology rules;
@@ -456,11 +456,9 @@ In particular, unless a more specific rule in the supplied Style Guide says othe
 * use Obsidian WikiLinks for internal references;
 * use Obsidian image syntax, never standard Markdown image syntax;
 * use callouts only according to the allowed patterns;
-* avoid verbose transitions;
-* avoid academic or textbook-style filler;
-* optimize for exam study.
+* optimize for exam study without sacrificing comprehension.
 
-The final notes should read like polished personal university study notes, not like a textbook chapter or an AI-generated essay.
+The final notes should read like polished, complete, and highly structured personal university study notes.
 
 ---
 
@@ -553,30 +551,10 @@ Use Q&A only where it provides study value.
 
 # 15. Source references and provenance
 
-Use the Reconciler Report's claim-level provenance to create source references in the notes.
+Do NOT insert visible source citations, inline references, or page numbers (e.g., `source.pdf(5)`) into the generated Markdown notes. 
 
-The purpose of provenance in the final notes is:
-
-* traceability;
-* easy return to slides or source material;
-* distinguishing useful source origin where necessary.
-
-Follow the Style Guide's informal inline citation conventions rather than academic bibliography.
-
-Prefer compact references close to the content they support.
-
-Do not:
-
-* dump the full provenance object into the notes;
-* expose YAML identifiers such as `claim-001`;
-* expose internal `block_id` values unless the runtime convention explicitly requires them;
-* append repeated identical citations after every bullet when one nearby reference clearly covers a coherent group of claims.
-
-When several adjacent bullets derive from the same page/slide, a single appropriately placed reference may cover the group if traceability remains unambiguous.
-
-When adjacent claims derive from materially different sources or pages, preserve enough separation to identify the source of each claim.
-
-Do not invent page numbers or source identifiers.
+The final notes must read as a standalone, clean study guide. 
+The internal provenance tracking is handled exclusively by the Reconciler Report and the system's runtime layer. The Writer does not need to expose this tracking to the student in the final text.
 
 ---
 
@@ -642,13 +620,11 @@ At the same time:
 
 * remove redundant explanations;
 * avoid stating the same claim in multiple forms;
-* prefer hierarchical structure over repetition;
-* keep one conceptual purpose per bullet;
-* use dense but readable bullets.
+* prefer hierarchical structure when organizing properties;
+* keep one conceptual purpose per bullet or paragraph.
 
 Do not confuse information preservation with verbosity.
-
-Do not confuse concision with deleting factual distinctions.
+Do not confuse concision with deleting factual distinctions or necessary explanatory prose.
 
 ---
 
@@ -755,9 +731,9 @@ The Writer must transform structure, not merely serialize it.
 
 ---
 
-## F7 — Excessive prose
+## F7 — Pedagogical starvation
 
-Producing textbook-style paragraphs or walls of text instead of following the Style Guide's bullet-driven structure.
+Producing an overly schematic, telegram-style summary that compresses concepts so much that a student cannot understand their meaning or motivation from zero. Use necessary prose for explanations, and bullets for structures.
 
 ---
 
@@ -791,15 +767,13 @@ Creating a WikiLink to a note, section, or filename that is not actually defined
 
 ---
 
-## F13 — Provenance loss
+## F13 — Visible provenance injection
 
-Writing claims without sufficient source traceability when provenance is available and expected by the note conventions.
+Writing `[file.pdf]` references or inline citations in the Markdown notes. Provenance must remain hidden from the student's study text.
 
 ---
 
-## F14 — Provenance overload
-
-Making the note unreadable by repeating raw source metadata, internal IDs, or identical references unnecessarily.
+## F14 — (Reserved)
 
 ---
 
@@ -863,7 +837,7 @@ Before generating the final Markdown, perform the following process internally.
 11. Design the Markdown heading hierarchy.
 12. Transform claims into concise explanations and nested bullet structures.
 13. Add comparisons, tables, process structures, Q&A, callouts, formulas, or visuals only quando giustificato.
-14. Attach provenance compactly and accurately.
+14. Do NOT output visible source citations.
 15. Check terminology against Course Memory.
 16. Check complete Style Guide compliance.
 17. Check that no useful primary-supported information was accidentally lost.
@@ -889,12 +863,11 @@ Before returning the note, verify:
 * Course Memory terminology and conventions were respected.
 * Already-explained concepts were handled without needless repetition.
 * No Course Memory mutation was produced.
-* Source references are accurate and compact.
-* No source location was invented.
+* No visible source citations were generated.
 * No internal claim IDs or reconciliation machinery leaked into normal prose.
 * Visual assets use only valid provided references.
 * Style Guide rules are respected.
-* The output is bullet-driven rather than textbook prose.
+* Explanations are pedagogically complete and not overly compressed.
 * Technical terminology follows the prescribed language conventions.
 * Q&A, if present, is grounded and syntactically correct.
 * The result is valid Obsidian Markdown.

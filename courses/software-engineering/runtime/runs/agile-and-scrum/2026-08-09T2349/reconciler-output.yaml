@@ -1,0 +1,202 @@
+topic_id: agile-and-scrum
+topic_title: Metodologie Agile e Scrum
+semantic_units:
+- id: agile-methods
+  title: Agile Methods Overview
+  claims:
+  - id: agile-methods-1
+    statement: In the early 2000s, a reaction against restrictive carefully planned
+      software processes led to agile methods.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  - id: agile-methods-2
+    statement: The term agile method extends iterative and incremental development
+      to include intensive communication, fast feedback, and few external rules.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  - id: agile-methods-3
+    statement: The common values and principles of agile methods are summarized in
+      the Agile Manifesto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+- id: agile-manifesto
+  title: Agile Manifesto (2001)
+  claims:
+  - id: agile-manifesto-1
+    statement: The Agile Manifesto defines agile values by prioritizing individuals
+      and interactions over processes and tools, working software over comprehensive
+      documentation, customer collaboration over contract negotiation, and responding
+      to change over following a plan.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+  - id: agile-manifesto-2
+    statement: The Agile Manifesto contains twelve agile principles that provide additional
+      guidance.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+  - id: agile-manifesto-3
+    statement: The values and principles of the Agile Manifesto define the basic concepts
+      of agile development.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+- id: scrum-roles
+  title: Scrum Roles
+  claims:
+  - id: scrum-roles-1
+    statement: The Scrum master ensures the methodology is understood and properly
+      implemented by the team and product owner, and helps others interact with the
+      team according to Scrum rules.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  - id: scrum-roles-2
+    statement: The product owner manages and prioritizes requirements documented in
+      the product backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  - id: scrum-roles-3
+    statement: The development team develops the product, including designing, coding,
+      and testing.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+- id: sprints
+  title: Sprints
+  claims:
+  - id: sprints-1
+    statement: A sprint delivers a new increment of working software and typically
+      takes 2 to 4 weeks.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprints-2
+    statement: A sprint starts with a sprint planning meeting to transfer items from
+      the product backlog into the sprint backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprints-3
+    statement: During a sprint, the development team has short daily Scrum meetings
+      to synchronize work and address problems.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprints-4
+    statement: At the end of a sprint, a sprint review presents the increment to the
+      product owner and stakeholders.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprints-5
+    statement: A sprint retrospective meeting is performed at the end to plan improvements
+      for the next sprint.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+- id: definition-of-done
+  title: Definition of Done
+  claims:
+  - id: dod-1
+    statement: Scrum requires a definition of done where the team defines what it
+      means for a work item to be completed before integration.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  - id: dod-2
+    statement: The definition of done typically requires an adequate number of test
+      cases and checking integration to ensure it does not break the main branch.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  - id: dod-3
+    statement: The definition of done requires adequate code documentation, with 'adequate'
+      defined by the team.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+- id: user-stories
+  title: User Stories
+  claims:
+  - id: user-stories-1
+    statement: A user story is a common practice in agile development, describing
+      a user requirement as a short story from the user's perspective.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-2
+    statement: User stories are often used with Scrum but are not defined in the Scrum
+      Guide.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-3
+    statement: 'User stories use a common template: ''As a <role>, I want <goal> so
+      that <benefit>''.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-4
+    statement: Large user stories that are broken down into smaller ones are called
+      epics.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+conflicts: []
+ambiguities: []
+gaps: []
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 0

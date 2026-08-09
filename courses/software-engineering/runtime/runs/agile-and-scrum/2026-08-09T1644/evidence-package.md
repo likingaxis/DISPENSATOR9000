@@ -79,97 +79,97 @@
 
 ## 3. Visual Assets Candidates
 
-- **asset_id**: a06c75aa-7ebc-406f-83de-0aa3463d032e
+- **asset_id**: 72695064-45f0-4386-9b52-b243952933f9
   source: slides-02-process-2
   page: 5
   type: embedded_image
   path: `4f64ac69_p5_i0.png`
 
-- **asset_id**: 34ff1952-0b3a-42cd-8f1e-e68595e4d7dd
+- **asset_id**: 2bac3c9f-2490-4ed0-bbe8-c350a8bf0ce4
   source: slides-02-process-2
   page: 5
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: b10aaddc-71b5-41e6-8b1a-e600c88ee233
+- **asset_id**: 35b15d66-f95c-448c-a719-fe535e4d0566
   source: slides-02-process-2
   page: 6
   type: embedded_image
   path: `4f64ac69_p6_i0.png`
 
-- **asset_id**: 80524126-fdf8-4ebd-a51c-b7f69a07b595
+- **asset_id**: c37f32ce-1794-41db-8405-d82dc50c7ba2
   source: slides-02-process-2
   page: 6
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: 7bb48fdc-f64a-4c01-a837-f39324307346
+- **asset_id**: 8eda0ce5-fb76-4a22-9ca2-92c0fb909d2a
   source: slides-02-process-2
   page: 7
   type: embedded_image
   path: `4f64ac69_p7_i0.png`
 
-- **asset_id**: d6046046-a1b7-4f4c-8159-997fedbf8d3b
+- **asset_id**: 64ca79df-b3b1-42ec-9f87-4e4eec2e6c31
   source: slides-02-process-2
   page: 7
   type: embedded_image
   path: `4f64ac69_p7_i1.png`
 
-- **asset_id**: a422baea-095a-44e5-8097-03bbc576b20b
+- **asset_id**: 56f544a7-87d3-46a1-b28b-e01c87b0e3b6
   source: slides-02-process-2
   page: 7
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: 15697de7-2b5c-4601-bef6-a099ecd4686e
+- **asset_id**: 9f0490ee-04f5-421a-a44a-8ba177619158
   source: slides-02-process-2
   page: 8
   type: embedded_image
   path: `4f64ac69_p8_i0.png`
 
-- **asset_id**: 7a403849-58db-4dc5-9e46-4a9c4126dc6b
+- **asset_id**: a62a3e16-af73-48e2-b1bf-f08591739c84
   source: slides-02-process-2
   page: 8
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: 1ddda734-e5dc-477f-9200-834b3cab72de
+- **asset_id**: f43e397c-632c-44b5-bbc7-d942e803da23
   source: slides-02-process-2
   page: 9
   type: embedded_image
   path: `4f64ac69_p9_i0.png`
 
-- **asset_id**: 346ae932-11ce-4d8c-91e6-99da54ccd086
+- **asset_id**: 263cee65-b937-4c67-964d-949b7b084990
   source: slides-02-process-2
   page: 9
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: 6e0d85f0-69d8-4b7d-9b3b-a2e72d485297
+- **asset_id**: 1453de24-2014-450b-b461-426baf2ae227
   source: slides-02-process-2
   page: 10
   type: embedded_image
   path: `4f64ac69_p10_i0.png`
 
-- **asset_id**: 3534b0f6-b1f6-407d-952b-95b9b9006f2e
+- **asset_id**: 4167be90-8ab1-4b9f-8129-d405d8b4684e
   source: slides-02-process-2
   page: 10
   type: embedded_image
   path: `4f64ac69_p10_i1.png`
 
-- **asset_id**: de55ec5e-6013-451c-af68-fe94e887397d
+- **asset_id**: 281c9ce4-a5b4-4afe-86c2-57dfa616b3d9
   source: slides-02-process-2
   page: 10
   type: vector_diagram_region
   path: `VIRTUAL_RENDER_REQUIRED`
 
-- **asset_id**: fab67d3e-2719-46d0-b093-5cab100af2ee
+- **asset_id**: 4a21d495-5082-42ac-8239-3d32f9fa771b
   source: slides-02-process-2
   page: 11
   type: embedded_image
   path: `4f64ac69_p11_i0.png`
 
-- **asset_id**: a77bcbdc-41ad-4a5a-8f5c-6bc958f5c297
+- **asset_id**: 92a5a9df-b904-424e-a7a0-896324111800
   source: slides-02-process-2
   page: 11
   type: vector_diagram_region

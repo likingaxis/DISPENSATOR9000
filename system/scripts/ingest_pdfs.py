@@ -42,7 +42,13 @@ def init_db():
         page_num INTEGER,
         file_path TEXT,
         bbox TEXT,
-        asset_type TEXT
+        asset_type TEXT,
+        width INTEGER,
+        height INTEGER,
+        aspect_ratio REAL,
+        image_hash TEXT,
+        classification TEXT,
+        excluded_from_candidates BOOLEAN
     )
     ''')
     
@@ -108,11 +114,17 @@ def ingest_pdfs(conn):
                         
                         with open(asset_path, "wb") as f:
                             f.write(image_bytes)
+                            
+                        image_hash = hashlib.md5(image_bytes).hexdigest()
+                        
+                        width = base_image.get("width", 0)
+                        height = base_image.get("height", 0)
+                        aspect_ratio = (width / height) if height > 0 else 0.0
                         
                         cursor.execute('''
-                            INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type)
-                            VALUES (?, ?, ?, ?, ?, ?, ?)
-                        ''', (asset_id, source_id, rel_source_file, page_num, asset_filename, None, "embedded_image"))
+                            INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type, width, height, aspect_ratio, image_hash, classification, excluded_from_candidates)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ''', (asset_id, source_id, rel_source_file, page_num, asset_filename, None, "embedded_image", width, height, aspect_ratio, image_hash, "uncertain", 0))
                     except Exception as e:
                         print(f"Error extracting image {xref} on page {page_num}: {e}")
                         
@@ -123,9 +135,74 @@ def ingest_pdfs(conn):
                     bbox = f"{rect.x0:.1f},{rect.y0:.1f},{rect.x1:.1f},{rect.y1:.1f}"
                     asset_id = str(uuid.uuid4())
                     cursor.execute('''
-                        INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type)
-                        VALUES (?, ?, ?, ?, ?, ?, ?)
-                    ''', (asset_id, source_id, rel_source_file, page_num, "VIRTUAL_RENDER_REQUIRED", bbox, "vector_diagram_region"))
+                        INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type, width, height, aspect_ratio, image_hash, classification, excluded_from_candidates)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''', (asset_id, source_id, rel_source_file, page_num, "VIRTUAL_RENDER_REQUIRED", bbox, "vector_diagram_region", 0, 0, 0.0, None, "uncertain", 0))
+
+    conn.commit()
+    
+    print("Running post-processing asset classification...")
+    # 4. Post-processing: Compute repetition per document and classify
+    cursor.execute("SELECT DISTINCT source_id FROM assets")
+    source_ids = [row[0] for row in cursor.fetchall()]
+    
+    for sid in source_ids:
+        # Get total pages for this source
+        cursor.execute("SELECT MAX(page_num) FROM fragments WHERE source_id = ?", (sid,))
+        max_page = cursor.fetchone()[0]
+        total_pages = (max_page + 1) if max_page is not None else 1
+        
+        # Get image hashes and count pages they appear on
+        cursor.execute('''
+            SELECT image_hash, COUNT(DISTINCT page_num) as page_count
+            FROM assets 
+            WHERE source_id = ? AND image_hash IS NOT NULL
+            GROUP BY image_hash
+        ''', (sid,))
+        
+        for row in cursor.fetchall():
+            img_hash = row[0]
+            page_count = row[1]
+            
+            # Find all assets with this hash in this document
+            cursor.execute('''
+                SELECT id, width, height, aspect_ratio 
+                FROM assets 
+                WHERE source_id = ? AND image_hash = ?
+            ''', (sid, img_hash))
+            
+            assets_to_update = cursor.fetchall()
+            for asset_row in assets_to_update:
+                asset_id = asset_row[0]
+                width = asset_row[1]
+                height = asset_row[2]
+                aspect_ratio = asset_row[3]
+                
+                decorative_score = 0
+                
+                # Rule 1: High repetition (>25% of pages)
+                if (page_count / total_pages) > 0.25:
+                    decorative_score += 3
+                
+                # Rule 2: Geometric heuristics
+                if width > 0 and height > 0:
+                    if width < 150 or height < 150:
+                        decorative_score += 1
+                    if aspect_ratio > 3.5 or aspect_ratio < 0.28:
+                        decorative_score += 1
+                        
+                if decorative_score >= 3:
+                    classification = 'likely_decorative'
+                    excluded = 1
+                else:
+                    classification = 'uncertain'
+                    excluded = 0
+                    
+                cursor.execute('''
+                    UPDATE assets 
+                    SET classification = ?, excluded_from_candidates = ?
+                    WHERE id = ?
+                ''', (classification, excluded, asset_id))
 
     conn.commit()
     print("Ingestion complete!")
