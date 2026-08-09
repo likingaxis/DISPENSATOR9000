@@ -1,0 +1,164 @@
+topic_id: reliability-and-defects
+topic_title: Affidabilità, Guasti ed Errori
+semantic_units:
+- id: roles-stakeholders
+  title: Ruoli e Tipologie di Software
+  claims:
+  - id: claim-cliente
+    statement: Il cliente è il soggetto che ordina il prodotto software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '15'
+  - id: claim-sviluppatore
+    statement: Lo sviluppatore è il soggetto che produce il prodotto software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '15'
+  - id: claim-utente
+    statement: L'utente è il soggetto che usa il prodotto software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '15'
+  - id: claim-sw-interno
+    statement: Nel software interno, il cliente e lo sviluppatore coincidono.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '15'
+  - id: claim-sw-contratto
+    statement: Nel software a contratto, il cliente e lo sviluppatore sono soggetti
+      differenti.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '15'
+- id: reliability-definition
+  title: Definizione di Affidabilità Software (Reliability)
+  claims:
+  - id: claim-reliability-informal
+    statement: Informalmente, l'affidabilità è la credibilità del prodotto software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '16'
+  - id: claim-reliability-formal
+    statement: Formalmente, l'affidabilità è la probabilità che il prodotto software
+      lavori correttamente in un determinato intervallo temporale.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '16'
+  - id: claim-reliability-intuitive
+    statement: Intuitivamente, un prodotto software con molti difetti è poco affidabile
+      e l'affidabilità migliora via via che si riduce il numero di difetti.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '18'
+- id: defect-failure-error
+  title: Difetto, Guasto ed Errore
+  claims:
+  - id: claim-difetto
+    statement: Un difetto (defect) è un'anomalia presente in un prodotto software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '17'
+  - id: claim-guasto
+    statement: Un guasto (failure) è il comportamento anomalo del prodotto software
+      dovuto alla presenza di un difetto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '17'
+  - id: claim-errore
+    statement: Un errore è l'azione errata di chi introduce un difetto nel prodotto
+      software per ignoranza, distrazione, ecc.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '17'
+  relationships:
+  - type: produces
+    target_semantic_unit: defect-failure-error
+    description: L'errore produce il difetto nel software, e il difetto causa il guasto.
+    provenance:
+    - source_id: slides-01-intro
+      page: '17'
+- id: reliability-characteristics
+  title: Caratteristiche dell'Affidabilità Software
+  claims:
+  - id: claim-relazione-non-semplice
+    statement: Esiste una relazione non-semplice tra l'affidabilità osservata e il
+      numero di difetti latenti.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '19'
+  - id: claim-effetti-eliminazione-difetti
+    statement: L'eliminazione di difetti dalle parti del prodotto raramente usate
+      ha piccoli effetti sull'affidabilità osservata.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '19'
+  - id: claim-regola-10-90
+    statement: Secondo la regola 10-90, il 90% del tempo di esecuzione totale è speso
+      eseguendo il solo 10% delle istruzioni, chiamato core (nucleo) del programma.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '20'
+  - id: claim-dipendenza-localizzazione
+    statement: Il miglioramento dell'affidabilità per l'eliminazione di un difetto
+      dipende dalla sua localizzazione, ovvero se appartiene o meno al nucleo del
+      programma.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '21'
+  - id: claim-profilo-operativo
+    statement: L'affidabilità osservata dipende da come è usato il prodotto, ovvero
+      dal suo profilo operativo (operational profile).
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '22'
+  - id: claim-dipendenza-utente
+    statement: Poiché utenti differenti usano il software secondo profili operativi
+      diversi, i difetti possono manifestarsi per un utente e non per un altro; dunque,
+      l'affidabilità dipende dall'utente.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-01-intro
+      page: '23'
+conflicts: []
+ambiguities: []
+gaps: []
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 0
