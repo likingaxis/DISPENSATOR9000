@@ -1,0 +1,9 @@
+# Descriptive data contract — MVP v0.1
+# This is not a runtime validation schema.
+
+id: string
+title: string
+chapter_id: string
+source_fragments: list[string]
+assets: list[string]
+conflicts: list[string]

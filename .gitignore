@@ -1,0 +1,12 @@
+# Artefatti tecnici derivati e ricostruibili
+.derived/
+.cache/
+indexes/
+venv/
+__pycache__/
+*.pyc
+*.pdf
+*.pdf.txt
+
+profile/raw-examples/
+

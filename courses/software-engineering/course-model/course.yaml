@@ -1,0 +1,458 @@
+# Course Map (Final) - Backbone: Slide Ufficiali
+chapters:
+  # ---------------------------------------------------------
+  # CAPITOLO 1
+  # ---------------------------------------------------------
+  - id: chapter-1-introduction
+    title: "1. Introduzione all'Ingegneria del Software"
+    order: 1
+    topics:
+      - id: intro-and-lifecycle
+        title: "Fondamenti e Ciclo di Vita"
+        order: 1
+        aliases: ["Introduzione"]
+        concepts: ["Aspetti Accidentali ed Essenziali", "Fasi della Produzione", "Aspetti di Costo", "Testing"]
+        official_sources:
+          - source_id: slides-01-intro
+            page_ranges: [[0, 14]]
+        secondary_sources: ["theory-summary", "andrea-summary", "isw1-summary"]
+      
+      - id: reliability-and-defects
+        title: "Affidabilità, Guasti ed Errori"
+        order: 2
+        aliases: ["Software Reliability"]
+        concepts: ["Difetto", "Guasto", "Errore", "Defect Removal Efficiency", "Regola 10-90"]
+        official_sources:
+          - source_id: slides-01-intro
+            page_ranges: [[15, 23]]
+        secondary_sources: ["theory-summary", "andrea-summary", "isw1-summary"]
+        
+      - id: hardware-vs-software
+        title: "Confronto Hw/Sw e Disponibilità"
+        order: 3
+        aliases: ["Availability"]
+        concepts: ["Confronto affidabilità hardware software", "Andamento frequenza di guasto", "I miti del software"]
+        official_sources:
+          - source_id: slides-01-intro
+            page_ranges: [[24, 38]]
+        secondary_sources: ["theory-summary", "andrea-summary", "isw1-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 2
+  # ---------------------------------------------------------
+  - id: chapter-2-software-process
+    title: "2. Processo Software e Modelli"
+    order: 2
+    topics:
+      - id: classic-process-models
+        title: "Modelli Sequenziali (Waterfall, Prototyping)"
+        order: 1
+        aliases: ["Modelli classici"]
+        concepts: ["Build&Fix", "Modello a cascata", "Rapid Prototyping", "Throw-away prototyping", "Visual programming"]
+        official_sources:
+          - source_id: slides-02-process-1
+            page_ranges: [[0, 20]]
+        secondary_sources: ["theory-summary", "isw1-summary"]
+        
+      - id: iterative-process-models
+        title: "Sviluppo Iterativo e Modello a Spirale"
+        order: 2
+        aliases: ["Process iteration", "Incremental development"]
+        concepts: ["Modello incrementale", "Modello a spirale", "Risk Management"]
+        official_sources:
+          - source_id: slides-02-process-1
+            page_ranges: [[21, 47]]
+        secondary_sources: ["theory-summary", "isw1-summary"]
+        
+      - id: corporate-models
+        title: "Modelli Corporate (Microsoft, Netscape)"
+        order: 3
+        aliases: ["Synch-and-stabilize", "Netscape Development Process"]
+        concepts: ["Ciclo di sviluppo a 3 fasi", "Milestones", "Staffing"]
+        official_sources:
+          - source_id: slides-02-process-1
+            page_ranges: [[48, 59]]
+          - source_id: slides-02-process-2
+            page_ranges: [[0, 4]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: agile-and-scrum
+        title: "Metodologie Agile e Scrum"
+        order: 4
+        aliases: ["Agile Methods"]
+        concepts: ["Agile Manifesto", "Scrum", "Sprints", "Scrum Roles", "Definition of Done", "User Stories"]
+        official_sources:
+          - source_id: slides-02-process-2
+            page_ranges: [[5, 11]]
+        secondary_sources: ["theory-summary", "andrea-summary"]
+        
+      - id: cmm
+        title: "Capability Maturity Model (CMM)"
+        order: 5
+        aliases: []
+        concepts: ["I 5 livelli del CMM", "Key Process Areas (KPAs)"]
+        official_sources:
+          - source_id: slides-02-process-2
+            page_ranges: [[12, 18]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 3
+  # ---------------------------------------------------------
+  - id: chapter-3-requirements
+    title: "3. Ingegneria dei Requisiti"
+    order: 3
+    topics:
+      - id: requirements-classification
+        title: "Classificazione dei Requisiti"
+        order: 1
+        aliases: ["Tipi di Requisiti"]
+        concepts: ["Requisiti Funzionali", "Requisiti Non Funzionali", "Requisiti di Dominio", "Requisiti Utente", "Requisiti di Sistema"]
+        official_sources:
+          - source_id: slides-03-req-sw
+            page_ranges: [[0, 13]]
+        secondary_sources: ["theory-summary", "andrea-summary"]
+        
+      - id: requirements-process
+        title: "Il Processo di Requirements Engineering"
+        order: 2
+        aliases: ["Requirements Engineering"]
+        concepts: ["Studio di fattibilità", "Identificazione e analisi", "Convalida", "Documento di specifica dei requisiti"]
+        official_sources:
+          - source_id: slides-03-req-sw
+            page_ranges: [[14, 24]]
+          - source_id: slides-04-req-eng
+            page_ranges: [[0, 9]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: formal-specifications
+        title: "Specifiche Formali"
+        order: 3
+        aliases: []
+        concepts: ["Marked Petri Net", "Finite State Machine (FSM)", "Linguaggio Z"]
+        official_sources:
+          - source_id: slides-04-req-eng
+            page_ranges: [[10, 19]]
+        secondary_sources: ["theory-summary", "andrea-summary"]
+        
+      - id: semi-formal-specifications
+        title: "Specifiche Semi-formali"
+        order: 4
+        aliases: []
+        concepts: ["Entity Relationship Diagram (ERD)", "Data Flow Diagram (DFD)", "Structured System Analysis (SSA)"]
+        official_sources:
+          - source_id: slides-04-req-eng
+            page_ranges: [[20, 37]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 4
+  # ---------------------------------------------------------
+  - id: chapter-4-ooa
+    title: "4. Object-Oriented Analysis (OOA)"
+    order: 4
+    topics:
+      - id: oop-recap
+        title: "Richiami di Programmazione Orientata agli Oggetti"
+        order: 1
+        aliases: ["Richiami OOP"]
+        concepts: ["Classificazione", "Ereditarietà", "Polimorfismo", "Encapsulation", "Information Hiding"]
+        official_sources:
+          - source_id: slides-05-oop
+            page_ranges: [[0, 14]]
+        secondary_sources: ["andrea-summary"]
+        
+      - id: data-modeling
+        title: "OOA e Modello dei Dati (Identificazione Classi)"
+        order: 2
+        aliases: ["Modello dei dati"]
+        concepts: ["Noun phrase", "Common class patterns", "CRC", "UML Class Diagram", "Associazioni", "Aggregazioni"]
+        official_sources:
+          - source_id: slides-05a-ooa
+            page_ranges: [[0, 62]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: behavioral-modeling
+        title: "Modello Comportamentale"
+        order: 3
+        aliases: []
+        concepts: ["Use Case Diagram", "Activity Diagram"]
+        official_sources:
+          - source_id: slides-05a-ooa
+            page_ranges: [[63, 77]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: dynamic-interaction-modeling
+        title: "Modello Dinamico e Interazioni"
+        order: 4
+        aliases: []
+        concepts: ["Sequence Diagram", "UML Interaction", "Interfaccia pubblica di classe"]
+        official_sources:
+          - source_id: slides-05a-ooa
+            page_ranges: [[78, 87]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: ooa-packages-and-bce
+        title: "Organizzazione OOA"
+        order: 5
+        aliases: []
+        concepts: ["UML Package", "Boundary Control Entity (BCE)"]
+        official_sources:
+          - source_id: slides-05a-ooa
+            page_ranges: [[88, 95]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: ooa-case-studies
+        title: "Casi di Studio ed Esercizi OOA"
+        order: 6
+        aliases: ["Esercizi OOA"]
+        concepts: ["University Enrolment", "Video Store", "Contact Management", "Telemarketing", "Online Shopping"]
+        official_sources:
+          - source_id: slides-05a-ooa
+            page_ranges: [[0, 95]]  # Overlap on exercises embedded in main deck
+          - source_id: slides-05b-ooa-exercises
+            page_ranges: [[0, 9]]
+        secondary_sources: []
+
+  # ---------------------------------------------------------
+  # CAPITOLO 5
+  # ---------------------------------------------------------
+  - id: chapter-5-planning
+    title: "5. Pianificazione di Progetto"
+    order: 5
+    topics:
+      - id: project-management
+        title: "Software Project Management e Team"
+        order: 1
+        aliases: ["Gestione di progetti software"]
+        concepts: ["Organizzazione dei team", "Egoless programming", "Capo-programmatore"]
+        official_sources:
+          - source_id: slides-07-planning
+            page_ranges: [[0, 12]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: software-estimation
+        title: "Stime e Function Point"
+        order: 2
+        aliases: []
+        concepts: ["Stime di LOC", "Function Point (FP)", "TCF calculation"]
+        official_sources:
+          - source_id: slides-07-planning
+            page_ranges: [[13, 27]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: cocomo
+        title: "Modello COCOMO"
+        order: 3
+        aliases: ["Modelli algoritmici empirici"]
+        concepts: ["Cost drivers ratings", "COCOMO Time Schedule"]
+        official_sources:
+          - source_id: slides-07-planning
+            page_ranges: [[28, 35]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: scheduling-and-spmp
+        title: "Scheduling e Software Project Management Plan"
+        order: 4
+        aliases: ["SPMP"]
+        concepts: ["Pianificazione temporale", "Carta di Gantt", "IEEE Standard for SPMP"]
+        official_sources:
+          - source_id: slides-07-planning
+            page_ranges: [[36, 44]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 6
+  # ---------------------------------------------------------
+  - id: chapter-6-ood
+    title: "6. Progetto e Object-Oriented Design (OOD)"
+    order: 6
+    topics:
+      - id: design-principles
+        title: "Principi di Progettazione e Modularità"
+        order: 1
+        aliases: ["Principi di Progetto"]
+        concepts: ["Stepwise refinement", "Astrazione", "Tipi di dati astratti", "Decomposizione modulare"]
+        official_sources:
+          - source_id: slides-08-design
+            page_ranges: [[0, 14]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: cohesion-and-coupling
+        title: "Cohesion e Coupling"
+        order: 2
+        aliases: []
+        concepts: ["Livelli di Coesione", "Livelli di Coupling", "Information hiding", "Riusabilità"]
+        official_sources:
+          - source_id: slides-08-design
+            page_ranges: [[15, 34]]
+        secondary_sources: ["theory-summary", "isw1-summary"]
+        
+      - id: distributed-architectures
+        title: "Architetture Distribuite e Client/Server"
+        order: 3
+        aliases: ["Distributed software systems"]
+        concepts: ["Client/server (C/S)", "Two-tier", "Three-tier", "Component-based architectures", "UML Components"]
+        official_sources:
+          - source_id: slides-09-ood
+            page_ranges: [[0, 21]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: soa-and-web-services
+        title: "Service Oriented Architecture (SOA) e Web Services"
+        order: 4
+        aliases: ["SOA"]
+        concepts: ["Service Providers/Consumers", "Architectural Broker Patterns", "Web Services", "WSDL", "Q-WSDL", "RESTful API", "Two-Phase Commit Protocol", "Negotiation Pattern"]
+        official_sources:
+          - source_id: slides-09-ood
+            page_ranges: [[22, 84]]
+          - source_id: slides-09a-soa
+            page_ranges: [[0, 65]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: detailed-ood
+        title: "Detailed OOD e UML Strutturale"
+        order: 5
+        aliases: ["Detailed OOD"]
+        concepts: ["Realization of use cases", "Control management", "Law of Demeter", "UML Structured Class", "Deployment Diagram", "Nodes e Connectors"]
+        official_sources:
+          - source_id: slides-09-ood
+            page_ranges: [[85, 111]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 7
+  # ---------------------------------------------------------
+  - id: chapter-7-design-patterns
+    title: "7. Design Patterns"
+    order: 7
+    topics:
+      - id: patterns-introduction
+        title: "Introduzione ai Design Patterns"
+        order: 1
+        aliases: ["Classificazione Patterns"]
+        concepts: ["Framework", "Catalogo GoF", "Caratteristiche dei Design Pattern"]
+        official_sources:
+          - source_id: slides-10-design-patterns
+            page_ranges: [[0, 16], [67, 93]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: creational-patterns
+        title: "Creational Patterns"
+        order: 2
+        aliases: ["Pattern creazionali"]
+        concepts: ["Abstract Factory", "Builder", "Factory Method", "Prototype", "Singleton"]
+        official_sources:
+          - source_id: slides-10-design-patterns
+            page_ranges: [[17, 30]]
+          - source_id: slides-11-dp-examples
+            page_ranges: [[36, 55]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: structural-patterns
+        title: "Structural Patterns"
+        order: 3
+        aliases: ["Pattern strutturali"]
+        concepts: ["Adapter", "Bridge", "Composite", "Decorator", "Facade", "Flyweight", "Proxy"]
+        official_sources:
+          - source_id: slides-10-design-patterns
+            page_ranges: [[31, 48]]
+          - source_id: slides-11-dp-examples
+            page_ranges: [[0, 35]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: behavioral-patterns
+        title: "Behavioral Patterns"
+        order: 4
+        aliases: ["Pattern comportamentali"]
+        concepts: ["Chain of Responsibility", "Command", "Interpreter", "Iterator", "Mediator", "Memento", "Observer", "State", "Strategy", "Template Method", "Visitor"]
+        official_sources:
+          - source_id: slides-10-design-patterns
+            page_ranges: [[49, 66]]
+          - source_id: slides-11-dp-examples
+            page_ranges: [[56, 73]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 8
+  # ---------------------------------------------------------
+  - id: chapter-8-quality-metrics-testing
+    title: "8. Metriche, Qualità e Testing"
+    order: 8
+    topics:
+      - id: structural-metrics
+        title: "Metriche di Struttura"
+        order: 1
+        aliases: ["Metriche strutturali"]
+        concepts: ["Tree Impurity", "Information Flow", "Flowgraph", "Complessità Ciclomatica (McCabe)"]
+        official_sources:
+          - source_id: slides-12-metrics
+            page_ranges: [[0, 43]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: software-quality-assurance
+        title: "Software Quality Assurance (SQA)"
+        order: 2
+        aliases: ["Software Quality"]
+        concepts: ["Modelli di Qualità", "Metriche di qualità"]
+        official_sources:
+          - source_id: slides-13-quality
+            page_ranges: [[0, 42]]
+        secondary_sources: ["theory-summary"]
+        
+      - id: software-testing
+        title: "Tecniche di Testing"
+        order: 3
+        aliases: ["Testing"]
+        concepts: ["Black Box testing", "White Box testing", "Test Coverage"]
+        official_sources:
+          - source_id: slides-14-testing
+            page_ranges: [[0, 63]]
+        secondary_sources: ["theory-summary"]
+
+  # ---------------------------------------------------------
+  # CAPITOLO 9
+  # ---------------------------------------------------------
+  - id: chapter-9-bpm
+    title: "9. Business Process Management (BPM)"
+    order: 9
+    topics:
+      - id: bpm-fundamentals
+        title: "Business Process Management (BPM)"
+        order: 1
+        aliases: ["BPM Intro"]
+        concepts: ["Process Lifecycle", "Miglioramento dei processi"]
+        official_sources:
+          - source_id: slides-15-bpm
+            page_ranges: [[0, 22]]
+        secondary_sources: []
+        
+      - id: bpmn-notation
+        title: "Business Process Model and Notation (BPMN)"
+        order: 2
+        aliases: ["BPMN"]
+        concepts: ["BPMN Elements", "Pools and Lanes", "Gateway"]
+        official_sources:
+          - source_id: slides-16-bpmn
+            page_ranges: [[0, 99]]
+        secondary_sources: []
+        
+      - id: modeling-and-simulation
+        title: "Modeling & Simulation (M&S)"
+        order: 3
+        aliases: ["M&S Intro"]
+        concepts: ["Simulazione", "Vantaggi della simulazione"]
+        official_sources:
+          - source_id: slides-17-ms-intro
+            page_ranges: [[0, 50]]
+        secondary_sources: []
+        
+      - id: business-process-simulation
+        title: "Business Process Simulation"
+        order: 4
+        aliases: ["BPS"]
+        concepts: ["Simulation Execution", "Analisi What-If"]
+        official_sources:
+          - source_id: slides-18-bp-sim
+            page_ranges: [[0, 88]]
+        secondary_sources: []
