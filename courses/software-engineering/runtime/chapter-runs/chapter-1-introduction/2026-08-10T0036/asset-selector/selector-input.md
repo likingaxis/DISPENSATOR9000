@@ -48,3 +48,13 @@ rejected_assets:
     decision: "reject"
     reason: "<es: decorative_title, generic_clipart, low_information_value>"
 ```
+
+
+---
+
+# RUNTIME INPUT: CANDIDATE ASSETS
+
+```yaml
+candidate_assets: []
+
+```

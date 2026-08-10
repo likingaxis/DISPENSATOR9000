@@ -252,7 +252,7 @@ def build_chapter(chapter_id):
     selector_output_path = os.path.join(sel_dir, "selector-output.yaml")
     with open(selector_output_path, 'w', encoding='utf-8') as f: pass
 
-    extra_msg = f"⚠ IMPORTANTE: Allega tutte le immagini contenute in:\n   -> {img_dir}\ninsieme al file selector-input.md!"
+    extra_msg = f"IMPORTANTE: Allega tutte le immagini contenute in:\n   -> {img_dir}\ninsieme al file selector-input.md!"
     wait_for_user("ASSET SELECTOR (Fase 1/2)", selector_input_path, selector_output_path, extra_message=extra_msg)
     
     selected_assets_yaml = ""

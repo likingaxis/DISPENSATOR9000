@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "runtime/topic-drafts/agile-and-scrum.md",
+                "file": "runtime/chapter-drafts/chapter-1-introduction.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "agile-and-scrum"
+              "title": "chapter-1-introduction"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "runtime/topic-drafts/agile-and-scrum.md",
+                "file": "runtime/chapter-drafts/chapter-1-introduction.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +118,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "runtime/topic-drafts/agile-and-scrum.md",
+                "file": "runtime/chapter-drafts/chapter-1-introduction.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -161,7 +161,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "runtime/topic-drafts/agile-and-scrum.md",
+                "file": "runtime/chapter-drafts/chapter-1-introduction.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -190,39 +190,51 @@
   },
   "active": "1ee63e96ee08336a",
   "lastOpenFiles": [
-    "runtime/runs/agile-and-scrum/2026-08-09T2349/reconciler-input.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T2349/evidence-package.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T2349",
-    "runtime/runs/iterative-process-models/2026-08-09T2347/reconciler-output.yaml",
-    "runtime/runs/corporate-models/2026-08-09T2347/reconciler-output.yaml",
-    "runtime/runs/cmm/2026-08-09T2347/reconciler-output.yaml",
-    "runtime/runs/cmm/2026-08-09T2347/reconciler-input.md",
-    "runtime/runs/cmm/2026-08-09T2347/evidence-package.md",
-    "runtime/topic-context/cmm.md",
-    "runtime/runs/cmm/2026-08-09T2347",
-    "runtime/runs/cmm",
-    "runtime/runs/corporate-models/2026-08-09T2347/reconciler-input.md",
-    "runtime/runs/corporate-models/2026-08-09T2347/evidence-package.md",
-    "runtime/topic-context/corporate-models.md",
-    "runtime/runs/corporate-models/2026-08-09T2347",
-    "runtime/runs/corporate-models",
-    "runtime/runs/iterative-process-models/2026-08-09T2347/reconciler-input.md",
-    "runtime/runs/iterative-process-models/2026-08-09T2347/evidence-package.md",
-    "runtime/topic-context/iterative-process-models.md",
-    "runtime/runs/iterative-process-models/2026-08-09T2347",
-    "runtime/runs/iterative-process-models",
-    "runtime/runs/classic-process-models/2026-08-09T2006/writer-output.md",
-    "runtime/runs/classic-process-models/2026-08-09T2006/writer-input.md",
-    "runtime/runs/classic-process-models/2026-08-09T2006/reconciler-input.md",
-    "runtime/runs/classic-process-models/2026-08-09T2006/evidence-package.md",
-    "runtime/topic-context/classic-process-models.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1657/reconciler-input.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1657/evidence-package.md",
-    "runtime/topic-drafts/agile-and-scrum-v2.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1644/writer-output.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1644/writer-input.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1644/reconciler-input.md",
-    "runtime/runs/agile-and-scrum/2026-08-09T1644/evidence-package.md",
-    "runtime/topic-drafts/agile-and-scrum.md"
+    "runtime/runs/cmm/2026-08-10T1015/writer-input.md",
+    "runtime/runs/agile-and-scrum/2026-08-10T1014/writer-input.md",
+    "runtime/runs/corporate-models/2026-08-10T1014/writer-input.md",
+    "runtime/runs/iterative-process-models/2026-08-10T1014/writer-input.md",
+    "runtime/runs/classic-process-models/2026-08-10T1014/writer-input.md",
+    "runtime/runs/iterative-process-models/2026-08-10T1014/reconciler-output.yaml",
+    "runtime/runs/classic-process-models/2026-08-10T1014/reconciler-output.yaml",
+    "runtime/runs/agile-and-scrum/2026-08-10T1014/reconciler-output.yaml",
+    "runtime/runs/cmm/2026-08-10T1015/reconciler-output.yaml",
+    "runtime/runs/corporate-models/2026-08-10T1014/reconciler-output.yaml",
+    "runtime/runs/cmm/2026-08-10T1015/reconciler-input.md",
+    "runtime/runs/cmm/2026-08-10T1015/evidence-package.md",
+    "runtime/runs/cmm/2026-08-10T1015",
+    "runtime/runs/agile-and-scrum/2026-08-10T1014/reconciler-input.md",
+    "runtime/runs/agile-and-scrum/2026-08-10T1014/evidence-package.md",
+    "runtime/runs/agile-and-scrum/2026-08-10T1014",
+    "runtime/runs/corporate-models/2026-08-10T1014/reconciler-input.md",
+    "runtime/runs/corporate-models/2026-08-10T1014/evidence-package.md",
+    "runtime/runs/corporate-models/2026-08-10T1014",
+    "runtime/runs/iterative-process-models/2026-08-10T1014/reconciler-input.md",
+    "runtime/runs/iterative-process-models/2026-08-10T1014/evidence-package.md",
+    "runtime/runs/iterative-process-models/2026-08-10T1014",
+    "runtime/runs/classic-process-models/2026-08-10T1014/reconciler-input.md",
+    "runtime/runs/classic-process-models/2026-08-10T1014/evidence-package.md",
+    "runtime/runs/classic-process-models/2026-08-10T1014",
+    "runtime/chapter-drafts/chapter-2-test.md",
+    "runtime/chapter-drafts/chapter-1-introduction.md",
+    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/reviewer/reviewer-output.md",
+    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/reviewer/reviewer-input.md",
+    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/asset-selector/selector-input.md",
+    "runtime/runs/intro-and-lifecycle/2026-08-10T0029/writer-input.md",
+    "runtime/runs/reliability-and-defects/2026-08-10T0029/writer-input.md",
+    "runtime/runs/hardware-vs-software/2026-08-10T0029/writer-input.md",
+    "runtime/runs/hardware-vs-software/2026-08-10T0029/reconciler-input.md",
+    "runtime/runs/hardware-vs-software/2026-08-10T0029/evidence-package.md",
+    "runtime/topic-context/hardware-vs-software.md",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/grid_candidates.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p29_i0.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p20_i0.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p19_i1.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p19_i0.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p18_i0.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p17_i1.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p17_i0.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p16_i3.png",
+    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p16_i2.png"
   ]
 }

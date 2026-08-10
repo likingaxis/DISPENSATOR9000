@@ -1,0 +1,313 @@
+topic_id: agile-and-scrum
+topic_title: Metodologie Agile e Scrum
+semantic_units:
+- id: agile-methods
+  title: Agile Methods
+  claims:
+  - id: agile-methods-origins
+    statement: Agile methods emerged in the early 2000s as a reaction against carefully
+      planned software processes, which were seen as too restrictive on developers.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  - id: agile-methods-definition
+    statement: The agile method concept extends iterative and incremental development
+      to include intensive communication, fast feedback, and few external rules.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  - id: agile-manifesto-summary
+    statement: The common values and principles of agile methods are summarized in
+      the Agile Manifesto.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  visual_asset_refs:
+  - asset_id: a06c75aa-7ebc-406f-83de-0aa3463d032e
+    source_id: slides-02-process-2
+    page: '5'
+    obsidian_path: assets/4f64ac69_p5_i0.png
+  - asset_id: 34ff1952-0b3a-42cd-8f1e-e68595e4d7dd
+    source_id: slides-02-process-2
+    page: '5'
+- id: agile-manifesto
+  title: Agile Manifesto
+  claims:
+  - id: agile-manifesto-values
+    statement: The Agile Manifesto values individuals and interactions over processes
+      and tools, working software over comprehensive documentation, customer collaboration
+      over contract negotiation, and responding to change over following a plan.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+  - id: agile-manifesto-principles
+    statement: In addition to values, the Agile Manifesto contains twelve agile principles
+      that provide additional guidance.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+  - id: agile-manifesto-foundation
+    statement: The values and principles of the Agile Manifesto define the basic concepts
+      of agile development.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '6'
+  relationships:
+  - type: refines
+    target_semantic_unit: agile-methods
+    description: The Agile Manifesto summarizes the values and principles of Agile
+      methods.
+    provenance:
+    - source_id: slides-02-process-2
+      page: '5'
+  visual_asset_refs:
+  - asset_id: b10aaddc-71b5-41e6-8b1a-e600c88ee233
+    source_id: slides-02-process-2
+    page: '6'
+    obsidian_path: assets/4f64ac69_p6_i0.png
+  - asset_id: 80524126-fdf8-4ebd-a51c-b7f69a07b595
+    source_id: slides-02-process-2
+    page: '6'
+- id: scrum
+  title: Scrum
+  claims:
+  - id: scrum-introduction
+    statement: Scrum is introduced as an agile method.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '7'
+  visual_asset_refs:
+  - asset_id: 7bb48fdc-f64a-4c01-a837-f39324307346
+    source_id: slides-02-process-2
+    page: '7'
+    obsidian_path: assets/4f64ac69_p7_i0.png
+  - asset_id: d6046046-a1b7-4f4c-8159-997fedbf8d3b
+    source_id: slides-02-process-2
+    page: '7'
+    obsidian_path: assets/4f64ac69_p7_i1.png
+  - asset_id: a422baea-095a-44e5-8097-03bbc576b20b
+    source_id: slides-02-process-2
+    page: '7'
+- id: scrum-roles
+  title: Scrum Roles
+  claims:
+  - id: scrum-master-role
+    statement: The Scrum master ensures the methodology is understood and implemented,
+      and supports the team by helping others interact according to Scrum rules.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  - id: product-owner-role
+    statement: The product owner manages and prioritizes the requirements in the product
+      backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  - id: development-team-role
+    statement: The development team is responsible for developing the product, which
+      includes designing, coding, and testing.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  relationships:
+  - type: part_of
+    target_semantic_unit: scrum
+    description: Scrum master, product owner, and development team are roles within
+      Scrum.
+    provenance:
+    - source_id: slides-02-process-2
+      page: '8'
+  visual_asset_refs:
+  - asset_id: 15697de7-2b5c-4601-bef6-a099ecd4686e
+    source_id: slides-02-process-2
+    page: '8'
+    obsidian_path: assets/4f64ac69_p8_i0.png
+  - asset_id: 7a403849-58db-4dc5-9e46-4a9c4126dc6b
+    source_id: slides-02-process-2
+    page: '8'
+- id: sprints
+  title: Sprints
+  claims:
+  - id: sprint-definition
+    statement: A sprint is a 2 to 4 week iteration aimed at delivering a new increment
+      of working software.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprint-planning
+    statement: A sprint begins with a sprint planning meeting where items are transferred
+      from the product backlog to the sprint backlog.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprint-execution
+    statement: During the sprint, the development team works on the increment and
+      holds short daily Scrum (stand-up) meetings to synchronize work and address
+      problems.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprint-review
+    statement: At the end of a sprint, the increment is presented to the product owner
+      and stakeholders in a sprint review.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  - id: sprint-retrospective
+    statement: A sprint concludes with a sprint retrospective meeting to identify
+      and plan improvements for the next sprint.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  relationships:
+  - type: part_of
+    target_semantic_unit: scrum
+    description: Sprints are iterations within the Scrum process.
+    provenance:
+    - source_id: slides-02-process-2
+      page: '9'
+  visual_asset_refs:
+  - asset_id: 1ddda734-e5dc-477f-9200-834b3cab72de
+    source_id: slides-02-process-2
+    page: '9'
+    obsidian_path: assets/4f64ac69_p9_i0.png
+  - asset_id: 346ae932-11ce-4d8c-91e6-99da54ccd086
+    source_id: slides-02-process-2
+    page: '9'
+- id: definition-of-done
+  title: Definition of Done
+  claims:
+  - id: definition-of-done-concept
+    statement: Scrum requires a 'definition of done', established by the development
+      team, specifying what it means for a work item to be completed before integration.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  - id: definition-of-done-requirements
+    statement: Typical minimum requirements include adequate test cases and integration
+      checks to ensure the main branch is not broken.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  - id: definition-of-done-documentation
+    statement: The definition of done also requires adequate code documentation, with
+      'adequate' being defined by the team.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  relationships:
+  - type: part_of
+    target_semantic_unit: scrum
+    description: The definition of done is a requirement in Scrum.
+    provenance:
+    - source_id: slides-02-process-2
+      page: '10'
+  visual_asset_refs:
+  - asset_id: 6e0d85f0-69d8-4b7d-9b3b-a2e72d485297
+    source_id: slides-02-process-2
+    page: '10'
+    obsidian_path: assets/4f64ac69_p10_i0.png
+  - asset_id: 3534b0f6-b1f6-407d-952b-95b9b9006f2e
+    source_id: slides-02-process-2
+    page: '10'
+    obsidian_path: assets/4f64ac69_p10_i1.png
+  - asset_id: de55ec5e-6013-451c-af68-fe94e887397d
+    source_id: slides-02-process-2
+    page: '10'
+- id: user-stories
+  title: User Stories
+  claims:
+  - id: user-stories-usage
+    statement: User stories are a common agile development practice often used with
+      Scrum, though not defined in the Scrum Guide.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-format
+    statement: A user story is a short format (typically one sentence) for describing
+      user requirements from the user's point of view.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-template
+    statement: 'User stories use a common template: ''As a <role>, I want <goal> so
+      that <benefit>''.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  - id: user-stories-epics
+    statement: Large user stories that are later broken down into smaller ones are
+      called epics.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  relationships:
+  - type: associated_with
+    target_semantic_unit: scrum
+    description: User stories are often combined with Scrum, though not officially
+      part of the Scrum Guide.
+    provenance:
+    - source_id: slides-02-process-2
+      page: '11'
+  visual_asset_refs:
+  - asset_id: fab67d3e-2719-46d0-b093-5cab100af2ee
+    source_id: slides-02-process-2
+    page: '11'
+    obsidian_path: assets/4f64ac69_p11_i0.png
+  - asset_id: a77bcbdc-41ad-4a5a-8f5c-6bc958f5c297
+    source_id: slides-02-process-2
+    page: '11'
+conflicts: []
+ambiguities: []
+gaps: []
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 0

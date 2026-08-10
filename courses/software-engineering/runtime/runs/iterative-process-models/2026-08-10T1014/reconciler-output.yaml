@@ -1,0 +1,638 @@
+topic_id: iterative-process-models
+topic_title: Sviluppo Iterativo e Modello a Spirale
+semantic_units:
+- id: process-iteration
+  title: Process Iteration
+  claims:
+  - id: iteration-rationale
+    statement: Requirements always evolve in large projects, requiring earlier stages
+      to be reworked through process iteration.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '21'
+  - id: iteration-applicability
+    statement: Iteration can be applied to any generic process model.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '21'
+  - id: iteration-approaches
+    statement: Two related approaches to process iteration are incremental development
+      and spiral development.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '21'
+  visual_asset_refs:
+  - asset_id: 358abe74-ba2f-4169-9af1-7434f2965939
+    source_id: slides-02-process-1
+    page: '21'
+    obsidian_path: assets/d234c4c9_p21_i0.png
+  - asset_id: 277dd750-aaab-4631-b9b8-9b46d2d88770
+    source_id: slides-02-process-1
+    page: '21'
+- id: incremental-development
+  title: Incremental Development Model
+  claims:
+  - id: incremental-delivery
+    statement: The product is developed and delivered in successive increments or
+      builds.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '22'
+  - id: incremental-prototyping
+    statement: Users can experiment with delivered increments acting as prototypes
+      while others are developed.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '22'
+  - id: incremental-benefits
+    statement: It combines the advantages of rapid prototyping with a more manageable
+      process and better structure.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '22'
+  - id: incremental-effectiveness
+    statement: It is effective when the customer wants continuous progress verification
+      and when requirements change frequently.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '24'
+  - id: incremental-versions
+    statement: 'It can be realized in two alternative versions: with overall architecture,
+      or without overall architecture, which is more risky.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '24'
+  visual_asset_refs:
+  - asset_id: eb5c3a9b-2364-4582-a0f4-a65634ddf579
+    source_id: slides-02-process-1
+    page: '22'
+    obsidian_path: assets/d234c4c9_p22_i0.png
+  - asset_id: d4007b22-f51e-4cd1-9d26-24bc5f65735b
+    source_id: slides-02-process-1
+    page: '22'
+  - asset_id: e3d7cef3-66e9-4344-a3f6-dac210dc104c
+    source_id: slides-02-process-1
+    page: '23'
+    obsidian_path: assets/d234c4c9_p23_i0.png
+  - asset_id: e0ccfe1e-1bb3-478e-b4f0-96527265095d
+    source_id: slides-02-process-1
+    page: '23'
+    obsidian_path: assets/d234c4c9_p23_i1.png
+  - asset_id: f25dbd93-68ff-4b82-b6ca-cd4704d89ccc
+    source_id: slides-02-process-1
+    page: '23'
+  - asset_id: 71f053ba-963f-465c-8294-0ab747e76f82
+    source_id: slides-02-process-1
+    page: '24'
+    obsidian_path: assets/d234c4c9_p24_i0.png
+  - asset_id: 55389e52-7ed0-4b98-8c68-05baaf56f46e
+    source_id: slides-02-process-1
+    page: '24'
+  - asset_id: b1459ea3-6f3a-4a2e-b325-9509c31650ad
+    source_id: slides-02-process-1
+    page: '25'
+    obsidian_path: assets/d234c4c9_p25_i0.png
+  - asset_id: 2f426f45-4a8a-4460-8837-a23f8a38000d
+    source_id: slides-02-process-1
+    page: '25'
+    obsidian_path: assets/d234c4c9_p25_i1.png
+  - asset_id: d9ec7353-5d8a-40ba-b7f5-da885ebe1c54
+    source_id: slides-02-process-1
+    page: '25'
+    obsidian_path: assets/d234c4c9_p25_i2.png
+  - asset_id: f707fd6a-97c8-43da-ace1-e5fb91af44ad
+    source_id: slides-02-process-1
+    page: '25'
+    obsidian_path: assets/d234c4c9_p25_i3.png
+  - asset_id: 2846e4ed-7aa2-4234-afe8-67bcaefec7fc
+    source_id: slides-02-process-1
+    page: '25'
+    obsidian_path: assets/d234c4c9_p25_i4.png
+  - asset_id: 09428227-0f06-4f45-8e86-3036bc958f3d
+    source_id: slides-02-process-1
+    page: '25'
+  - asset_id: c01b0bbf-babc-496e-b417-eed3033d2b40
+    source_id: slides-02-process-1
+    page: '26'
+    obsidian_path: assets/d234c4c9_p26_i0.png
+  - asset_id: 1000cc25-1f30-489d-be7a-29a924ded95e
+    source_id: slides-02-process-1
+    page: '26'
+    obsidian_path: assets/d234c4c9_p26_i1.png
+  - asset_id: 4d35d8ca-f7bb-40e5-a4fb-492b235d735a
+    source_id: slides-02-process-1
+    page: '26'
+    obsidian_path: assets/d234c4c9_p26_i2.png
+  - asset_id: b9b28cf7-dbd4-4ae4-ae34-e20eed3257c5
+    source_id: slides-02-process-1
+    page: '26'
+  - asset_id: 95ca8fcc-5889-4aee-82f9-715342f929de
+    source_id: slides-02-process-1
+    page: '27'
+    obsidian_path: assets/d234c4c9_p27_i0.png
+  - asset_id: c9a87450-191d-4d21-84a9-a5a4c2c95062
+    source_id: slides-02-process-1
+    page: '27'
+- id: incremental-vs-waterfall
+  title: Incremental vs Waterfall Model
+  claims:
+  - id: feedback-comparison
+    statement: Waterfall provides feedback only after development ends, while Incremental
+      involves continuous customer feedback.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '28'
+  - id: phase-execution
+    statement: Waterfall phases are strictly sequential, while Incremental allows
+      parallel phases.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '28'
+  - id: design-coding-scope
+    statement: Waterfall entails detailed design and coding for the whole product;
+      Incremental does it per single build.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '28'
+  - id: team-size
+    statement: Waterfall typically uses a large development team; Incremental uses
+      multiple small teams.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '28'
+  - id: requirements-management
+    statement: Waterfall freezes requirements after specification; Incremental prioritizes
+      them and modifies them easily.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '28'
+  visual_asset_refs:
+  - asset_id: 7f910ba1-2709-4031-9f79-922d0aae61d2
+    source_id: slides-02-process-1
+    page: '28'
+    obsidian_path: assets/d234c4c9_p28_i0.png
+  - asset_id: f113f1e1-727e-4152-af5d-4c9f77259941
+    source_id: slides-02-process-1
+    page: '28'
+- id: spiral-model
+  title: Spiral Model
+  claims:
+  - id: spiral-boehm
+    statement: The full-spiral model was proposed by Boehm in 1988.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '32'
+  visual_asset_refs:
+  - asset_id: f307d147-5855-4b30-b431-7da602a6cf5b
+    source_id: slides-02-process-1
+    page: '29'
+    obsidian_path: assets/d234c4c9_p29_i0.png
+  - asset_id: 11be0f3e-6bce-408f-a724-fff7768a0e5d
+    source_id: slides-02-process-1
+    page: '29'
+    obsidian_path: assets/d234c4c9_p29_i1.png
+  - asset_id: cab0e292-9a83-40bf-b286-a6a9f956e85c
+    source_id: slides-02-process-1
+    page: '29'
+  - asset_id: 7c2bb22e-0aff-4ba4-bb49-b72528a3f52a
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i0.png
+  - asset_id: 987ac713-1fca-4ff2-b4a8-fcd673cb14e5
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i1.png
+  - asset_id: 64c13f65-bc2d-48a9-95a7-f17545592a97
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i2.png
+  - asset_id: f03146b8-1105-4c77-b5b7-6f195e39db21
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i3.png
+  - asset_id: a6e3d78a-84a1-4a90-9bba-3d1942a4843c
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i4.png
+  - asset_id: 2a7d7cb9-74bc-476c-8bcb-e32de61b3a98
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i5.png
+  - asset_id: 2ef19fe6-c88d-4cd9-b980-ea0b7c57496b
+    source_id: slides-02-process-1
+    page: '30'
+    obsidian_path: assets/d234c4c9_p30_i6.png
+  - asset_id: 114f383b-dbae-48cc-b524-665f970c6868
+    source_id: slides-02-process-1
+    page: '30'
+  - asset_id: 02e6fc56-6d15-4986-a401-5b46ebc6da55
+    source_id: slides-02-process-1
+    page: '31'
+    obsidian_path: assets/d234c4c9_p31_i0.png
+  - asset_id: 1da2e813-a46c-4b0b-9585-1470b04300e5
+    source_id: slides-02-process-1
+    page: '31'
+    obsidian_path: assets/d234c4c9_p31_i1.png
+  - asset_id: 18d65be4-2d09-4ec5-926e-327d7b7ab81f
+    source_id: slides-02-process-1
+    page: '31'
+    obsidian_path: assets/d234c4c9_p31_i2.png
+  - asset_id: 922e9903-1df4-491b-adc2-849456874cac
+    source_id: slides-02-process-1
+    page: '31'
+    obsidian_path: assets/d234c4c9_p31_i3.png
+  - asset_id: aabf4752-5a2a-40a9-bafb-971b768fbd06
+    source_id: slides-02-process-1
+    page: '31'
+    obsidian_path: assets/d234c4c9_p31_i4.png
+  - asset_id: ee50b756-171e-4a43-90ff-f403349f7511
+    source_id: slides-02-process-1
+    page: '31'
+  - asset_id: e5cf9c98-5fa9-4432-bbde-ce59ecdb2583
+    source_id: slides-02-process-1
+    page: '32'
+    obsidian_path: assets/d234c4c9_p32_i0.jpeg
+  - asset_id: d158ff79-2b77-48aa-90b7-f68d150c0f2b
+    source_id: slides-02-process-1
+    page: '32'
+    obsidian_path: assets/d234c4c9_p32_i1.png
+  - asset_id: 3b128e4f-6add-4bc5-94d4-d403aa3dc315
+    source_id: slides-02-process-1
+    page: '32'
+    obsidian_path: assets/d234c4c9_p32_i2.png
+  - asset_id: f5e29ce5-c78e-482e-a390-b983d6eb867d
+    source_id: slides-02-process-1
+    page: '32'
+    obsidian_path: assets/d234c4c9_p32_i3.png
+  - asset_id: e1fbb2c7-38a9-45c9-869a-52b78380b4b8
+    source_id: slides-02-process-1
+    page: '32'
+- id: risk-management
+  title: Risk Management
+  claims:
+  - id: risk-definition
+    statement: A risk is a probability that some adverse circumstance will occur.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '33'
+  - id: risk-management-purpose
+    statement: Risk management identifies risks and creates plans to minimize their
+      effect on a project.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '33'
+  - id: risk-categories
+    statement: Risks are categorized into project risks (affecting schedule/resources),
+      product risks (affecting quality/performance), and business risks (affecting
+      the organisation).
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '33'
+  - id: risk-management-process
+    statement: 'The process involves four steps: Risk identification, Risk analysis,
+      Risk planning, and Risk monitoring.'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '35'
+  visual_asset_refs:
+  - asset_id: ac73dadc-81de-49ec-a605-b7fe55b0c789
+    source_id: slides-02-process-1
+    page: '33'
+    obsidian_path: assets/d234c4c9_p33_i0.png
+  - asset_id: 24676888-d46a-4cd5-8146-e86c7523ad78
+    source_id: slides-02-process-1
+    page: '33'
+  - asset_id: 6339c83b-c265-4835-9cf9-cb76ea470f67
+    source_id: slides-02-process-1
+    page: '34'
+    obsidian_path: assets/d234c4c9_p34_i0.png
+  - asset_id: f94b49b6-957e-4f19-9f17-c57dbd535c2e
+    source_id: slides-02-process-1
+    page: '34'
+  - asset_id: 5e6f2c04-b12e-4c48-8f48-ff9a0ea103e3
+    source_id: slides-02-process-1
+    page: '35'
+    obsidian_path: assets/d234c4c9_p35_i0.png
+  - asset_id: 67366739-a07e-4926-b5ef-31bd3651f5dc
+    source_id: slides-02-process-1
+    page: '35'
+  - asset_id: 5caa78c0-1741-40f2-b6e0-ea46be8ec404
+    source_id: slides-02-process-1
+    page: '36'
+    obsidian_path: assets/d234c4c9_p36_i0.png
+  - asset_id: d545cc23-be93-4ed1-b80b-50b6a9837624
+    source_id: slides-02-process-1
+    page: '36'
+    obsidian_path: assets/d234c4c9_p36_i1.png
+  - asset_id: 0bb5c255-68e3-49d5-b2db-a2ec5a488f98
+    source_id: slides-02-process-1
+    page: '36'
+- id: risk-identification
+  title: Risk Identification
+  claims:
+  - id: risk-types
+    statement: Risk types include Technology risks, People risks, Organisational risks,
+      Tools risks, Requirements risks, and Estimation risks.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '37'
+  relationships:
+  - type: part_of
+    target_semantic_unit: risk-management
+    description: Risk identification is the first step of the risk management process.
+    provenance:
+    - source_id: slides-02-process-1
+      page: '35'
+  visual_asset_refs:
+  - asset_id: b87780e0-420a-45e6-8189-a382e74798d9
+    source_id: slides-02-process-1
+    page: '37'
+    obsidian_path: assets/d234c4c9_p37_i0.png
+  - asset_id: 4354c427-3776-4864-84b6-afd3f2133947
+    source_id: slides-02-process-1
+    page: '37'
+    obsidian_path: assets/d234c4c9_p37_i1.png
+  - asset_id: 34fd7dea-c8a7-44ad-83a6-5bb8bee53a5d
+    source_id: slides-02-process-1
+    page: '37'
+    obsidian_path: assets/d234c4c9_p37_i2.png
+  - asset_id: 36b8917d-6bf4-442c-8a7e-a4a271c13093
+    source_id: slides-02-process-1
+    page: '37'
+  - asset_id: b323ef47-aa4d-4d6c-acf0-bd0061fc822b
+    source_id: slides-02-process-1
+    page: '38'
+    obsidian_path: assets/d234c4c9_p38_i0.png
+  - asset_id: 30dc6f3e-22af-4f4e-a98d-bb6559f87981
+    source_id: slides-02-process-1
+    page: '38'
+- id: risk-analysis
+  title: Risk Analysis
+  claims:
+  - id: risk-probability
+    statement: Risk probability is assessed as very low (<10%), low (10-25%), moderate
+      (25-50%), high (50-75%), or very high (>75%).
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '39'
+  - id: risk-effects
+    statement: Risk effects can be catastrophic, serious, tolerable, or insignificant.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '39'
+  - id: risk-ranking
+    statement: Top-ten risks are identified by considering all catastrophic risks
+      and serious risks with more than moderate probability, and then ranked.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '41'
+  relationships:
+  - type: part_of
+    target_semantic_unit: risk-management
+    description: Risk analysis is the second step of the risk management process.
+    provenance:
+    - source_id: slides-02-process-1
+      page: '35'
+  visual_asset_refs:
+  - asset_id: bdf10705-0c2c-48c8-a3ca-abca44508bd0
+    source_id: slides-02-process-1
+    page: '39'
+    obsidian_path: assets/d234c4c9_p39_i0.png
+  - asset_id: 3a67d87c-fc20-470b-b5cb-567e4c6a3f87
+    source_id: slides-02-process-1
+    page: '39'
+    obsidian_path: assets/d234c4c9_p39_i1.png
+  - asset_id: 70043696-8dac-4660-a709-c6aaa99ef2de
+    source_id: slides-02-process-1
+    page: '39'
+  - asset_id: f82c0039-5265-4599-ba5c-e82884898a65
+    source_id: slides-02-process-1
+    page: '40'
+    obsidian_path: assets/d234c4c9_p40_i0.png
+  - asset_id: 9ba95866-c83a-4d85-b83a-b0f0dfb32f7d
+    source_id: slides-02-process-1
+    page: '40'
+    obsidian_path: assets/d234c4c9_p40_i1.png
+  - asset_id: a1e86e07-ca21-48f4-aa87-f105d6a8ee88
+    source_id: slides-02-process-1
+    page: '40'
+  - asset_id: 8694781d-5be2-448b-b7c1-e043ec65bca2
+    source_id: slides-02-process-1
+    page: '41'
+    obsidian_path: assets/d234c4c9_p41_i0.png
+  - asset_id: 17a0fcfc-ab7c-42f4-bb1c-16677356db87
+    source_id: slides-02-process-1
+    page: '41'
+    obsidian_path: assets/d234c4c9_p41_i1.png
+  - asset_id: c6cd9ad6-05da-4567-9cb7-82001b07e356
+    source_id: slides-02-process-1
+    page: '41'
+- id: risk-planning
+  title: Risk Planning
+  claims:
+  - id: planning-strategies
+    statement: 'Risk planning involves developing strategies to manage risk: avoidance
+      (reduce probability), minimisation (reduce impact), and contingency plans (deal
+      with the risk if it arises).'
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '42'
+  relationships:
+  - type: part_of
+    target_semantic_unit: risk-management
+    description: Risk planning is the third step of the risk management process.
+    provenance:
+    - source_id: slides-02-process-1
+      page: '35'
+  visual_asset_refs:
+  - asset_id: 2c4f7047-a505-423f-8e48-845c11890e55
+    source_id: slides-02-process-1
+    page: '42'
+    obsidian_path: assets/d234c4c9_p42_i0.png
+  - asset_id: 320ab460-a8af-4156-87d8-0af6a8a8313f
+    source_id: slides-02-process-1
+    page: '42'
+  - asset_id: 25a6560e-d04b-40c2-81a2-282f78a50a6d
+    source_id: slides-02-process-1
+    page: '43'
+    obsidian_path: assets/d234c4c9_p43_i0.png
+  - asset_id: 9c494e53-8f1e-41bc-9282-126e652f543a
+    source_id: slides-02-process-1
+    page: '43'
+- id: risk-monitoring
+  title: Risk Monitoring
+  claims:
+  - id: monitoring-activity
+    statement: Identified risks are regularly assessed to track changes in probability
+      and effects.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '44'
+  - id: monitoring-indicators
+    statement: Assessment uses risk factors or potential indicators for different
+      risk types, and risks are discussed at management progress meetings.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '44'
+    - source_id: slides-02-process-1
+      page: '45'
+  relationships:
+  - type: part_of
+    target_semantic_unit: risk-management
+    description: Risk monitoring is the fourth step of the risk management process.
+    provenance:
+    - source_id: slides-02-process-1
+      page: '35'
+  visual_asset_refs:
+  - asset_id: 58f3c7ad-686a-4082-9ed3-d0b12fa19d18
+    source_id: slides-02-process-1
+    page: '44'
+    obsidian_path: assets/d234c4c9_p44_i0.png
+  - asset_id: b43aff5d-f760-4a05-bb93-3f03a34ae36c
+    source_id: slides-02-process-1
+    page: '44'
+    obsidian_path: assets/d234c4c9_p44_i1.png
+  - asset_id: 7c46518f-ec3d-42a7-888d-fd7f99519f4d
+    source_id: slides-02-process-1
+    page: '44'
+  - asset_id: 0990409d-6a49-4d89-94f1-1e4733010370
+    source_id: slides-02-process-1
+    page: '45'
+    obsidian_path: assets/d234c4c9_p45_i0.png
+  - asset_id: 0d929f34-fffc-4113-9495-4b9b0b5c70ef
+    source_id: slides-02-process-1
+    page: '45'
+    obsidian_path: assets/d234c4c9_p45_i1.png
+  - asset_id: c0ac0229-7608-41d0-a3c1-2470fd9e7aa1
+    source_id: slides-02-process-1
+    page: '45'
+    obsidian_path: assets/d234c4c9_p45_i2.png
+  - asset_id: aa3f4b67-f515-49d8-8ad8-b3a3eddc880c
+    source_id: slides-02-process-1
+    page: '45'
+- id: other-process-models
+  title: Other Process Models
+  claims:
+  - id: object-oriented-model
+    statement: The Object-Oriented model is an alternative process model.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '46'
+  - id: concurrent-engineering-model
+    statement: Simultaneous or concurrent engineering reduces development time and
+      costs by making development phases coexist instead of being sequential.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '47'
+  - id: formal-methods-model
+    statement: Models based on formal methods use mathematical software specification
+      to eliminate ambiguity and facilitate verification. Cleanroom Software Engineering
+      (1987) is an example.
+    evidence_level: primary
+    status: primary_supported
+    provenance:
+    - source_id: slides-02-process-1
+      page: '47'
+  visual_asset_refs:
+  - asset_id: eab79d43-070a-4bb5-ae77-791b4802e468
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i0.png
+  - asset_id: 693b1dc2-68ee-4a61-913d-9cd0189fdaf3
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i1.png
+  - asset_id: 3f6d2aee-5a13-474e-b6d9-4c57257fd4f4
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i2.png
+  - asset_id: fc7d8a15-20b6-4069-8c30-f9766354f384
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i3.png
+  - asset_id: 375de843-993c-4944-84f9-4b9ef026d75a
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i4.png
+  - asset_id: 0d18a3d7-2c31-4c13-a86a-80e1956a6a07
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i5.png
+  - asset_id: 46e0fc14-3471-4fbf-915c-31f39499277e
+    source_id: slides-02-process-1
+    page: '46'
+    obsidian_path: assets/d234c4c9_p46_i6.jpeg
+  - asset_id: cc99558b-5b54-46b3-a5c1-bd85853e9986
+    source_id: slides-02-process-1
+    page: '46'
+  - asset_id: 457a4df2-7a85-454f-b894-441d14705842
+    source_id: slides-02-process-1
+    page: '47'
+    obsidian_path: assets/d234c4c9_p47_i0.png
+  - asset_id: abcd54ef-8ddd-412e-ab81-6a6648edef4d
+    source_id: slides-02-process-1
+    page: '47'
+conflicts: []
+ambiguities: []
+gaps: []
+discarded_evidence_summary:
+  irrelevant:
+    count: 0
+  duplicate:
+    count: 0
+  malformed_or_unusable:
+    count: 0

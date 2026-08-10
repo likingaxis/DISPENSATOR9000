@@ -35,8 +35,6 @@ chapters:
         official_sources:
           - source_id: slides-01-intro
             page_ranges: [[24, 38]]
-        secondary_sources: ["theory-summary", "andrea-summary", "isw1-summary"]
-
   # ---------------------------------------------------------
   # CAPITOLO 2
   # ---------------------------------------------------------
