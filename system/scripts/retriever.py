@@ -205,13 +205,44 @@ def generate_topic_context(topic_id: str):
     
     # 1. Editorial Backbone
     backbone_secs = []
+    topic_block_ids = set()
+    
     if topic_id in backbone_map.get('topics', {}):
         sec_ids = backbone_map['topics'][topic_id].get('backbone_sections', [])
         for s_id in sec_ids:
             for sec in parsed_backbone.get('sections', []):
                 if sec['section_id'] == s_id:
                     backbone_secs.append(sec)
+                    for block in sec.get('blocks', []):
+                        topic_block_ids.add(block['block_id'])
                     break
+                    
+    # Patch 10A: Curated Backbone Images as Candidates
+    for vb in parsed_backbone.get('visual_bindings', []):
+        after_block = vb.get('original_placement', {}).get('after_block')
+        before_block = vb.get('original_placement', {}).get('before_block')
+        
+        if (after_block and after_block in topic_block_ids) or (before_block and before_block in topic_block_ids):
+            obsidian_path = vb.get('obsidian_path')
+            # Check if file exists
+            if obsidian_path and os.path.exists(os.path.join(COURSE_DIR, obsidian_path)):
+                candidate = {
+                    'asset_id': vb.get('asset_id'),
+                    'obsidian_path': obsidian_path,
+                    'asset_type': 'curated_backbone_image',
+                    'provenance': {
+                        'source_type': 'editorial_backbone',
+                        'source_id': 'notes-90'
+                    },
+                    'curation': {
+                        'explicitly_embedded': True
+                    },
+                    'original_binding': vb.get('original_placement', {})
+                }
+                
+                # Try to associate with a concept if we had that mapping logic, 
+                # but for now we just append to the topic's global candidate pool
+                assets.append(candidate)
                     
     # 2. Split Secondary Evidence
     lecture_expansion = [s for s in secondary if s['source_id'] == 'theory-summary']

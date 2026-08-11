@@ -5,10 +5,11 @@ import yaml
 import shutil
 import sqlite3
 import re
-from datetime import datetime
 import uuid
 import hashlib
+from datetime import datetime
 from PIL import Image
+from completeness_validator import validate_completeness
 
 # Usa percorsi assoluti basati sulla cartella corrente per sicurezza
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -65,8 +66,8 @@ def validate_reconciler_yaml(yaml_path):
     if isinstance(data, tuple): return False, data[1] # error
     if not isinstance(data, dict): return False, "Root must be a dictionary."
     if 'topic_id' not in data: return False, "Missing 'topic_id'."
-    if 'reconciled_concepts' not in data:
-        return False, "Missing 'reconciled_concepts'."
+    if 'semantic_units' not in data:
+        return False, "Missing 'semantic_units'."
     return True, "Valid"
 
 def resolve_assets(yaml_path):
@@ -404,6 +405,35 @@ def prep_writer(topic_id, run_id):
         
     print(f"[{run_id}] prep-writer completed! Input saved to: {writer_input_path}")
 
+def prep_completeness(topic_id, run_id):
+    run_dir = os.path.join(RUNS_DIR, topic_id, run_id)
+    if not os.path.exists(run_dir):
+        print(f"[ERROR] Run directory not found: {run_dir}")
+        sys.exit(1)
+        
+    reconciler_output_path = os.path.join(run_dir, "reconciler-output.yaml")
+    writer_output_path = os.path.join(DRAFTS_DIR, f"{topic_id}.md")
+    
+    if not os.path.exists(reconciler_output_path) or not os.path.exists(writer_output_path):
+        print(f"[ERROR] Missing reconciler output or writer output for {topic_id}")
+        sys.exit(1)
+        
+    prompt_path = os.path.join(PROMPTS_DIR, "completeness-reviewer.md")
+    with open(prompt_path, 'r', encoding='utf-8') as f: prompt = f.read()
+    with open(reconciler_output_path, 'r', encoding='utf-8') as f: rec_content = f.read()
+    with open(writer_output_path, 'r', encoding='utf-8') as f: writer_content = f.read()
+    
+    comp_input_path = os.path.join(run_dir, "completeness-input.md")
+    with open(comp_input_path, 'w', encoding='utf-8') as f:
+        f.write(prompt)
+        f.write("\n\n---\n\n# RUNTIME INPUT: RECONCILER OUTPUT\n\n```yaml\n")
+        f.write(rec_content)
+        f.write("\n```\n\n---\n\n# RUNTIME INPUT: WRITER OUTPUT\n\n")
+        f.write(writer_content)
+        
+    print(f"[{run_id}] prep-completeness completed! Input saved to: {comp_input_path}")
+    print(f"Please run the Completeness Reviewer LLM and save the output to completeness-output.yaml in the run directory.")
+
 def build_chapter(chapter_id):
     topics = get_chapter_topics(chapter_id)
     if not topics:
@@ -420,6 +450,26 @@ def build_chapter(chapter_id):
     for d in [img_dir, rev_dir, mem_dir]:
         os.makedirs(d, exist_ok=True)
     os.makedirs(CHAPTER_DRAFTS_DIR, exist_ok=True)
+
+    # 0. Deterministic Editorial Completeness Validation
+    for topic_id in topics:
+        topic_runs_dir = os.path.join(RUNS_DIR, topic_id)
+        if not os.path.exists(topic_runs_dir): continue
+        latest_run = sorted(os.listdir(topic_runs_dir))[-1]
+        
+        reconciler_yaml = os.path.join(topic_runs_dir, latest_run, "reconciler-output.yaml")
+        completeness_yaml = os.path.join(topic_runs_dir, latest_run, "completeness-output.yaml")
+        
+        if not os.path.exists(reconciler_yaml) or not os.path.exists(completeness_yaml):
+            print(f"[ERROR] Chapter promotion BLOCKED: Missing completeness validation for topic {topic_id}")
+            return
+            
+        is_valid, msg = validate_completeness(reconciler_yaml, completeness_yaml)
+        if not is_valid:
+            print(f"[ERROR] Chapter promotion BLOCKED due to Completeness Validation failure on topic {topic_id}: {msg}")
+            return
+    
+    print("[PASS] Editorial Completeness Validation successful for all topics.")
 
     # 1. Slide-Centric Asset Selection
     conn = sqlite3.connect(DB_PATH)
@@ -795,19 +845,25 @@ def update_memory(chapter_id):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("command", choices=['prep-reconciler', 'prep-writer', 'build-chapter', 'approve-chapter', 'update-memory'])
+    parser.add_argument("command", choices=['prep-reconciler', 'prep-writer', 'prep-completeness', 'build-chapter', 'approve-chapter', 'update-memory'])
     parser.add_argument("target_id")
-    parser.add_argument("run_id", nargs="?", help="Required for prep-writer")
+    parser.add_argument("run_id", nargs="?", help="Required for prep-writer and prep-completeness")
+    
     args = parser.parse_args()
     
-    if args.command == 'prep-reconciler':
+    if args.command == "prep-reconciler":
         prep_reconciler(args.target_id)
-    elif args.command == 'prep-writer':
+    elif args.command == "prep-writer":
         if not args.run_id:
             print("ERROR: run_id is required for prep-writer")
             sys.exit(1)
         prep_writer(args.target_id, args.run_id)
-    elif args.command == 'build-chapter':
+    elif args.command == "prep-completeness":
+        if not args.run_id:
+            print("ERROR: run_id is required for prep-completeness")
+            sys.exit(1)
+        prep_completeness(args.target_id, args.run_id)
+    elif args.command == "build-chapter":
         build_chapter(args.target_id)
     elif args.command == 'approve-chapter':
         approve_chapter(args.target_id)

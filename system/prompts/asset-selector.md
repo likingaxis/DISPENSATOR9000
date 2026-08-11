@@ -97,7 +97,7 @@ Ogni gruppo può contenere:
 * `slide_title`;
 * `slide_text`;
 * semantic units / concepts associati alla slide;
-* `candidate_assets`.
+* `candidate_assets`. Tra questi potrai trovare `asset_type: embedded_image` (dalle slide), `page_render` (intere pagine), `semantic_crop` e ora **`curated_backbone_image`** (dal backbone editoriale).
 
 Per ogni candidate asset possono essere disponibili:
 
@@ -119,7 +119,20 @@ Il render della slide serve per comprendere la composizione originale.
 È principalmente un asset di contesto usato per comprendere la composizione visuale completa della slide.
 NON preferirlo come asset finale quando esiste un `embedded_image` che rappresenta il diagramma in modo completo.
 
-Se il diagramma utile esiste solamente all'interno del `page_render` e non è disponibile come asset autonomo, considera il concept `required` ma `uncovered_no_suitable_asset`. (Questo caso verrà risolto successivamente dalla fase di semantic crop).
+## The `page_render` Fallback
+
+Se nessun `embedded_image` è semanticamente valido e non c'è una `curated_backbone_image`, ma l'immagine di un concetto esiste fusa nella pagina intera (e.g., diagramma non estraibile nativamente), assegna al concetto il `coverage_status` di `uncovered_no_suitable_asset` e segnala il `page_render` come riferimento per la fase successiva.
+
+---
+
+## 4b. Regola di Selezione: Backbone vs Slide (Patch 10A)
+
+Le immagini provenienti dal backbone 90p (`asset_type: curated_backbone_image`) sono considerate **HIGH-PRIORITY CURATED CANDIDATES**.
+
+Se per lo stesso concetto didattico hai a disposizione sia una `curated_backbone_image` sia un `embedded_image` estratto dalle slide:
+1. **Preferenza per completezza/leggibilità**: Scegli sempre l'asset più completo, leggibile e non tagliato. 
+2. **Preferenza per il backbone a parità di qualità**: Se l'asset del backbone e quello della slide sono equivalenti o visivamente identici, **preferisci sempre il `curated_backbone_image`**.
+3. **Divieto di duplicazione**: NON selezionare mai entrambi per rappresentare lo stesso visual concept. Scegline uno solo e scarta l'altro marcandolo come duplicato.
 
 ---
 
