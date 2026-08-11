@@ -92,7 +92,8 @@ def ingest_pdfs(conn):
                         if not text_content: 
                             continue
                         
-                        frag_id = str(uuid.uuid4())
+                        frag_key = f"{source_id}:{page_num}:block:{block_no}:{block_order}"
+                        frag_id = str(uuid.uuid5(uuid.NAMESPACE_URL, frag_key))
                         block_id = f"b{block_no}"
                         cursor.execute('''
                             INSERT INTO fragments (id, source_id, source_file, page_num, block_id, content, bbox, block_order)
@@ -108,7 +109,8 @@ def ingest_pdfs(conn):
                         image_bytes = base_image["image"]
                         image_ext = base_image["ext"]
                         
-                        asset_id = str(uuid.uuid4())
+                        embedded_key = f"{source_id}:{page_num}:embedded:{img_index}"
+                        asset_id = str(uuid.uuid5(uuid.NAMESPACE_URL, embedded_key))
                         asset_filename = f"{source_id}_p{page_num}_i{img_index}.{image_ext}"
                         asset_path = os.path.join(ASSETS_DIR, asset_filename)
                         
@@ -135,7 +137,8 @@ def ingest_pdfs(conn):
                     bbox = f"{rect.x0:.1f},{rect.y0:.1f},{rect.x1:.1f},{rect.y1:.1f}"
                     try:
                         pix = page.get_pixmap(dpi=150)
-                        asset_id = str(uuid.uuid4())
+                        render_key = f"{source_id}:{page_num}:page_render"
+                        asset_id = str(uuid.uuid5(uuid.NAMESPACE_URL, render_key))
                         asset_filename = f"{source_id}_p{page_num}_render.png"
                         asset_path = os.path.join(ASSETS_DIR, asset_filename)
                         

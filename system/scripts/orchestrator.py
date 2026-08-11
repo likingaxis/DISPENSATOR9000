@@ -6,6 +6,9 @@ import shutil
 import sqlite3
 import re
 from datetime import datetime
+import uuid
+import hashlib
+from PIL import Image
 
 # Usa percorsi assoluti basati sulla cartella corrente per sicurezza
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -21,20 +24,24 @@ DB_PATH = os.path.join(COURSE_DIR, ".derived", "fragments.db")
 sys.path.append(os.path.dirname(__file__))
 import retriever
 
-def wait_for_user(step_name, input_file, output_file, extra_message=""):
-    print(f"\n{'='*70}")
-    print(f"AZIONE RICHIESTA: {step_name}")
-    print(f"{'='*70}")
+def wait_for_user(phase_name, input_path, output_path, extra_message=""):
+    print("\n" + "="*70)
+    print(f"AZIONE RICHIESTA: {phase_name}")
+    print("="*70)
     if extra_message:
         print(extra_message)
-    print(f"1. APRI questo file e COPIA tutto il suo contenuto:")
-    print(f"   -> {input_file}")
-    print(f"2. INCOLLA il testo nella chat del tuo LLM (es. Opus/Claude).")
-    print(f"3. COPIA la risposta generata dall'LLM.")
-    print(f"4. INCOLLA e SALVA la risposta in questo file:")
-    print(f"   -> {output_file}")
-    print(f"{'-'*70}")
-    input("PREMI INVIO qui sotto *SOLO DOPO* aver salvato il file...")
+    print(f"1. APRI questo file e COPIA tutto il suo contenuto:\n   -> {input_path}")
+    print("2. INCOLLA il testo nella chat del tuo LLM (es. Opus/Claude).")
+    print("3. COPIA la risposta generata dall'LLM.")
+    print(f"4. INCOLLA e SALVA la risposta in questo file:\n   -> {output_path}")
+    print("-" * 70)
+    import time
+    print(f"Polling for {output_path} to be populated...")
+    while True:
+        if os.path.exists(output_path) and os.path.getsize(output_path) > 0:
+            print("File populated! Continuing...")
+            break
+        time.sleep(2)
 
 def clean_yaml_file(yaml_path):
     try:
@@ -127,14 +134,12 @@ def compile_visual_coverage(selector_output_path, visual_coverage_path):
                             'visual_id': f"visual-{vc.get('concept_id', 'unknown')}",
                             'concept': {
                                 'id': vc.get('concept_id'),
-                                'label': vc.get('concept_label') or vc.get('concept_id')
+                                'label': vc.get('label') or vc.get('concept_id')
                             },
                             'asset': {
                                 'obsidian_path': pref.get('obsidian_path')
                             },
-                            'placement': {
-                                'width': pref.get('width') or 500
-                            }
+                            'placement': vc.get('placement') or {'width': 500}
                         })
                     else:
                         uncovered_required.append(vc)
@@ -144,11 +149,12 @@ def compile_visual_coverage(selector_output_path, visual_coverage_path):
                             'visual_id': f"visual-{vc.get('concept_id', 'unknown')}",
                             'concept': {
                                 'id': vc.get('concept_id'),
-                                'label': vc.get('concept_label') or vc.get('concept_id')
+                                'label': vc.get('label') or vc.get('concept_id')
                             },
                             'asset': {
                                 'obsidian_path': pref.get('obsidian_path')
-                            }
+                            },
+                            'placement': vc.get('placement') or {'width': 500}
                         })
     else:
         # Fallback se il modello ha già usato il formato corretto
@@ -280,6 +286,7 @@ def validate_visual_coverage(reviewer_output_path, visual_coverage_path, sel_dir
         status = "FAIL"
         errors.append(f"Unexpected / rejected assets found in markdown: {unexpected_assets}")
     if width_mismatches:
+        status = "FAIL"
         errors.append(f"Width mismatches: {width_mismatches}")
     if placement_errors:
         status = "FAIL"
@@ -504,16 +511,164 @@ def build_chapter(chapter_id):
     extra_msg = f"IMPORTANTE: Allega tutte le immagini contenute in:\n   -> {img_dir}\ninsieme al file selector-input.md!"
     wait_for_user("ASSET SELECTOR & COVERAGE MAPPER (Fase 1/2)", selector_input_path, selector_output_path, extra_message=extra_msg)
     
-    # Save contract to visual-coverage.yaml
+# ---------------- PATCH 6: SEMANTIC CROP LOOP ----------------
     visual_coverage_path = os.path.join(sel_dir, "visual-coverage.yaml")
     if os.path.exists(selector_output_path):
         has_uncovered = compile_visual_coverage(selector_output_path, visual_coverage_path)
+        
         if has_uncovered:
-            print(f"\n[ERROR] Pipeline blocked (BLOCKED_UPSTREAM): uncovered required visual concept(s) found.")
-            return
+            print("\n[INFO] Found uncovered required visual concepts. Initiating Semantic Cropper (Patch 6)...")
+            # Parse selector output to find what to crop
+            selector_data = clean_yaml_file(selector_output_path)
+            crop_requests = []
+            if isinstance(selector_data, dict) and 'slides' in selector_data:
+                for topic in selector_data['slides']:
+                    for vc in topic.get('visual_concepts', []):
+                        if vc.get('requirement') == 'required' and vc.get('coverage_status') == 'uncovered_no_suitable_asset':
+                            # Find if page_render exists for this slide
+                            src = topic.get('source_id')
+                            pg = topic.get('page')
+                            key = (topic.get('topic_id'), src, str(pg)) # need to match slides_map key type
+                            page_render_asset = None
+                            for slide in slides_list:
+                                if slide['source_id'] == src and str(slide['page']) == str(pg):
+                                    for a in slide['candidate_assets']:
+                                        if a['asset_type'] == 'page_render':
+                                            page_render_asset = a
+                                            break
+                            if page_render_asset:
+                                crop_requests.append({
+                                    'concept_id': vc.get('concept_id'),
+                                    'label': vc.get('label', ''),
+                                    'source_id': src,
+                                    'page': pg,
+                                    'page_render_asset_id': page_render_asset['asset_id'],
+                                    'page_render_path': page_render_asset['obsidian_path']
+                                })
+            
+            if crop_requests:
+                cropper_input_path = os.path.join(sel_dir, "cropper-input.md")
+                cropper_output_path = os.path.join(sel_dir, "cropper-output.yaml")
+                
+                cropper_prompt_path = os.path.join(PROMPTS_DIR, "semantic-cropper.md")
+                with open(cropper_prompt_path, 'r', encoding='utf-8') as f: cropper_prompt = f.read()
+                
+                with open(cropper_input_path, 'w', encoding='utf-8') as f:
+                    f.write(cropper_prompt)
+                    f.write("\n\n---\n\n# RUNTIME INPUT: CROP REQUESTS\n\n```yaml\n")
+                    f.write(yaml.dump({'requests': crop_requests}, allow_unicode=True, sort_keys=False))
+                    f.write("\n```\n")
+                
+                with open(cropper_output_path, 'w', encoding='utf-8') as f: pass
+                
+                wait_for_user("SEMANTIC CROPPER (Fase 1.5)", cropper_input_path, cropper_output_path, extra_message="Esegui il Semantic Cropper per estrarre i diagrammi dai page_render.")
+                
+                if os.path.exists(cropper_output_path):
+                    crop_data = clean_yaml_file(cropper_output_path)
+                    if isinstance(crop_data, dict) and 'crop_responses' in crop_data:
+                        conn = sqlite3.connect(DB_PATH)
+                        cursor = conn.cursor()
+                        for resp in crop_data['crop_responses']:
+                            if resp.get('status') == 'found':
+                                bbox = resp.get('bbox', {})
+                                x0, y0, x1, y1 = bbox.get('x0'), bbox.get('y0'), bbox.get('x1'), bbox.get('y1')
+                                if all(v is not None for v in [x0, y0, x1, y1]) and 0 <= float(x0) < float(x1) <= 1 and 0 <= float(y0) < float(y1) <= 1:
+                                    x0, y0, x1, y1 = float(x0), float(y0), float(x1), float(y1)
+                                    # avoid full page crop
+                                    if (x1 - x0) > 0.95 and (y1 - y0) > 0.95:
+                                        print(f"Crop for {resp['concept_id']} rejected: too large (almost full page).")
+                                        continue
+                                    
+                                    src_id = resp['source_id']
+                                    pg = resp['page']
+                                    cid = resp['concept_id']
+                                    
+                                    # find original image path
+                                    orig_img_path = None
+                                    for req in crop_requests:
+                                        if req['source_id'] == src_id and str(req['page']) == str(pg) and req['concept_id'] == cid:
+                                            orig_img_path = req['page_render_path']
+                                            break
+                                    
+                                    if orig_img_path:
+                                        full_img_path = os.path.join(COURSE_DIR, orig_img_path)
+                                        if os.path.exists(full_img_path):
+                                            try:
+                                                with Image.open(full_img_path) as img:
+                                                    w, h = img.width, img.height
+                                                    left = int(x0 * w)
+                                                    upper = int(y0 * h)
+                                                    right = int(x1 * w)
+                                                    lower = int(y1 * h)
+                                                    
+                                                    if right - left < 10 or lower - upper < 10:
+                                                        print(f"Crop for {cid} rejected: too small.")
+                                                        continue
+                                                        
+                                                    cropped_img = img.crop((left, upper, right, lower))
+                                                    new_filename = f"{src_id}_p{pg}_crop_{cid}.png"
+                                                    new_path = os.path.join(COURSE_DIR, "assets", new_filename)
+                                                    cropped_img.save(new_path)
+                                                    
+                                                    # Insert into DB
+                                                    crop_key = f"{src_id}:{pg}:{cid}:{x0},{y0},{x1},{y1}"
+                                                    asset_id = str(uuid.uuid5(uuid.NAMESPACE_URL, crop_key))
+                                                    obsidian_path = f"assets/{new_filename}"
+                                                    
+                                                    cursor.execute('''
+                                                        INSERT OR IGNORE INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type, width, height, aspect_ratio, image_hash, classification, excluded_from_candidates)
+                                                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                                                    ''', (asset_id, src_id, "", int(pg), new_filename, f"{left},{upper},{right},{lower}", "semantic_crop", cropped_img.width, cropped_img.height, cropped_img.width/cropped_img.height if cropped_img.height > 0 else 0, "", "uncertain", 0))
+                                                    
+                                                    # Update slides_list to include the new candidate!
+                                                    new_meta = {
+                                                        'asset_id': asset_id,
+                                                        'obsidian_path': obsidian_path,
+                                                        'asset_type': 'semantic_crop',
+                                                        'width': cropped_img.width,
+                                                        'height': cropped_img.height,
+                                                        'aspect_ratio': cropped_img.width/cropped_img.height if cropped_img.height > 0 else 0,
+                                                        'bbox': f"{left},{upper},{right},{lower}",
+                                                        'classification': 'uncertain'
+                                                    }
+                                                    for slide in slides_list:
+                                                        if slide['source_id'] == src_id and str(slide['page']) == str(pg):
+                                                            slide['candidate_assets'].append(new_meta)
+                                                            break
+                                                            
+                                                    # Copy to img_dir so LLM can see it
+                                                    shutil.copy2(new_path, os.path.join(img_dir, new_filename))
+                                                    print(f"Successfully cropped {cid} from {orig_img_path}")
+                                            except Exception as e:
+                                                print(f"Error cropping {orig_img_path}: {e}")
+                        conn.commit()
+                        conn.close()
+                        
+                        # Phase 1 Recovery Pass!
+                        with open(candidates_yaml_path, 'w', encoding='utf-8') as f:
+                            yaml.dump({'slides': slides_list}, f, allow_unicode=True, sort_keys=False)
+                        with open(selector_input_path, 'w', encoding='utf-8') as f:
+                            f.write(selector_prompt)
+                            f.write("\n\n---\n\n# RUNTIME INPUT: SLIDES AND CANDIDATE ASSETS (RECOVERY PASS)\n\n```yaml\n")
+                            f.write(yaml.dump({'slides': slides_list}, allow_unicode=True, sort_keys=False))
+                            f.write("\n```\n")
+                        
+                        with open(selector_output_path, 'w', encoding='utf-8') as f: pass
+                        
+                        extra_msg = f"IMPORTANTE: Allega tutte le immagini contenute in:\n   -> {img_dir}\ninsieme al file selector-input.md (RECOVERY PASS)!"
+                        wait_for_user("ASSET SELECTOR (Recovery Pass 2/2)", selector_input_path, selector_output_path, extra_message=extra_msg)
+                        
+                        # Final check
+                        has_uncovered = compile_visual_coverage(selector_output_path, visual_coverage_path)
+                        
+            if has_uncovered:
+                print(f"\n[ERROR] Pipeline blocked (BLOCKED_UPSTREAM): uncovered required visual concept(s) found even after Semantic Cropper.")
+                sys.exit(1)
 
     with open(visual_coverage_path, 'r', encoding='utf-8') as f:
         visual_coverage_yaml = f.read()
+    # ---------------- END PATCH 6 ----------------
+
 
     # 2. Chapter Reviewer (Assembler)
     reviewer_prompt_path = os.path.join(PROMPTS_DIR, "chapter-reviewer.md")

@@ -112,11 +112,14 @@ Per ogni candidate asset possono essere disponibili:
 
 Riceverai inoltre le immagini candidate come input multimodale.
 
-Quando disponibile, potresti ricevere anche un render completo della slide come **contesto visuale**.
+Quando disponibile, potresti ricevere anche un render completo della slide come **contesto visuale** (asset_type: `page_render`).
 
 Il render della slide serve per comprendere la composizione originale.
 
-Non considerarlo automaticamente un asset finale se non compare esplicitamente tra i `candidate_assets`.
+È principalmente un asset di contesto usato per comprendere la composizione visuale completa della slide.
+NON preferirlo come asset finale quando esiste un `embedded_image` che rappresenta il diagramma in modo completo.
+
+Se il diagramma utile esiste solamente all'interno del `page_render` e non è disponibile come asset autonomo, considera il concept `required` ma `uncovered_no_suitable_asset`. (Questo caso verrà risolto successivamente dalla fase di semantic crop).
 
 ---
 
@@ -171,8 +174,8 @@ Classifica ogni visual concept come:
 * `not_needed`
 
 ## `required`
-
-Usalo quando la rappresentazione visuale aggiunge informazione strutturale significativa e nella slide è disponibile un asset adatto.
+Un concetto è `required` perché **semanticamente richiede una rappresentazione visuale**.
+Usalo quando la rappresentazione visuale aggiunge informazione strutturale significativa. Poi deciderai separatamente tramite il `coverage_status` se il concetto è `covered` (se c'è un asset adatto) o `uncovered_no_suitable_asset`.
 
 Tipicamente:
 
