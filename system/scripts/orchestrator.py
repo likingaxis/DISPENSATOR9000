@@ -65,7 +65,8 @@ def validate_reconciler_yaml(yaml_path):
     if isinstance(data, tuple): return False, data[1] # error
     if not isinstance(data, dict): return False, "Root must be a dictionary."
     if 'topic_id' not in data: return False, "Missing 'topic_id'."
-    if 'semantic_units' not in data: return False, "Missing 'semantic_units'."
+    if 'reconciled_concepts' not in data:
+        return False, "Missing 'reconciled_concepts'."
     return True, "Valid"
 
 def resolve_assets(yaml_path):
