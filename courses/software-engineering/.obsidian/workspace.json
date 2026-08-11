@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "ab4fe63ff28ec24c",
+        "id": "d9b5d71c012953a0",
         "type": "tabs",
         "children": [
           {
-            "id": "1ee63e96ee08336a",
+            "id": "1782935e2f17a2ab",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "runtime/chapter-drafts/chapter-1-introduction.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "chapter-1-introduction"
+              "title": "New tab"
             }
           }
         ]
@@ -188,8 +184,35 @@
       "bases:Create new base": false
     }
   },
-  "active": "1ee63e96ee08336a",
+  "active": "1782935e2f17a2ab",
   "lastOpenFiles": [
+    "runtime/chapter-drafts/chapter-2-software-process.md",
+    "runtime/chapter-drafts/chapter-1-introduction.md",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/reviewer/reviewer-output.md",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/reviewer/reviewer-input.md",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/grid_candidates.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/selector-output.yaml",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/selector-input.md",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/candidates.yaml",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p18_i1.jpeg",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p18_i0.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p17_i1.jpeg",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p17_i0.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p16_i0.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p14_i0.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p15_i2.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p15_i1.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images/4f64ac69_p15_i0.png",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector/images",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/reviewer",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/memory",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028/asset-selector",
+    "runtime/chapter-runs/chapter-2-software-process/2026-08-10T1028",
+    "runtime/chapter-runs/chapter-2-software-process",
+    "runtime/topic-drafts/iterative-process-models.md",
+    "runtime/topic-drafts/corporate-models.md",
+    "runtime/topic-drafts/cmm.md",
+    "runtime/topic-drafts/classic-process-models.md",
     "runtime/runs/cmm/2026-08-10T1015/writer-input.md",
     "runtime/runs/agile-and-scrum/2026-08-10T1014/writer-input.md",
     "runtime/runs/corporate-models/2026-08-10T1014/writer-input.md",
@@ -197,44 +220,17 @@
     "runtime/runs/classic-process-models/2026-08-10T1014/writer-input.md",
     "runtime/runs/iterative-process-models/2026-08-10T1014/reconciler-output.yaml",
     "runtime/runs/classic-process-models/2026-08-10T1014/reconciler-output.yaml",
-    "runtime/runs/agile-and-scrum/2026-08-10T1014/reconciler-output.yaml",
-    "runtime/runs/cmm/2026-08-10T1015/reconciler-output.yaml",
-    "runtime/runs/corporate-models/2026-08-10T1014/reconciler-output.yaml",
     "runtime/runs/cmm/2026-08-10T1015/reconciler-input.md",
     "runtime/runs/cmm/2026-08-10T1015/evidence-package.md",
-    "runtime/runs/cmm/2026-08-10T1015",
     "runtime/runs/agile-and-scrum/2026-08-10T1014/reconciler-input.md",
     "runtime/runs/agile-and-scrum/2026-08-10T1014/evidence-package.md",
-    "runtime/runs/agile-and-scrum/2026-08-10T1014",
     "runtime/runs/corporate-models/2026-08-10T1014/reconciler-input.md",
     "runtime/runs/corporate-models/2026-08-10T1014/evidence-package.md",
-    "runtime/runs/corporate-models/2026-08-10T1014",
     "runtime/runs/iterative-process-models/2026-08-10T1014/reconciler-input.md",
     "runtime/runs/iterative-process-models/2026-08-10T1014/evidence-package.md",
-    "runtime/runs/iterative-process-models/2026-08-10T1014",
     "runtime/runs/classic-process-models/2026-08-10T1014/reconciler-input.md",
     "runtime/runs/classic-process-models/2026-08-10T1014/evidence-package.md",
-    "runtime/runs/classic-process-models/2026-08-10T1014",
     "runtime/chapter-drafts/chapter-2-test.md",
-    "runtime/chapter-drafts/chapter-1-introduction.md",
-    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/reviewer/reviewer-output.md",
-    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/reviewer/reviewer-input.md",
-    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/asset-selector/selector-input.md",
-    "runtime/runs/intro-and-lifecycle/2026-08-10T0029/writer-input.md",
-    "runtime/runs/reliability-and-defects/2026-08-10T0029/writer-input.md",
-    "runtime/runs/hardware-vs-software/2026-08-10T0029/writer-input.md",
-    "runtime/runs/hardware-vs-software/2026-08-10T0029/reconciler-input.md",
-    "runtime/runs/hardware-vs-software/2026-08-10T0029/evidence-package.md",
-    "runtime/topic-context/hardware-vs-software.md",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/grid_candidates.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p29_i0.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p20_i0.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p19_i1.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p19_i0.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p18_i0.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p17_i1.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p17_i0.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p16_i3.png",
-    "runtime/chapter-runs/chapter-2-test/2026-08-10T0009/asset-selector/images/d234c4c9_p16_i2.png"
+    "runtime/chapter-runs/chapter-1-introduction/2026-08-10T0036/reviewer/reviewer-output.md"
   ]
 }

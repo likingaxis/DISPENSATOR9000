@@ -23,11 +23,11 @@ Siamo nella fase di "produzione a regime" del sistema di generazione appunti. La
 3. **Validazione Workflow**: Eseguito un test completo (Capitolo 2 - Test Parziale) unendo due bozze fornite dall'utente. Il processo finale ha collocato correttamente le immagini estratte e ha generato il documento finale.
 
 ### Lavori in Corso (Capitolo 1)
-- [x] **Chapter 1 Orchestration**: Successfully reconciled 3 topics (`intro-and-lifecycle`, `reliability-and-defects`, `hardware-vs-software`) and generated drafts.
-- [x] **Full Chapter 1 Assembly**: Assembled the processed Chapter 1 topics into a "Canonical" document. The final assembled draft for Chapter 1 is saved in `runtime/chapter-drafts/chapter-1-introduction.md`.
+- **Capitolo 1**: Completato (include `intro-and-lifecycle`, `reliability-and-defects`, `hardware-vs-software`). Immagini reinserite manualmente, regole di filtro corrette per i prossimi.
+- **Capitolo 2**: Completato (include `classic-process-models`, `iterative-process-models`, `corporate-models`, `agile-and-scrum`, `cmm`). Tutte le immagini sono state preservate, il sub-agente Reconciler ha processato in parallelo i 5 topic, e il file è stato assemblato con successo in `runtime/chapter-drafts/chapter-2-software-process.md`.
 - [x] **Image Integration**: Software failure graph was successfully injected into Chapter 1. The hardware graph was not extracted by the PDF parser due to vector graphic formatting, so it was omitted.
 - [ ] **Automated Batch Workflow**: Refine the transition to a fully automated batch flow for future chapters.
 
 ### Prossimi Passi (In Attesa dell'Utente)
-1. Pianificazione ed avvio della pipeline per il Capitolo 2.
+1. Pianificazione ed avvio della pipeline per il Capitolo 3.
 2. Raffinamento del sistema di OCR/Estrazione per catturare correttamente i grafici vettoriali (svg/pdf) non rilevati nel Capitolo 1.
