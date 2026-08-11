@@ -332,12 +332,12 @@ def prep_reconciler(topic_id):
     
     print(f"\n[{run_id}] Running retrieval for {topic_id}...")
     retriever.generate_topic_context(topic_id)
-    retriever_out = os.path.join(COURSE_DIR, "runtime", "topic-context", f"{topic_id}.md")
+    retriever_out = os.path.join(COURSE_DIR, "runtime", "topic-context", f"{topic_id}.yaml")
     if not os.path.exists(retriever_out):
         print(f"[ERROR] Retriever failed to generate {retriever_out}")
         sys.exit(1)
 
-    evidence_path = os.path.join(run_dir, "evidence-package.md")
+    evidence_path = os.path.join(run_dir, "evidence-package.yaml")
     shutil.copy2(retriever_out, evidence_path)
     
     reconciler_prompt_path = os.path.join(PROMPTS_DIR, "reconcile.md")
@@ -349,8 +349,9 @@ def prep_reconciler(topic_id):
     reconciler_input_path = os.path.join(run_dir, "reconciler-input.md")
     with open(reconciler_input_path, 'w', encoding='utf-8') as f:
         f.write(reconciler_prompt)
-        f.write("\n\n---\n\n# RUNTIME INPUT: EVIDENCE PACKAGE\n\n")
+        f.write("\n\n---\n\n# RUNTIME INPUT: EVIDENCE PACKAGE\n\n```yaml\n")
         f.write(evidence_content)
+        f.write("\n```\n")
         
     print(f"[{run_id}] prep-reconciler completed! Input saved to: {reconciler_input_path}")
     print(f"Next: generate reconciler-output.yaml and then run prep-writer {topic_id} {run_id}")

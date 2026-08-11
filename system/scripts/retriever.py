@@ -194,64 +194,58 @@ def generate_topic_context(topic_id: str):
     
     conn.close()
     
-    # Stats
-    primary_text = "\n".join([p['content'] for p in primary])
-    secondary_text = "\n".join([s['content'] for s in secondary])
-    total_tokens = estimate_tokens(primary_text) + estimate_tokens(secondary_text)
+    # Load new files for Patch 8A/8B
+    backbone_map_path = os.path.join(COURSE_DIR, 'course-model', 'editorial-backbone-map.yaml')
+    parsed_backbone_path = os.path.join(COURSE_DIR, 'course-model', 'parsed-backbone.yaml')
+    exam_intelligence_path = os.path.join(COURSE_DIR, 'course-model', 'exam-intelligence.yaml')
     
-    out_file = os.path.join(OUT_DIR, f"{topic_id}.md")
+    backbone_map = load_yaml(backbone_map_path) if os.path.exists(backbone_map_path) else {}
+    parsed_backbone = load_yaml(parsed_backbone_path) if os.path.exists(parsed_backbone_path) else {}
+    exam_intelligence = load_yaml(exam_intelligence_path) if os.path.exists(exam_intelligence_path) else {}
+    
+    # 1. Editorial Backbone
+    backbone_secs = []
+    if topic_id in backbone_map.get('topics', {}):
+        sec_ids = backbone_map['topics'][topic_id].get('backbone_sections', [])
+        for s_id in sec_ids:
+            for sec in parsed_backbone.get('sections', []):
+                if sec['section_id'] == s_id:
+                    backbone_secs.append(sec)
+                    break
+                    
+    # 2. Split Secondary Evidence
+    lecture_expansion = [s for s in secondary if s['source_id'] == 'theory-summary']
+    condensed_ref = [s for s in secondary if s['source_id'] == 'isw1-summary']
+    
+    # 3. Exam Intelligence
+    exam = exam_intelligence.get('concepts', {}).get(topic_id, {})
+    
+    output = {
+        'topic_id': topic_id,
+        'title': topic.get('title'),
+        'editorial_backbone': {
+            'source': 'notes-90',
+            'sections': backbone_secs
+        },
+        'lecture_expansion': {
+            'source': 'lecture-166',
+            'evidence': lecture_expansion
+        },
+        'condensed_reference': {
+            'source': 'notes-50',
+            'evidence': condensed_ref
+        },
+        'official_course_evidence': {
+            'source': 'slides',
+            'evidence': primary
+        },
+        'exam_intelligence': exam,
+        'visual_assets_candidates': assets
+    }
+    
+    out_file = os.path.join(OUT_DIR, f"{topic_id}.yaml")
     with open(out_file, 'w', encoding='utf-8') as f:
-        f.write(f"# Topic Context\n\n")
-        f.write(f"**topic_id**: {topic_id}\n")
-        f.write(f"**title**: {topic.get('title')}\n\n")
-        
-        f.write("## Retrieval Metadata\n")
-        f.write(f"- Primary fragments: {len(primary)}\n")
-        f.write(f"- Secondary fragments: {len(secondary)}\n")
-        f.write(f"- Visual assets candidate: {len(assets)}\n")
-        f.write(f"- Estimated context tokens: ~{total_tokens}\n\n")
-        
-        f.write("## 1. Primary Evidence (Official Coverage)\n\n")
-        if not primary:
-            f.write("*No primary evidence found.*\n\n")
-        else:
-            # Group by source_id and page
-            current_source = None
-            current_page = -1
-            for p in primary:
-                if p['source_id'] != current_source:
-                    current_source = p['source_id']
-                    f.write(f"### Source: {current_source} (`{p['file']}`)\n")
-                if p['page'] != current_page:
-                    current_page = p['page']
-                    f.write(f"#### Page {current_page}\n")
-                
-                f.write(f"> {p['content'].replace(chr(10), ' ')}\n\n")
-                
-        f.write("## 2. Secondary Evidence (BM25 Lexical + Concepts)\n\n")
-        if not secondary:
-            f.write("*No secondary evidence found.*\n\n")
-        else:
-            # Sort secondary by source and score
-            secondary.sort(key=lambda x: (x['source_id'], -x['bm25_score']))
-            current_source = None
-            for s in secondary:
-                if s['source_id'] != current_source:
-                    current_source = s['source_id']
-                    f.write(f"### Source: {current_source} (`{s['file']}`)\n")
-                f.write(f"#### Page {s['page']} (BM25: {s['bm25_score']:.2f})\n")
-                f.write(f"> {s['content'].replace(chr(10), ' ')}\n\n")
-                
-        f.write("## 3. Visual Assets Candidates\n\n")
-        if not assets:
-            f.write("*No visual assets found.*\n\n")
-        else:
-            for a in assets:
-                f.write(f"- **asset_id**: {a['asset_id']}\n")
-                f.write(f"  source: {a['source_id']}\n")
-                f.write(f"  page: {a['page']}\n")
-                f.write(f"  type: {a['type']}\n")
-                f.write(f"  path: `{a['path']}`\n\n")
+        yaml.dump(output, f, sort_keys=False, allow_unicode=True)
                 
     print(f"Context written to {out_file}")
 
