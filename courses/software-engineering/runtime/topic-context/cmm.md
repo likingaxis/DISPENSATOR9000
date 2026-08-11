@@ -137,111 +137,111 @@
 
 ## 3. Visual Assets Candidates
 
-- **asset_id**: b3597022-5f8b-424a-bc8f-f859b426df61
+- **asset_id**: c81676e5-4581-5667-92a5-9a5a1a10de2a
   source: slides-02-process-2
   page: 12
   type: embedded_image
   path: `4f64ac69_p12_i0.png`
 
-- **asset_id**: f9e1a4a6-6be6-45f3-94d2-e07da90a3f81
+- **asset_id**: 0398f6e9-774f-5692-a743-769e08594f75
   source: slides-02-process-2
   page: 12
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p12_render.png`
 
-- **asset_id**: a7cfd6a8-1100-4cfb-842c-789b92af1f38
+- **asset_id**: 8007a142-f60c-5851-ab5a-af1ae0cde7a2
   source: slides-02-process-2
   page: 13
   type: embedded_image
   path: `4f64ac69_p13_i0.png`
 
-- **asset_id**: 465e5764-31fb-43bd-b2db-47d96858b704
+- **asset_id**: fe7aeabd-5ded-5e31-b13c-044a5336c428
   source: slides-02-process-2
   page: 13
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p13_render.png`
 
-- **asset_id**: 4c11104e-ee60-46be-abb1-2b451083a108
+- **asset_id**: 98333257-f397-5895-a0f0-e47ae91431af
   source: slides-02-process-2
   page: 14
   type: embedded_image
   path: `4f64ac69_p14_i0.png`
 
-- **asset_id**: 7585b81f-ff3b-401b-a013-59f5b431a6e3
+- **asset_id**: b4c5aa96-eee6-5246-a534-1fcb00b663fe
   source: slides-02-process-2
   page: 14
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p14_render.png`
 
-- **asset_id**: d08a5793-d89b-4136-a72b-f5f72e832d1e
+- **asset_id**: 67a1e513-39d9-54b9-be77-c6abdbd52010
   source: slides-02-process-2
   page: 15
   type: embedded_image
   path: `4f64ac69_p15_i0.png`
 
-- **asset_id**: 030a0253-32ca-4950-9b74-6dd9019d6047
+- **asset_id**: 175b7c34-c8db-5efb-90bd-27395439c1fc
   source: slides-02-process-2
   page: 15
   type: embedded_image
   path: `4f64ac69_p15_i1.png`
 
-- **asset_id**: fd3cc05e-bb43-4201-9796-d3a9bb486e94
+- **asset_id**: 09cbe236-6775-5ee8-a61d-5da326e10b53
   source: slides-02-process-2
   page: 15
   type: embedded_image
   path: `4f64ac69_p15_i2.png`
 
-- **asset_id**: a8b1b014-e67b-4c93-a170-743322f4d904
+- **asset_id**: bca74dbb-7286-5c5e-a41f-2c86bcb033b4
   source: slides-02-process-2
   page: 15
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p15_render.png`
 
-- **asset_id**: d094a71a-17b4-4ff6-b1ce-2085730ec156
+- **asset_id**: 1fb8f753-e6e2-5b1e-ab47-83807d5b2372
   source: slides-02-process-2
   page: 16
   type: embedded_image
   path: `4f64ac69_p16_i0.png`
 
-- **asset_id**: dc1b1bdd-fd6e-454a-9d1e-83f0bfae7354
+- **asset_id**: dd315231-a8eb-5ca9-9cce-91fb7ecf50ca
   source: slides-02-process-2
   page: 16
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p16_render.png`
 
-- **asset_id**: 32b14287-7cc3-4c67-aa8d-946df77990f1
+- **asset_id**: 064106b1-2508-5373-aa67-c1f66c9cf267
   source: slides-02-process-2
   page: 17
   type: embedded_image
   path: `4f64ac69_p17_i0.png`
 
-- **asset_id**: 2f75960e-0287-4f28-b815-0546a41b81ad
+- **asset_id**: 6a42a941-fe0f-57bc-aebb-c8f657ca1404
   source: slides-02-process-2
   page: 17
   type: embedded_image
   path: `4f64ac69_p17_i1.jpeg`
 
-- **asset_id**: c47248c9-b009-4244-bc0f-53a5961469eb
+- **asset_id**: c6f9016e-a242-58cd-b930-27853f5afbf2
   source: slides-02-process-2
   page: 17
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p17_render.png`
 
-- **asset_id**: 8b88dbd5-c6cd-4a2d-8fc3-b654cea4aaca
+- **asset_id**: 3c4baaa5-fd93-5fe5-b7b0-ada22971c289
   source: slides-02-process-2
   page: 18
   type: embedded_image
   path: `4f64ac69_p18_i0.png`
 
-- **asset_id**: 8524bc16-d146-4aa2-a366-3280ba22f87e
+- **asset_id**: 4219b991-5bfa-513b-a814-efe1a7b7f0c1
   source: slides-02-process-2
   page: 18
   type: embedded_image
   path: `4f64ac69_p18_i1.jpeg`
 
-- **asset_id**: dfc10815-4b63-4bf7-96e1-ea3f47ea91e1
+- **asset_id**: 8ebee588-9977-51d5-bc8a-a8accafe2eec
   source: slides-02-process-2
   page: 18
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `4f64ac69_p18_render.png`
 

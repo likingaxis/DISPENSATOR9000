@@ -9,4 +9,6 @@ __pycache__/
 *.pdf.txt
 
 profile/raw-examples/
-
+runtime/
+scratch/
+courses/software-engineering/assets/

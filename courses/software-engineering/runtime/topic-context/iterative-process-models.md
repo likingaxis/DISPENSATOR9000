@@ -449,543 +449,543 @@
 
 ## 3. Visual Assets Candidates
 
-- **asset_id**: 358abe74-ba2f-4169-9af1-7434f2965939
+- **asset_id**: 03dbd5bb-1a00-5a7f-af8f-7d09277b8c6b
   source: slides-02-process-1
   page: 21
   type: embedded_image
   path: `d234c4c9_p21_i0.png`
 
-- **asset_id**: 277dd750-aaab-4631-b9b8-9b46d2d88770
+- **asset_id**: 848a63a8-fadb-5c21-8f54-087cd7a7df39
   source: slides-02-process-1
   page: 21
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p21_render.png`
 
-- **asset_id**: eb5c3a9b-2364-4582-a0f4-a65634ddf579
+- **asset_id**: 6ab076ba-7a84-5e82-bf96-642b610e1adf
   source: slides-02-process-1
   page: 22
   type: embedded_image
   path: `d234c4c9_p22_i0.png`
 
-- **asset_id**: d4007b22-f51e-4cd1-9d26-24bc5f65735b
+- **asset_id**: 2e8594ef-865e-5cd6-b522-6f0397c1b9c7
   source: slides-02-process-1
   page: 22
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p22_render.png`
 
-- **asset_id**: e3d7cef3-66e9-4344-a3f6-dac210dc104c
+- **asset_id**: 546d6df0-5eb8-5711-80c7-e1268a3d840b
   source: slides-02-process-1
   page: 23
   type: embedded_image
   path: `d234c4c9_p23_i0.png`
 
-- **asset_id**: e0ccfe1e-1bb3-478e-b4f0-96527265095d
+- **asset_id**: 9afe862c-16e8-5b4d-90d1-378d35fa4cc6
   source: slides-02-process-1
   page: 23
   type: embedded_image
   path: `d234c4c9_p23_i1.png`
 
-- **asset_id**: f25dbd93-68ff-4b82-b6ca-cd4704d89ccc
+- **asset_id**: 73d36a6e-28ff-5b39-9e35-50aa85075197
   source: slides-02-process-1
   page: 23
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p23_render.png`
 
-- **asset_id**: 71f053ba-963f-465c-8294-0ab747e76f82
+- **asset_id**: 6bb3544d-b16f-52db-bc7e-94a7d8d3bd05
   source: slides-02-process-1
   page: 24
   type: embedded_image
   path: `d234c4c9_p24_i0.png`
 
-- **asset_id**: 55389e52-7ed0-4b98-8c68-05baaf56f46e
+- **asset_id**: c0be8a93-ad6b-57c0-9b71-021ee1ce844d
   source: slides-02-process-1
   page: 24
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p24_render.png`
 
-- **asset_id**: b1459ea3-6f3a-4a2e-b325-9509c31650ad
+- **asset_id**: 59564930-221a-589e-a8e9-2f8b69878530
   source: slides-02-process-1
   page: 25
   type: embedded_image
   path: `d234c4c9_p25_i0.png`
 
-- **asset_id**: 2f426f45-4a8a-4460-8837-a23f8a38000d
+- **asset_id**: e161a69e-434c-5b8f-8886-487820587566
   source: slides-02-process-1
   page: 25
   type: embedded_image
   path: `d234c4c9_p25_i1.png`
 
-- **asset_id**: d9ec7353-5d8a-40ba-b7f5-da885ebe1c54
+- **asset_id**: 3a4879ea-a68d-56c6-8bb0-380f34648715
   source: slides-02-process-1
   page: 25
   type: embedded_image
   path: `d234c4c9_p25_i2.png`
 
-- **asset_id**: f707fd6a-97c8-43da-ace1-e5fb91af44ad
+- **asset_id**: a32ac318-2b62-5b24-bb41-59ab7aa81b91
   source: slides-02-process-1
   page: 25
   type: embedded_image
   path: `d234c4c9_p25_i3.png`
 
-- **asset_id**: 2846e4ed-7aa2-4234-afe8-67bcaefec7fc
+- **asset_id**: e695ee90-e525-5861-a37d-f854832377e7
   source: slides-02-process-1
   page: 25
   type: embedded_image
   path: `d234c4c9_p25_i4.png`
 
-- **asset_id**: 09428227-0f06-4f45-8e86-3036bc958f3d
+- **asset_id**: 6f41b361-6226-563f-ab6f-b505c0e3e1f9
   source: slides-02-process-1
   page: 25
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p25_render.png`
 
-- **asset_id**: c01b0bbf-babc-496e-b417-eed3033d2b40
+- **asset_id**: 9b07fc87-48c9-5de7-86aa-0078cb5d3731
   source: slides-02-process-1
   page: 26
   type: embedded_image
   path: `d234c4c9_p26_i0.png`
 
-- **asset_id**: 1000cc25-1f30-489d-be7a-29a924ded95e
+- **asset_id**: cc20e509-e36f-5dec-afae-602e7ea89f17
   source: slides-02-process-1
   page: 26
   type: embedded_image
   path: `d234c4c9_p26_i1.png`
 
-- **asset_id**: 4d35d8ca-f7bb-40e5-a4fb-492b235d735a
+- **asset_id**: 4279c24e-3f86-5080-b99b-eeff4ca44d43
   source: slides-02-process-1
   page: 26
   type: embedded_image
   path: `d234c4c9_p26_i2.png`
 
-- **asset_id**: b9b28cf7-dbd4-4ae4-ae34-e20eed3257c5
+- **asset_id**: 16d528a1-a518-50b3-80e3-05471e9f3eaa
   source: slides-02-process-1
   page: 26
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p26_render.png`
 
-- **asset_id**: 95ca8fcc-5889-4aee-82f9-715342f929de
+- **asset_id**: f866fc51-d83a-5b1b-ad5f-361847bb4392
   source: slides-02-process-1
   page: 27
   type: embedded_image
   path: `d234c4c9_p27_i0.png`
 
-- **asset_id**: c9a87450-191d-4d21-84a9-a5a4c2c95062
+- **asset_id**: 2795c45b-f894-5116-a48e-48b494f4398f
   source: slides-02-process-1
   page: 27
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p27_render.png`
 
-- **asset_id**: 7f910ba1-2709-4031-9f79-922d0aae61d2
+- **asset_id**: 55dd30c3-4492-5c82-8adb-18f3e5a04938
   source: slides-02-process-1
   page: 28
   type: embedded_image
   path: `d234c4c9_p28_i0.png`
 
-- **asset_id**: f113f1e1-727e-4152-af5d-4c9f77259941
+- **asset_id**: c53eca42-e675-52e8-b283-57aae397eba2
   source: slides-02-process-1
   page: 28
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p28_render.png`
 
-- **asset_id**: f307d147-5855-4b30-b431-7da602a6cf5b
+- **asset_id**: 1afaab89-c517-5e00-9b15-253d2b78e1b8
   source: slides-02-process-1
   page: 29
   type: embedded_image
   path: `d234c4c9_p29_i0.png`
 
-- **asset_id**: 11be0f3e-6bce-408f-a724-fff7768a0e5d
+- **asset_id**: add98143-9a91-58c2-81ec-a96115a59d2b
   source: slides-02-process-1
   page: 29
   type: embedded_image
   path: `d234c4c9_p29_i1.png`
 
-- **asset_id**: cab0e292-9a83-40bf-b286-a6a9f956e85c
+- **asset_id**: d93915bb-eec9-5c68-a483-45ba76910012
   source: slides-02-process-1
   page: 29
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p29_render.png`
 
-- **asset_id**: 7c2bb22e-0aff-4ba4-bb49-b72528a3f52a
+- **asset_id**: b564bacf-6d73-5dab-b1bc-041b3511fc99
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i0.png`
 
-- **asset_id**: 987ac713-1fca-4ff2-b4a8-fcd673cb14e5
+- **asset_id**: c9325161-fa82-5535-97e3-fdcad041ecd1
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i1.png`
 
-- **asset_id**: 64c13f65-bc2d-48a9-95a7-f17545592a97
+- **asset_id**: 848cde1c-b5d9-5b73-b994-48b17ead67c6
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i2.png`
 
-- **asset_id**: f03146b8-1105-4c77-b5b7-6f195e39db21
+- **asset_id**: b4b889c8-df4f-5c73-9e13-971c92ded765
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i3.png`
 
-- **asset_id**: a6e3d78a-84a1-4a90-9bba-3d1942a4843c
+- **asset_id**: 0b26970e-c211-50ae-9139-77f07d7672c9
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i4.png`
 
-- **asset_id**: 2a7d7cb9-74bc-476c-8bcb-e32de61b3a98
+- **asset_id**: 5304fde8-51d5-5734-8900-98ad1fe68659
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i5.png`
 
-- **asset_id**: 2ef19fe6-c88d-4cd9-b980-ea0b7c57496b
+- **asset_id**: 3e01353b-544a-5976-8f4b-106af2e518f5
   source: slides-02-process-1
   page: 30
   type: embedded_image
   path: `d234c4c9_p30_i6.png`
 
-- **asset_id**: 114f383b-dbae-48cc-b524-665f970c6868
+- **asset_id**: d8524c74-12ef-5dd5-9f56-c5913e884347
   source: slides-02-process-1
   page: 30
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p30_render.png`
 
-- **asset_id**: 02e6fc56-6d15-4986-a401-5b46ebc6da55
+- **asset_id**: c0872a38-79de-5817-8068-22b694e01742
   source: slides-02-process-1
   page: 31
   type: embedded_image
   path: `d234c4c9_p31_i0.png`
 
-- **asset_id**: 1da2e813-a46c-4b0b-9585-1470b04300e5
+- **asset_id**: cc644ff7-93f2-5cbc-a4df-56b914a7c54e
   source: slides-02-process-1
   page: 31
   type: embedded_image
   path: `d234c4c9_p31_i1.png`
 
-- **asset_id**: 18d65be4-2d09-4ec5-926e-327d7b7ab81f
+- **asset_id**: f4ebe757-032b-5280-81fc-f4974bdd40f9
   source: slides-02-process-1
   page: 31
   type: embedded_image
   path: `d234c4c9_p31_i2.png`
 
-- **asset_id**: 922e9903-1df4-491b-adc2-849456874cac
+- **asset_id**: bc4e4b92-ef93-547b-92a4-e36abd9c61c1
   source: slides-02-process-1
   page: 31
   type: embedded_image
   path: `d234c4c9_p31_i3.png`
 
-- **asset_id**: aabf4752-5a2a-40a9-bafb-971b768fbd06
+- **asset_id**: 4855e17a-053b-5351-9c89-c4b66177a3c0
   source: slides-02-process-1
   page: 31
   type: embedded_image
   path: `d234c4c9_p31_i4.png`
 
-- **asset_id**: ee50b756-171e-4a43-90ff-f403349f7511
+- **asset_id**: b83980de-e7f1-5e16-b676-534ba5daeb76
   source: slides-02-process-1
   page: 31
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p31_render.png`
 
-- **asset_id**: e5cf9c98-5fa9-4432-bbde-ce59ecdb2583
+- **asset_id**: 6640a098-01f4-5716-b5ea-0f6ffa1dd034
   source: slides-02-process-1
   page: 32
   type: embedded_image
   path: `d234c4c9_p32_i0.jpeg`
 
-- **asset_id**: d158ff79-2b77-48aa-90b7-f68d150c0f2b
+- **asset_id**: da80da8e-a551-52c6-a614-592ca388b97b
   source: slides-02-process-1
   page: 32
   type: embedded_image
   path: `d234c4c9_p32_i1.png`
 
-- **asset_id**: 3b128e4f-6add-4bc5-94d4-d403aa3dc315
+- **asset_id**: 39760ce3-53ec-584c-bf46-ba3d9d62e7e4
   source: slides-02-process-1
   page: 32
   type: embedded_image
   path: `d234c4c9_p32_i2.png`
 
-- **asset_id**: f5e29ce5-c78e-482e-a390-b983d6eb867d
+- **asset_id**: 0876accf-206d-5d6b-b979-6a402744530b
   source: slides-02-process-1
   page: 32
   type: embedded_image
   path: `d234c4c9_p32_i3.png`
 
-- **asset_id**: e1fbb2c7-38a9-45c9-869a-52b78380b4b8
+- **asset_id**: 58695607-713d-5071-b787-2c9c444cbd57
   source: slides-02-process-1
   page: 32
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p32_render.png`
 
-- **asset_id**: ac73dadc-81de-49ec-a605-b7fe55b0c789
+- **asset_id**: c42942e1-4768-5235-bb89-be767b10fd4e
   source: slides-02-process-1
   page: 33
   type: embedded_image
   path: `d234c4c9_p33_i0.png`
 
-- **asset_id**: 24676888-d46a-4cd5-8146-e86c7523ad78
+- **asset_id**: 05dea701-a625-517a-a26a-1b5ed00cbde2
   source: slides-02-process-1
   page: 33
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p33_render.png`
 
-- **asset_id**: 6339c83b-c265-4835-9cf9-cb76ea470f67
+- **asset_id**: 95e5f519-abd8-5627-8997-923d9a82ef32
   source: slides-02-process-1
   page: 34
   type: embedded_image
   path: `d234c4c9_p34_i0.png`
 
-- **asset_id**: f94b49b6-957e-4f19-9f17-c57dbd535c2e
+- **asset_id**: de4989fa-050f-543a-b949-9e70af81446c
   source: slides-02-process-1
   page: 34
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p34_render.png`
 
-- **asset_id**: 5e6f2c04-b12e-4c48-8f48-ff9a0ea103e3
+- **asset_id**: 6b588240-ad37-5199-a8e3-2b17ace3919d
   source: slides-02-process-1
   page: 35
   type: embedded_image
   path: `d234c4c9_p35_i0.png`
 
-- **asset_id**: 67366739-a07e-4926-b5ef-31bd3651f5dc
+- **asset_id**: f5d4b6ca-8f6d-5111-a5a6-ad3750f84687
   source: slides-02-process-1
   page: 35
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p35_render.png`
 
-- **asset_id**: 5caa78c0-1741-40f2-b6e0-ea46be8ec404
+- **asset_id**: 4e2d40c6-ad16-52a0-9c72-740530b8e981
   source: slides-02-process-1
   page: 36
   type: embedded_image
   path: `d234c4c9_p36_i0.png`
 
-- **asset_id**: d545cc23-be93-4ed1-b80b-50b6a9837624
+- **asset_id**: b30229aa-6103-50d7-8469-633abb43d2bb
   source: slides-02-process-1
   page: 36
   type: embedded_image
   path: `d234c4c9_p36_i1.png`
 
-- **asset_id**: 0bb5c255-68e3-49d5-b2db-a2ec5a488f98
+- **asset_id**: 785d5ac2-aad5-5600-a644-f52b16225f31
   source: slides-02-process-1
   page: 36
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p36_render.png`
 
-- **asset_id**: b87780e0-420a-45e6-8189-a382e74798d9
+- **asset_id**: b300848b-7f89-5647-805e-212343661ee1
   source: slides-02-process-1
   page: 37
   type: embedded_image
   path: `d234c4c9_p37_i0.png`
 
-- **asset_id**: 4354c427-3776-4864-84b6-afd3f2133947
+- **asset_id**: 92019bd4-ef32-5136-bcf3-452b67263af8
   source: slides-02-process-1
   page: 37
   type: embedded_image
   path: `d234c4c9_p37_i1.png`
 
-- **asset_id**: 34fd7dea-c8a7-44ad-83a6-5bb8bee53a5d
+- **asset_id**: 9f4db3c7-bd86-581b-9bfa-3e39a1d21393
   source: slides-02-process-1
   page: 37
   type: embedded_image
   path: `d234c4c9_p37_i2.png`
 
-- **asset_id**: 36b8917d-6bf4-442c-8a7e-a4a271c13093
+- **asset_id**: 43534bf1-0204-59e9-a0a8-bfd1f4649dcb
   source: slides-02-process-1
   page: 37
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p37_render.png`
 
-- **asset_id**: b323ef47-aa4d-4d6c-acf0-bd0061fc822b
+- **asset_id**: b139e36b-718f-5698-b818-bb894455ab8d
   source: slides-02-process-1
   page: 38
   type: embedded_image
   path: `d234c4c9_p38_i0.png`
 
-- **asset_id**: 30dc6f3e-22af-4f4e-a98d-bb6559f87981
+- **asset_id**: 8a9f0bdc-2ce5-5619-885b-cc871c6b0da0
   source: slides-02-process-1
   page: 38
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p38_render.png`
 
-- **asset_id**: bdf10705-0c2c-48c8-a3ca-abca44508bd0
+- **asset_id**: e022da0b-309a-554e-a4c5-9ba1ec9f5857
   source: slides-02-process-1
   page: 39
   type: embedded_image
   path: `d234c4c9_p39_i0.png`
 
-- **asset_id**: 3a67d87c-fc20-470b-b5cb-567e4c6a3f87
+- **asset_id**: bc3e7a32-6aae-57dd-883e-3963328c0b57
   source: slides-02-process-1
   page: 39
   type: embedded_image
   path: `d234c4c9_p39_i1.png`
 
-- **asset_id**: 70043696-8dac-4660-a709-c6aaa99ef2de
+- **asset_id**: 15e73e74-c936-5358-9c8d-4eeb98551a85
   source: slides-02-process-1
   page: 39
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p39_render.png`
 
-- **asset_id**: f82c0039-5265-4599-ba5c-e82884898a65
+- **asset_id**: 7d5a197f-5f2a-5b89-8f64-b7a2b66b2d1f
   source: slides-02-process-1
   page: 40
   type: embedded_image
   path: `d234c4c9_p40_i0.png`
 
-- **asset_id**: 9ba95866-c83a-4d85-b83a-b0f0dfb32f7d
+- **asset_id**: 2d406881-5b91-52c9-a594-8f180da87958
   source: slides-02-process-1
   page: 40
   type: embedded_image
   path: `d234c4c9_p40_i1.png`
 
-- **asset_id**: a1e86e07-ca21-48f4-aa87-f105d6a8ee88
+- **asset_id**: fbff785c-06f2-5a4b-aeb2-1fdaa556c582
   source: slides-02-process-1
   page: 40
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p40_render.png`
 
-- **asset_id**: 8694781d-5be2-448b-b7c1-e043ec65bca2
+- **asset_id**: 11f0b343-7bbe-514e-8a95-eaa3352df5ba
   source: slides-02-process-1
   page: 41
   type: embedded_image
   path: `d234c4c9_p41_i0.png`
 
-- **asset_id**: 17a0fcfc-ab7c-42f4-bb1c-16677356db87
+- **asset_id**: e4d498ca-6b36-59af-9f25-eaad4b4c8d6b
   source: slides-02-process-1
   page: 41
   type: embedded_image
   path: `d234c4c9_p41_i1.png`
 
-- **asset_id**: c6cd9ad6-05da-4567-9cb7-82001b07e356
+- **asset_id**: 53e8fb42-9030-5701-aa62-2864e4421c18
   source: slides-02-process-1
   page: 41
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p41_render.png`
 
-- **asset_id**: 2c4f7047-a505-423f-8e48-845c11890e55
+- **asset_id**: d0b2cf69-427b-5672-9449-49d703ecb739
   source: slides-02-process-1
   page: 42
   type: embedded_image
   path: `d234c4c9_p42_i0.png`
 
-- **asset_id**: 320ab460-a8af-4156-87d8-0af6a8a8313f
+- **asset_id**: 40e631ff-ff0d-50fc-ac7f-a8c807caea94
   source: slides-02-process-1
   page: 42
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p42_render.png`
 
-- **asset_id**: 25a6560e-d04b-40c2-81a2-282f78a50a6d
+- **asset_id**: cab40df9-1180-5913-a62f-d2fd880978cb
   source: slides-02-process-1
   page: 43
   type: embedded_image
   path: `d234c4c9_p43_i0.png`
 
-- **asset_id**: 9c494e53-8f1e-41bc-9282-126e652f543a
+- **asset_id**: 6b4074fe-a72b-5a93-9a64-76f5d753f887
   source: slides-02-process-1
   page: 43
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p43_render.png`
 
-- **asset_id**: 58f3c7ad-686a-4082-9ed3-d0b12fa19d18
+- **asset_id**: dbad898a-571c-5231-836e-b26d8db3c756
   source: slides-02-process-1
   page: 44
   type: embedded_image
   path: `d234c4c9_p44_i0.png`
 
-- **asset_id**: b43aff5d-f760-4a05-bb93-3f03a34ae36c
+- **asset_id**: f59eb228-5821-5560-bbde-865b36322ead
   source: slides-02-process-1
   page: 44
   type: embedded_image
   path: `d234c4c9_p44_i1.png`
 
-- **asset_id**: 7c46518f-ec3d-42a7-888d-fd7f99519f4d
+- **asset_id**: 851f15ee-6b10-5f9c-9e78-3f159e2abeb8
   source: slides-02-process-1
   page: 44
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p44_render.png`
 
-- **asset_id**: 0990409d-6a49-4d89-94f1-1e4733010370
+- **asset_id**: 51961680-ce48-5b8f-bb62-2deeb46dd2e6
   source: slides-02-process-1
   page: 45
   type: embedded_image
   path: `d234c4c9_p45_i0.png`
 
-- **asset_id**: 0d929f34-fffc-4113-9495-4b9b0b5c70ef
+- **asset_id**: d8525ded-1466-5098-836f-abd1aad7c10f
   source: slides-02-process-1
   page: 45
   type: embedded_image
   path: `d234c4c9_p45_i1.png`
 
-- **asset_id**: c0ac0229-7608-41d0-a3c1-2470fd9e7aa1
+- **asset_id**: 2b187db6-b6b5-57a4-add9-81a3ef2eef7a
   source: slides-02-process-1
   page: 45
   type: embedded_image
   path: `d234c4c9_p45_i2.png`
 
-- **asset_id**: aa3f4b67-f515-49d8-8ad8-b3a3eddc880c
+- **asset_id**: c3aa109e-0454-59cf-9c1d-de216274b206
   source: slides-02-process-1
   page: 45
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p45_render.png`
 
-- **asset_id**: eab79d43-070a-4bb5-ae77-791b4802e468
+- **asset_id**: 3b5d59d2-d873-5b47-ae04-1985258df284
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i0.png`
 
-- **asset_id**: 693b1dc2-68ee-4a61-913d-9cd0189fdaf3
+- **asset_id**: edeafccc-0eea-51de-8ccb-501099c52cd4
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i1.png`
 
-- **asset_id**: 3f6d2aee-5a13-474e-b6d9-4c57257fd4f4
+- **asset_id**: 74d207f7-7410-5507-bb49-a013698c9579
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i2.png`
 
-- **asset_id**: fc7d8a15-20b6-4069-8c30-f9766354f384
+- **asset_id**: dff626f9-2a70-5c71-8a02-e4103462079e
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i3.png`
 
-- **asset_id**: 375de843-993c-4944-84f9-4b9ef026d75a
+- **asset_id**: b6cb510a-93ee-548d-9b12-be1dcd1b61a4
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i4.png`
 
-- **asset_id**: 0d18a3d7-2c31-4c13-a86a-80e1956a6a07
+- **asset_id**: df2c30ce-51da-54fc-9163-7723581454ef
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i5.png`
 
-- **asset_id**: 46e0fc14-3471-4fbf-915c-31f39499277e
+- **asset_id**: 77e1bd7a-bb93-585f-9728-c68c1fea5882
   source: slides-02-process-1
   page: 46
   type: embedded_image
   path: `d234c4c9_p46_i6.jpeg`
 
-- **asset_id**: cc99558b-5b54-46b3-a5c1-bd85853e9986
+- **asset_id**: 219357ff-3bd3-50db-b3ae-e90b8925ed03
   source: slides-02-process-1
   page: 46
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p46_render.png`
 
-- **asset_id**: 457a4df2-7a85-454f-b894-441d14705842
+- **asset_id**: 727a9538-a144-5043-9529-3b69437d445a
   source: slides-02-process-1
   page: 47
   type: embedded_image
   path: `d234c4c9_p47_i0.png`
 
-- **asset_id**: abcd54ef-8ddd-412e-ab81-6a6648edef4d
+- **asset_id**: 5e062220-dcb2-5f6a-a7c0-e49ccfbb6d34
   source: slides-02-process-1
   page: 47
-  type: vector_diagram_region
-  path: `VIRTUAL_RENDER_REQUIRED`
+  type: page_render
+  path: `d234c4c9_p47_render.png`
 
