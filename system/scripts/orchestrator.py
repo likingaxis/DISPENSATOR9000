@@ -532,21 +532,31 @@ def build_chapter(chapter_id):
                             page_render_asset = None
                             for slide in slides_list:
                                 if slide['source_id'] == src and str(slide['page']) == str(pg):
+                                    slide_text = slide.get('slide_text', '')
                                     for a in slide['candidate_assets']:
                                         if a['asset_type'] == 'page_render':
                                             page_render_asset = a
                                             break
+                                    break
                             if page_render_asset:
                                 crop_requests.append({
                                     'concept_id': vc.get('concept_id'),
                                     'label': vc.get('label', ''),
                                     'source_id': src,
                                     'page': pg,
+                                    'slide_text': slide_text,
                                     'page_render_asset_id': page_render_asset['asset_id'],
                                     'page_render_path': page_render_asset['obsidian_path']
                                 })
             
             if crop_requests:
+                cropper_img_dir = os.path.join(sel_dir, "cropper-images")
+                os.makedirs(cropper_img_dir, exist_ok=True)
+                for req in crop_requests:
+                    src_path = os.path.join(COURSE_DIR, req['page_render_path'])
+                    if os.path.exists(src_path):
+                        shutil.copy2(src_path, os.path.join(cropper_img_dir, os.path.basename(src_path)))
+                
                 cropper_input_path = os.path.join(sel_dir, "cropper-input.md")
                 cropper_output_path = os.path.join(sel_dir, "cropper-output.yaml")
                 
@@ -561,7 +571,8 @@ def build_chapter(chapter_id):
                 
                 with open(cropper_output_path, 'w', encoding='utf-8') as f: pass
                 
-                wait_for_user("SEMANTIC CROPPER (Fase 1.5)", cropper_input_path, cropper_output_path, extra_message="Esegui il Semantic Cropper per estrarre i diagrammi dai page_render.")
+                extra_msg_cropper = f"IMPORTANTE:\nallega al Vision LLM tutte le immagini contenute in:\n{cropper_img_dir}\n\nOgni immagine corrisponde a una crop_request presente in cropper-input.md."
+                wait_for_user("SEMANTIC CROPPER (Fase 1.5)", cropper_input_path, cropper_output_path, extra_message=extra_msg_cropper)
                 
                 if os.path.exists(cropper_output_path):
                     crop_data = clean_yaml_file(cropper_output_path)
@@ -575,7 +586,8 @@ def build_chapter(chapter_id):
                                 if all(v is not None for v in [x0, y0, x1, y1]) and 0 <= float(x0) < float(x1) <= 1 and 0 <= float(y0) < float(y1) <= 1:
                                     x0, y0, x1, y1 = float(x0), float(y0), float(x1), float(y1)
                                     # avoid full page crop
-                                    if (x1 - x0) > 0.95 and (y1 - y0) > 0.95:
+                                    crop_area = (x1 - x0) * (y1 - y0)
+                                    if crop_area > 0.90:
                                         print(f"Crop for {resp['concept_id']} rejected: too large (almost full page).")
                                         continue
                                     
@@ -606,13 +618,17 @@ def build_chapter(chapter_id):
                                                         continue
                                                         
                                                     cropped_img = img.crop((left, upper, right, lower))
-                                                    new_filename = f"{src_id}_p{pg}_crop_{cid}.png"
+                                                    
+                                                    # Calcola UUID prima per evitare collisioni sul filename
+                                                    crop_key = f"{src_id}:{pg}:{cid}:{x0},{y0},{x1},{y1}"
+                                                    asset_id = str(uuid.uuid5(uuid.NAMESPACE_URL, crop_key))
+                                                    
+                                                    safe_cid = re.sub(r'[^A-Za-z0-9_-]+', '-', cid)
+                                                    new_filename = f"{src_id}_p{pg}_crop_{safe_cid}_{asset_id[:8]}.png"
                                                     new_path = os.path.join(COURSE_DIR, "assets", new_filename)
                                                     cropped_img.save(new_path)
                                                     
                                                     # Insert into DB
-                                                    crop_key = f"{src_id}:{pg}:{cid}:{x0},{y0},{x1},{y1}"
-                                                    asset_id = str(uuid.uuid5(uuid.NAMESPACE_URL, crop_key))
                                                     obsidian_path = f"assets/{new_filename}"
                                                     
                                                     cursor.execute('''
