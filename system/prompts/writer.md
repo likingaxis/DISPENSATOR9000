@@ -586,29 +586,15 @@ The notes are for students, not pipeline debugging.
 
 ---
 
-# 17. Visual assets
+# 17. Visual assets (VISUAL ASSET BOUNDARY)
 
-Only use visual assets explicitly made available by the Reconciler Report/runtime input.
+The Writer **does NOT select, evaluate, or insert images**.
 
-Do not invent image filenames or paths.
+Even if the Reconciler Report or input contains `visual_asset_refs` or `obsidian_path`, **do NOT produce any Obsidian image syntax (`![[...]`)**.
 
-If a usable asset reference is provided and its relationship to the semantic content is sufficiently clear, place it where it best supports understanding.
+The selection, evaluation, and placement of visual assets is handled exclusively by the Visual Asset Selector / Chapter Assembler pipeline.
 
-Use **only Obsidian image syntax** according to the Style Guide:
-
-```markdown
-![[asset-name.png|400]]
-```
-
-or another allowed width when appropriate.
-
-Introduce the image with minimal context.
-
-Do not insert visuals decoratively.
-
-Do not claim to understand visual details that are not represented in the supplied semantic input or asset metadata.
-
-If the runtime input contains only an asset identifier that cannot safely be converted to the required Obsidian path/filename, do not fabricate a path.
+The Writer must produce a Topic Draft that contains **ONLY text content**, completely free of image embeds.
 
 ---
 
@@ -777,9 +763,9 @@ Writing `[file.pdf]` references or inline citations in the Markdown notes. Prove
 
 ---
 
-## F15 — Invented visual path
+## F15 — Image embed injection
 
-Creating an Obsidian image embed from an asset identifier when the actual filename/path is unavailable.
+Inserting any image embed (`![[...]`) into the Topic Draft. The Topic Draft must contain zero images.
 
 ---
 

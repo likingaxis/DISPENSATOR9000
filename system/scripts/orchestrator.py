@@ -4,6 +4,7 @@ import sys
 import yaml
 import shutil
 import sqlite3
+import re
 from datetime import datetime
 
 # Usa percorsi assoluti basati sulla cartella corrente per sicurezza
@@ -93,10 +94,144 @@ def get_chapter_topics(chapter_id):
             return [t['id'] for t in chap.get('topics', [])]
     return []
 
-def get_nearby_text(cursor, source_id, page_num):
-    cursor.execute("SELECT content FROM fragments WHERE source_id = ? AND page_num = ? ORDER BY block_order LIMIT 3", (source_id, page_num))
+def get_page_text(cursor, source_id, page_num):
+    cursor.execute("SELECT content FROM fragments WHERE source_id = ? AND page_num = ? ORDER BY block_order", (source_id, page_num))
     rows = cursor.fetchall()
-    return " ".join([r[0] for r in rows]).replace("\n", " ")
+    return "\n".join([r[0] for r in rows if r[0]])
+
+def strip_obsidian_images(text):
+    if not text:
+        return text
+    return re.sub(r'!\[\[.*?\]\]', '', text)
+
+def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir):
+    print("\n[VALIDATION] Running Visual Coverage Validator...")
+    if not os.path.exists(reviewer_output_path) or not os.path.exists(selector_output_path):
+        return False, "Missing output files for validation."
+
+    with open(reviewer_output_path, 'r', encoding='utf-8') as f:
+        markdown_text = f.read()
+
+    cov_data = clean_yaml_file(selector_output_path)
+    if not isinstance(cov_data, dict):
+        return False, "Invalid selector output YAML."
+
+    required_assets = []
+    recommended_assets = []
+    uncovered_required = []
+
+    # Format 1: Canonical visual-coverage.yaml format
+    if 'required_visuals' in cov_data:
+        for item in cov_data.get('required_visuals', []):
+            asset_info = item.get('asset', {})
+            path = asset_info.get('obsidian_path')
+            if path:
+                required_assets.append({
+                    'obsidian_path': path,
+                    'width': item.get('placement', {}).get('width'),
+                    'concept_id': item.get('concept', {}).get('id')
+                })
+        for item in cov_data.get('recommended_visuals', []):
+            path = item.get('asset', {}).get('obsidian_path')
+            if path:
+                recommended_assets.append(path)
+        uncovered_required = cov_data.get('uncovered_required_visuals', [])
+
+    # Format 2: Slide-centric selector output format
+    elif 'slides' in cov_data:
+        for slide in cov_data.get('slides', []):
+            for vc in slide.get('visual_concepts', []):
+                req = vc.get('requirement')
+                status = vc.get('coverage_status')
+                pref = vc.get('preferred_asset')
+                if req == 'required':
+                    if status == 'covered' and pref and pref.get('obsidian_path'):
+                        required_assets.append({
+                            'obsidian_path': pref.get('obsidian_path'),
+                            'width': vc.get('placement', {}).get('width'),
+                            'concept_id': vc.get('concept_id')
+                        })
+                    else:
+                        uncovered_required.append(vc)
+                elif req == 'recommended':
+                    if status == 'covered' and pref and pref.get('obsidian_path'):
+                        recommended_assets.append(pref.get('obsidian_path'))
+
+    embed_pattern = re.compile(r'!\[\[\s*([^\|\]\s]+)(?:\|(\d+))?\s*\]\]')
+    matches = embed_pattern.findall(markdown_text)
+    
+    found_paths = [m[0].strip() for m in matches]
+    found_widths = {m[0].strip(): int(m[1]) for m in matches if m[1]}
+
+    missing_required = []
+    duplicate_required = []
+    width_mismatches = []
+    unexpected_assets = []
+
+    req_paths = [r['obsidian_path'] for r in required_assets]
+    allowed_paths = set(req_paths + recommended_assets)
+
+    for req in required_assets:
+        p = req['obsidian_path']
+        count = found_paths.count(p)
+        if count == 0:
+            missing_required.append(p)
+        elif count > 1:
+            duplicate_required.append(p)
+        
+        if req['width'] and p in found_widths:
+            if found_widths[p] != req['width']:
+                width_mismatches.append(f"{p} (expected {req['width']}, got {found_widths[p]})")
+
+    for p in found_paths:
+        if p not in allowed_paths:
+            unexpected_assets.append(p)
+
+    status = "PASS"
+    errors = []
+
+    if missing_required:
+        status = "FAIL"
+        errors.append(f"Missing required visuals ({len(missing_required)}): {missing_required}")
+    if duplicate_required:
+        status = "FAIL"
+        errors.append(f"Duplicate required visuals: {duplicate_required}")
+    if unexpected_assets:
+        status = "FAIL"
+        errors.append(f"Unexpected / rejected assets found in markdown: {unexpected_assets}")
+    if width_mismatches:
+        errors.append(f"Width mismatches: {width_mismatches}")
+
+    validation_result = {
+        'status': status,
+        'validated_at': datetime.now().isoformat(),
+        'required_total': len(required_assets),
+        'required_present': len(required_assets) - len(missing_required),
+        'missing_required': missing_required,
+        'duplicate_required': duplicate_required,
+        'unexpected_assets': unexpected_assets,
+        'width_mismatches': width_mismatches,
+        'uncovered_required_concepts': uncovered_required,
+        'errors': errors
+    }
+
+    validation_path = os.path.join(sel_dir, "validation.yaml")
+    with open(validation_path, 'w', encoding='utf-8') as f:
+        yaml.dump(validation_result, f, allow_unicode=True, sort_keys=False)
+
+    if uncovered_required:
+        print(f"\n[VISUAL COVERAGE WARNING] {len(uncovered_required)} required visual concept(s) are UNCOVERED!")
+        for unc in uncovered_required:
+            print(f"  - {unc.get('concept_id', 'unknown')}: {unc.get('label', unc.get('reason', 'no suitable asset'))}")
+
+    if status == "PASS":
+        print(f"[VALIDATION SUCCESS] All {len(required_assets)} required visuals are correctly placed in the markdown!")
+        return True, "PASS"
+    else:
+        print(f"[VALIDATION FAIL] Visual Coverage Validation Failed!")
+        for err in errors:
+            print(f"  [ERROR] {err}")
+        return False, f"Validation Failed: {errors}"
 
 def prep_reconciler(topic_id):
     run_id = datetime.now().strftime("%Y-%m-%dT%H%M")
@@ -145,8 +280,6 @@ def prep_writer(topic_id, run_id):
         print(f"[ERROR] YAML validation failed: {msg}")
         sys.exit(1)
         
-    # Validation per evitare mix accidentali tra run:
-    # controlliamo che il topic_id all'interno del YAML corrisponda a quello in input
     data = clean_yaml_file(reconciler_output_path)
     yaml_topic_id = data.get('topic_id')
     if yaml_topic_id != topic_id:
@@ -195,11 +328,12 @@ def build_chapter(chapter_id):
         os.makedirs(d, exist_ok=True)
     os.makedirs(CHAPTER_DRAFTS_DIR, exist_ok=True)
 
-    # 1. Asset Selection
+    # 1. Slide-Centric Asset Selection
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
     
-    candidates = []
+    slides_map = {} # key: (topic_id, source_id, page)
+    
     for topic_id in topics:
         topic_runs_dir = os.path.join(RUNS_DIR, topic_id)
         if not os.path.exists(topic_runs_dir): continue
@@ -211,6 +345,8 @@ def build_chapter(chapter_id):
         if isinstance(data, tuple) or not isinstance(data, dict): continue
         
         for unit in data.get('semantic_units', []):
+            unit_id = unit.get('id')
+            unit_title = unit.get('title')
             for ref in unit.get('visual_asset_refs', []):
                 if not ref.get('excluded') and ref.get('obsidian_path'):
                     asset_id = ref.get('asset_id')
@@ -218,16 +354,43 @@ def build_chapter(chapter_id):
                     page = ref.get('page')
                     obsidian_path = ref.get('obsidian_path')
                     
-                    nearby = get_nearby_text(cursor, source_id, page)
+                    key = (topic_id, source_id, page)
+                    if key not in slides_map:
+                        slide_text = get_page_text(cursor, source_id, page)
+                        slides_map[key] = {
+                            'topic_id': topic_id,
+                            'source_id': source_id,
+                            'page': page,
+                            'slide_title': unit_title or f"Page {page}",
+                            'slide_text': slide_text,
+                            'semantic_units': [],
+                            'candidate_assets': []
+                        }
                     
-                    candidates.append({
+                    if unit_id and unit_id not in slides_map[key]['semantic_units']:
+                        slides_map[key]['semantic_units'].append({
+                            'concept_id': unit_id,
+                            'label': unit_title
+                        })
+                    
+                    # Fetch full physical metadata from DB
+                    cursor.execute("SELECT width, height, aspect_ratio, bbox, asset_type, classification FROM assets WHERE id = ?", (asset_id,))
+                    asset_row = cursor.fetchone()
+                    
+                    asset_meta = {
                         'asset_id': asset_id,
-                        'topic_id': topic_id,
-                        'source_id': source_id,
-                        'page': page,
                         'obsidian_path': obsidian_path,
-                        'nearby_text': nearby[:200] + "..." if len(nearby) > 200 else nearby
-                    })
+                        'asset_type': asset_row[4] if asset_row else 'embedded_image',
+                        'width': asset_row[0] if asset_row else None,
+                        'height': asset_row[1] if asset_row else None,
+                        'aspect_ratio': asset_row[2] if asset_row else None,
+                        'bbox': asset_row[3] if asset_row else None,
+                        'classification': asset_row[5] if asset_row else None
+                    }
+                    
+                    # Prevent duplicates in candidate_assets
+                    if not any(a['asset_id'] == asset_id for a in slides_map[key]['candidate_assets']):
+                        slides_map[key]['candidate_assets'].append(asset_meta)
                     
                     src_img = os.path.join(COURSE_DIR, obsidian_path)
                     if os.path.exists(src_img):
@@ -235,9 +398,11 @@ def build_chapter(chapter_id):
 
     conn.close()
 
+    slides_list = list(slides_map.values())
+
     candidates_yaml_path = os.path.join(sel_dir, "candidates.yaml")
     with open(candidates_yaml_path, 'w', encoding='utf-8') as f:
-        yaml.dump({'candidate_assets': candidates}, f, allow_unicode=True, sort_keys=False)
+        yaml.dump({'slides': slides_list}, f, allow_unicode=True, sort_keys=False)
 
     selector_prompt_path = os.path.join(PROMPTS_DIR, "asset-selector.md")
     with open(selector_prompt_path, 'r', encoding='utf-8') as f: selector_prompt = f.read()
@@ -245,21 +410,25 @@ def build_chapter(chapter_id):
     selector_input_path = os.path.join(sel_dir, "selector-input.md")
     with open(selector_input_path, 'w', encoding='utf-8') as f:
         f.write(selector_prompt)
-        f.write("\n\n---\n\n# RUNTIME INPUT: CANDIDATE ASSETS\n\n```yaml\n")
-        f.write(yaml.dump({'candidate_assets': candidates}, allow_unicode=True, sort_keys=False))
+        f.write("\n\n---\n\n# RUNTIME INPUT: SLIDES AND CANDIDATE ASSETS\n\n```yaml\n")
+        f.write(yaml.dump({'slides': slides_list}, allow_unicode=True, sort_keys=False))
         f.write("\n```\n")
 
     selector_output_path = os.path.join(sel_dir, "selector-output.yaml")
     with open(selector_output_path, 'w', encoding='utf-8') as f: pass
 
     extra_msg = f"IMPORTANTE: Allega tutte le immagini contenute in:\n   -> {img_dir}\ninsieme al file selector-input.md!"
-    wait_for_user("ASSET SELECTOR (Fase 1/2)", selector_input_path, selector_output_path, extra_message=extra_msg)
+    wait_for_user("ASSET SELECTOR & COVERAGE MAPPER (Fase 1/2)", selector_input_path, selector_output_path, extra_message=extra_msg)
     
-    selected_assets_yaml = ""
-    with open(selector_output_path, 'r', encoding='utf-8') as f:
-        selected_assets_yaml = f.read()
+    # Save contract to visual-coverage.yaml
+    visual_coverage_path = os.path.join(sel_dir, "visual-coverage.yaml")
+    if os.path.exists(selector_output_path):
+        shutil.copy2(selector_output_path, visual_coverage_path)
 
-    # 2. Chapter Reviewer
+    with open(selector_output_path, 'r', encoding='utf-8') as f:
+        visual_coverage_yaml = f.read()
+
+    # 2. Chapter Reviewer (Assembler)
     reviewer_prompt_path = os.path.join(PROMPTS_DIR, "chapter-reviewer.md")
     with open(reviewer_prompt_path, 'r', encoding='utf-8') as f: reviewer_prompt = f.read()
     style_guide_path = os.path.join(BASE_DIR, "profile", "style-guide.md")
@@ -272,7 +441,10 @@ def build_chapter(chapter_id):
         draft_path = os.path.join(DRAFTS_DIR, f"{topic_id}.md")
         if os.path.exists(draft_path):
             with open(draft_path, 'r', encoding='utf-8') as f:
-                merged_drafts.append(f"<!-- TOPIC START: {topic_id} -->\n{f.read()}\n<!-- TOPIC END: {topic_id} -->")
+                raw_draft = f.read()
+                # Deterministically strip any obsidian image embeds from draft!
+                clean_draft = strip_obsidian_images(raw_draft)
+                merged_drafts.append(f"<!-- TOPIC START: {topic_id} -->\n{clean_draft}\n<!-- TOPIC END: {topic_id} -->")
     
     reviewer_input_path = os.path.join(rev_dir, "reviewer-input.md")
     with open(reviewer_input_path, 'w', encoding='utf-8') as f:
@@ -283,9 +455,9 @@ def build_chapter(chapter_id):
         f.write(style_guide)
         f.write("\n\n---\n\n# RUNTIME INPUT: COURSE MEMORY\n\n```yaml\n")
         f.write(course_memory)
-        f.write("\n```\n\n---\n\n# RUNTIME INPUT: SELECTED ASSETS\n\n```yaml\n")
-        f.write(selected_assets_yaml)
-        f.write("\n```\n\n---\n\n# RUNTIME INPUT: TOPIC DRAFTS\n\n")
+        f.write("\n```\n\n---\n\n# RUNTIME INPUT: VISUAL COVERAGE CONTRACT\n\n```yaml\n")
+        f.write(visual_coverage_yaml)
+        f.write("\n```\n\n---\n\n# RUNTIME INPUT: TOPIC DRAFTS (TEXT ONLY)\n\n")
         f.write("\n\n".join(merged_drafts))
         
     reviewer_output_path = os.path.join(rev_dir, "reviewer-output.md")
@@ -293,9 +465,15 @@ def build_chapter(chapter_id):
 
     wait_for_user("CHAPTER ASSEMBLER & REVIEWER (Fase 2/2)", reviewer_input_path, reviewer_output_path)
     
+    # 3. Deterministic Visual Coverage Validation
+    is_valid, msg = validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir)
+    if not is_valid:
+        print(f"\n[ERROR] Chapter promotion BLOCKED due to Visual Coverage Validation failure: {msg}")
+        return
+
     candidate_path = os.path.join(CHAPTER_DRAFTS_DIR, f"{chapter_id}.md")
     shutil.copy2(reviewer_output_path, candidate_path)
-    print(f"\n[{run_id}] Chapter built! Candidate saved to: {candidate_path}")
+    print(f"\n[{run_id}] Chapter built and validated successfully! Candidate saved to: {candidate_path}")
 
 def approve_chapter(chapter_id):
     candidate_path = os.path.join(CHAPTER_DRAFTS_DIR, f"{chapter_id}.md")
@@ -307,7 +485,6 @@ def approve_chapter(chapter_id):
     canonical_path = os.path.join(CANONICAL_DIR, f"{chapter_id}.md")
     shutil.copy2(candidate_path, canonical_path)
     
-    # Save approval metadata
     manifest = {
         'chapter_id': chapter_id,
         'approved_at': datetime.now().isoformat(),
