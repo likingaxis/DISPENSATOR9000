@@ -128,16 +128,32 @@ def ingest_pdfs(conn):
                     except Exception as e:
                         print(f"Error extracting image {xref} on page {page_num}: {e}")
                         
-                # 3. Mappare i vettoriali (vector graphics) per estrazione manuale / crop successivo
+                # 3. Mappare i vettoriali (vector graphics) eseguendo il rendering raster della pagina (page_render)
                 drawings = page.get_drawings()
                 if drawings:
                     rect = page.rect
                     bbox = f"{rect.x0:.1f},{rect.y0:.1f},{rect.x1:.1f},{rect.y1:.1f}"
-                    asset_id = str(uuid.uuid4())
-                    cursor.execute('''
-                        INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type, width, height, aspect_ratio, image_hash, classification, excluded_from_candidates)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
-                    ''', (asset_id, source_id, rel_source_file, page_num, "VIRTUAL_RENDER_REQUIRED", bbox, "vector_diagram_region", 0, 0, 0.0, None, "uncertain", 0))
+                    try:
+                        pix = page.get_pixmap(dpi=150)
+                        asset_id = str(uuid.uuid4())
+                        asset_filename = f"{source_id}_p{page_num}_render.png"
+                        asset_path = os.path.join(ASSETS_DIR, asset_filename)
+                        
+                        pix.save(asset_path)
+                        
+                        image_bytes = pix.tobytes("png")
+                        image_hash = hashlib.md5(image_bytes).hexdigest()
+                        
+                        width = pix.width
+                        height = pix.height
+                        aspect_ratio = (width / height) if height > 0 else 0.0
+                        
+                        cursor.execute('''
+                            INSERT INTO assets (id, source_id, source_file, page_num, file_path, bbox, asset_type, width, height, aspect_ratio, image_hash, classification, excluded_from_candidates)
+                            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ''', (asset_id, source_id, rel_source_file, page_num, asset_filename, bbox, "page_render", width, height, aspect_ratio, image_hash, "uncertain", 0))
+                    except Exception as e:
+                        print(f"Error rendering vector page {page_num} for {rel_source_file}: {e}")
 
     conn.commit()
     

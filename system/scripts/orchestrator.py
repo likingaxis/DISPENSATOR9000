@@ -104,58 +104,131 @@ def strip_obsidian_images(text):
         return text
     return re.sub(r'!\[\[.*?\]\]', '', text)
 
-def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir):
-    print("\n[VALIDATION] Running Visual Coverage Validator...")
-    if not os.path.exists(reviewer_output_path) or not os.path.exists(selector_output_path):
-        return False, "Missing output files for validation."
+def compile_visual_coverage(selector_output_path, visual_coverage_path):
+    data = clean_yaml_file(selector_output_path)
+    if not isinstance(data, dict):
+        print(f"[ERROR] Invalid selector output YAML.")
+        return False
 
-    with open(reviewer_output_path, 'r', encoding='utf-8') as f:
-        markdown_text = f.read()
-
-    cov_data = clean_yaml_file(selector_output_path)
-    if not isinstance(cov_data, dict):
-        return False, "Invalid selector output YAML."
-
-    required_assets = []
-    recommended_assets = []
+    required_visuals = []
+    recommended_visuals = []
     uncovered_required = []
 
-    # Format 1: Canonical visual-coverage.yaml format
-    if 'required_visuals' in cov_data:
-        for item in cov_data.get('required_visuals', []):
-            asset_info = item.get('asset', {})
-            path = asset_info.get('obsidian_path')
-            if path:
-                required_assets.append({
-                    'obsidian_path': path,
-                    'width': item.get('placement', {}).get('width'),
-                    'concept_id': item.get('concept', {}).get('id')
-                })
-        for item in cov_data.get('recommended_visuals', []):
-            path = item.get('asset', {}).get('obsidian_path')
-            if path:
-                recommended_assets.append(path)
-        uncovered_required = cov_data.get('uncovered_required_visuals', [])
-
-    # Format 2: Slide-centric selector output format
-    elif 'slides' in cov_data:
-        for slide in cov_data.get('slides', []):
+    if 'slides' in data:
+        for slide in data.get('slides', []):
             for vc in slide.get('visual_concepts', []):
                 req = vc.get('requirement')
                 status = vc.get('coverage_status')
                 pref = vc.get('preferred_asset')
+                
                 if req == 'required':
                     if status == 'covered' and pref and pref.get('obsidian_path'):
-                        required_assets.append({
-                            'obsidian_path': pref.get('obsidian_path'),
-                            'width': vc.get('placement', {}).get('width'),
-                            'concept_id': vc.get('concept_id')
+                        required_visuals.append({
+                            'visual_id': f"visual-{vc.get('concept_id', 'unknown')}",
+                            'concept': {
+                                'id': vc.get('concept_id'),
+                                'label': vc.get('concept_label') or vc.get('concept_id')
+                            },
+                            'asset': {
+                                'obsidian_path': pref.get('obsidian_path')
+                            },
+                            'placement': {
+                                'width': pref.get('width') or 500
+                            }
                         })
                     else:
                         uncovered_required.append(vc)
                 elif req == 'recommended':
                     if status == 'covered' and pref and pref.get('obsidian_path'):
-                        recommended_assets.append(pref.get('obsidian_path'))
+                        recommended_visuals.append({
+                            'visual_id': f"visual-{vc.get('concept_id', 'unknown')}",
+                            'concept': {
+                                'id': vc.get('concept_id'),
+                                'label': vc.get('concept_label') or vc.get('concept_id')
+                            },
+                            'asset': {
+                                'obsidian_path': pref.get('obsidian_path')
+                            }
+                        })
+    else:
+        # Fallback se il modello ha già usato il formato corretto
+        return False
+
+    contract = {
+        'visual_coverage_version': '1.0',
+        'required_visuals': required_visuals,
+        'recommended_visuals': recommended_visuals
+    }
+
+    if uncovered_required:
+        contract['uncovered_required_visuals'] = uncovered_required
+
+    with open(visual_coverage_path, 'w', encoding='utf-8') as f:
+        yaml.dump(contract, f, allow_unicode=True, sort_keys=False)
+
+    return len(uncovered_required) > 0
+
+def get_nearest_header(markdown_text, search_str):
+    lines = markdown_text.split('\n')
+    current_header = ""
+    for line in lines:
+        if line.startswith('#'):
+            current_header = line.strip()
+        if search_str in line:
+            return current_header
+    return ""
+
+def check_placement(expected_label, actual_header):
+    if not actual_header:
+        return False
+    actual_header_clean = re.sub(r'^#+\s*', '', actual_header).lower()
+    expected_label_clean = expected_label.lower()
+    
+    stop_words = {"modello", "def", "il", "la", "lo", "i", "gli", "le", "un", "una", "di", "a", "da", "in", "con", "su", "per", "tra", "fra"}
+    words_a = set(re.findall(r'\b\w{3,}\b', actual_header_clean)) - stop_words
+    words_e = set(re.findall(r'\b\w{3,}\b', expected_label_clean)) - stop_words
+    
+    if not words_a and not words_e:
+        return True
+        
+    if words_a.intersection(words_e):
+        return True
+        
+    if actual_header_clean in expected_label_clean or expected_label_clean in actual_header_clean:
+        return True
+        
+    return False
+
+def validate_visual_coverage(reviewer_output_path, visual_coverage_path, sel_dir):
+    print("\n[VALIDATION] Running Visual Coverage Validator...")
+    if not os.path.exists(reviewer_output_path) or not os.path.exists(visual_coverage_path):
+        return False, "Missing output files for validation."
+
+    with open(reviewer_output_path, 'r', encoding='utf-8') as f:
+        markdown_text = f.read()
+
+    cov_data = clean_yaml_file(visual_coverage_path)
+    if not isinstance(cov_data, dict):
+        return False, "Invalid visual-coverage YAML."
+
+    required_assets = []
+    recommended_assets = []
+    uncovered_required = cov_data.get('uncovered_required_visuals', [])
+
+    for item in cov_data.get('required_visuals', []):
+        asset_info = item.get('asset', {})
+        path = asset_info.get('obsidian_path')
+        if path:
+            required_assets.append({
+                'obsidian_path': path,
+                'width': item.get('placement', {}).get('width'),
+                'concept_id': item.get('concept', {}).get('id'),
+                'concept_label': item.get('concept', {}).get('label')
+            })
+    for item in cov_data.get('recommended_visuals', []):
+        path = item.get('asset', {}).get('obsidian_path')
+        if path:
+            recommended_assets.append(path)
 
     embed_pattern = re.compile(r'!\[\[\s*([^\|\]\s]+)(?:\|(\d+))?\s*\]\]')
     matches = embed_pattern.findall(markdown_text)
@@ -167,6 +240,7 @@ def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir
     duplicate_required = []
     width_mismatches = []
     unexpected_assets = []
+    placement_errors = []
 
     req_paths = [r['obsidian_path'] for r in required_assets]
     allowed_paths = set(req_paths + recommended_assets)
@@ -178,6 +252,12 @@ def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir
             missing_required.append(p)
         elif count > 1:
             duplicate_required.append(p)
+        else:
+            # Check VC6 Placement
+            label = req.get('concept_label') or req.get('concept_id') or ''
+            header = get_nearest_header(markdown_text, p)
+            if not check_placement(label, header):
+                placement_errors.append(f"{p} is under header '{header}' but expected near '{label}'")
         
         if req['width'] and p in found_widths:
             if found_widths[p] != req['width']:
@@ -201,6 +281,9 @@ def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir
         errors.append(f"Unexpected / rejected assets found in markdown: {unexpected_assets}")
     if width_mismatches:
         errors.append(f"Width mismatches: {width_mismatches}")
+    if placement_errors:
+        status = "FAIL"
+        errors.append(f"Placement errors (VC6): {placement_errors}")
 
     validation_result = {
         'status': status,
@@ -211,6 +294,7 @@ def validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir
         'duplicate_required': duplicate_required,
         'unexpected_assets': unexpected_assets,
         'width_mismatches': width_mismatches,
+        'placement_errors': placement_errors,
         'uncovered_required_concepts': uncovered_required,
         'errors': errors
     }
@@ -423,9 +507,12 @@ def build_chapter(chapter_id):
     # Save contract to visual-coverage.yaml
     visual_coverage_path = os.path.join(sel_dir, "visual-coverage.yaml")
     if os.path.exists(selector_output_path):
-        shutil.copy2(selector_output_path, visual_coverage_path)
+        has_uncovered = compile_visual_coverage(selector_output_path, visual_coverage_path)
+        if has_uncovered:
+            print(f"\n[ERROR] Pipeline blocked (BLOCKED_UPSTREAM): uncovered required visual concept(s) found.")
+            return
 
-    with open(selector_output_path, 'r', encoding='utf-8') as f:
+    with open(visual_coverage_path, 'r', encoding='utf-8') as f:
         visual_coverage_yaml = f.read()
 
     # 2. Chapter Reviewer (Assembler)
@@ -466,7 +553,7 @@ def build_chapter(chapter_id):
     wait_for_user("CHAPTER ASSEMBLER & REVIEWER (Fase 2/2)", reviewer_input_path, reviewer_output_path)
     
     # 3. Deterministic Visual Coverage Validation
-    is_valid, msg = validate_visual_coverage(reviewer_output_path, selector_output_path, sel_dir)
+    is_valid, msg = validate_visual_coverage(reviewer_output_path, visual_coverage_path, sel_dir)
     if not is_valid:
         print(f"\n[ERROR] Chapter promotion BLOCKED due to Visual Coverage Validation failure: {msg}")
         return
