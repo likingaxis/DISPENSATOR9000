@@ -1,0 +1,33 @@
+topics:
+  classic-process-models:
+    backbone_sections:
+    - sec-1a385bc4
+    - sec-61355d2f
+    - sec-85d6fee7
+    - sec-8bd2ee95
+    - sec-7bf69624
+    - sec-e9f0b5e7
+    - sec-5f64d672
+  iterative-process-models:
+    backbone_sections:
+    - sec-cf20d946
+    - sec-807bc6a4
+    - sec-da501417
+    - sec-0c364893
+    - sec-93f563d3
+    - sec-a99c0750
+    - sec-16d30c23
+  corporate-models:
+    backbone_sections:
+    - sec-541022ea
+    - sec-2cf35b7b
+    - sec-529e8d44
+    - sec-50e89390
+    - sec-b181f9ba
+  agile-and-scrum:
+    backbone_sections:
+    - sec-714be735
+    - sec-a77019a2
+  cmm:
+    backbone_sections:
+    - sec-20e8a649
