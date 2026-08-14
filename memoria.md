@@ -22,12 +22,15 @@ Siamo nella fase di "produzione a regime" del sistema di generazione appunti. La
    - Aggiornato il prompt `asset-selector.md` con regola stringente per rifiutare i testi/bullet point rasterizzati.
 3. **Validazione Workflow**: Eseguito un test completo (Capitolo 2 - Test Parziale) unendo due bozze fornite dall'utente. Il processo finale ha collocato correttamente le immagini estratte e ha generato il documento finale.
 
-### Lavori in Corso (Capitolo 1)
-- **Capitolo 1**: Completato (include `intro-and-lifecycle`, `reliability-and-defects`, `hardware-vs-software`). Immagini reinserite manualmente, regole di filtro corrette per i prossimi.
-- **Capitolo 2**: Completato (include `classic-process-models`, `iterative-process-models`, `corporate-models`, `agile-and-scrum`, `cmm`). Tutte le immagini sono state preservate, il sub-agente Reconciler ha processato in parallelo i 5 topic, e il file è stato assemblato con successo in `runtime/chapter-drafts/chapter-2-software-process.md`.
-- [x] **Image Integration**: Software failure graph was successfully injected into Chapter 1. The hardware graph was not extracted by the PDF parser due to vector graphic formatting, so it was omitted.
-- [ ] **Automated Batch Workflow**: Refine the transition to a fully automated batch flow for future chapters.
+### Lavori in Corso e Storico Capitoli
+- **Capitolo 1**: Completato (include `intro-and-lifecycle`, `reliability-and-defects`, `hardware-vs-software`). Immagini reinserite manualmente.
+- **Capitolo 2**: Completato in modalità ibrida/automatizzata (i sub-agenti hanno processato in parallelo i 5 topic).
+- **Capitolo 3**: Parzialmente elaborato dalla pipeline. Il Reconciler ha processato i topic, ma **l'Asset Selector automatico ha fallito nuovamente** a causa del "Banner Bug" (selezionando titoli testuali al posto dei veri diagrammi su un batch di 195 immagini). Questo ha dimostrato l'attuale inaffidabilità del modello multimodale interno nel rispettare vincoli negativi ferrei. L'utente ha interrotto l'orchestrazione automatica per la fase di scrittura/assemblaggio, ripiegando sulla generazione manuale esterna tramite ChatGPT usando i prompt estratti (`writer.md` e `style-guide.md`).
+
+### Problemi Aperti e Pivot Strategico
+- **Fallimento del Visual Coverage Automatico**: L'estrazione e selezione totalmente autonoma delle immagini si è rivelata insoddisfacente. L'automazione di questo step necessita di supervisione umana (selezione manuale) o di un approccio drasticamente diverso.
+- **Approccio Ibrido Confermata**: L'utente ha confermato la preferenza nell'utilizzare modelli esterni (ChatGPT) per il task di stesura finale (Topic Writer / Chapter Assembler), mantenendo la piattaforma locale (Antigravity) come preparatore dell'Evidence Package e manager dei file/RAG.
 
 ### Prossimi Passi (In Attesa dell'Utente)
-1. Pianificazione ed avvio della pipeline per il Capitolo 3.
-2. Raffinamento del sistema di OCR/Estrazione per catturare correttamente i grafici vettoriali (svg/pdf) non rilevati nel Capitolo 1.
+1. Prosecuzione dei prossimi capitoli (Capitolo 4+) sfruttando il nuovo workflow ibrido: pipeline locale per la riconciliazione semantica e ChatGPT per la stesura markdown finale.
+2. Rivalutazione del processo di gestione immagini per evitare perdite di tempo sui falsi positivi (titoli/banner).

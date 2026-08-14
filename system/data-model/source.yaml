@@ -1,8 +1,0 @@
-# Descriptive data contract — MVP v0.1
-# This is not a runtime validation schema.
-
-id: string
-filename: string
-type: string
-priority: int
-description: string

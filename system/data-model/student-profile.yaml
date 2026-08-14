@@ -1,8 +1,0 @@
-# Descriptive data contract — MVP v0.1
-# This is not a runtime validation schema.
-
-style_rules: list[string]
-terminology: dict
-structure_preferences: list[string]
-formatting_preferences: list[string]
-examples: list[string]
